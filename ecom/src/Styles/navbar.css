@@ -1,0 +1,38 @@
+#navbarmain{
+    display: flex;
+    padding: 25px 15px 10px 15px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    justify-content: space-between;
+}
+#navbarmain img{
+    margin-top: 10px;
+}
+#navbarmain :nth-child(2),
+#navbarmain :nth-child(4),
+#navbarmain :nth-child(5),
+#navbarmain :nth-child(6)
+ {
+margin-top: -10px;
+}
+
+#searchdiv input{
+height: 45%;
+width: 75%;
+border-radius: 5px;
+border: none;
+}
+
+#searchdiv{
+    width: 40%;
+}
+
+#searchdiv button {
+height: 40px;
+background-color: #FEBD69;
+border-radius: 5px;
+border: none;
+width: 48px;
+font-size: 10px;
+ }
