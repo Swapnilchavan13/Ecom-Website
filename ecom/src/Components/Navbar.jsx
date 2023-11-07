@@ -1,12 +1,15 @@
 import React from 'react';
 import '../Styles/navbar.css';
+import { Link } from 'react-router-dom';
 
 export const Navbar = () => {
   return (
     <>
     <div id='navbarmain'>
         <div>
+            <Link to="/">
             <img width="120px" src="https://companieslogo.com/img/orig/AMZN_BIG.D-8fb0be81.png?t=1632523695" alt="" />
+            </Link>
         </div>
         <div>
             <h3>📍Location</h3>
@@ -21,7 +24,7 @@ export const Navbar = () => {
 
         <div>    
         <p>Returns</p>
-        <h3>& Orders</h3>
+        <h4>& Orders</h4>
         </div>
 
         <div>

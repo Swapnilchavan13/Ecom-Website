@@ -40,3 +40,6 @@ padding: 0px 30px 30px 30px;
  display: flex;
  gap: 73px;
 }
+a{
+    text-decoration: none;
+}

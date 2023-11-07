@@ -11,7 +11,7 @@ const ProductCard = ({ product }) => {
         </div>
         <br />
         <h4>{product.productname}</h4>
-        <p>{product.rating} Star</p>
+        <p>{product.rating} Star ⭐⭐⭐⭐⭐</p>
         <span style={{display:'inline'}}>
             <p className='pricefont'>Price: {product.price}
             </p>
@@ -125,7 +125,7 @@ export const Productpage = () => {
 
 ]
   return (
-<>
+<div className='mainpro'>
     <div id='productmaindiv'>
         <div id='filterdiv'>
             <div>
@@ -204,7 +204,7 @@ export const Productpage = () => {
     ))}
   </div>
   </div>
-  </>
+  </div>
 
   )
 }
