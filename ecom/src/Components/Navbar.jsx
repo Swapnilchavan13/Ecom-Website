@@ -12,23 +12,23 @@ export const Navbar = () => {
             </Link>
         </div>
         <div>
-            <h3>📍Location</h3>
+            <h3>🌍 Location</h3>
         </div>
         <div id='searchdiv'>
             <input placeholder='Search Greyowl.in' type="text" name="" id="" />
             <button>🔍</button>
         </div>
         <div>
-            <h3>Account</h3>
+            <h3>👨🏻‍💼 Account</h3>
         </div>
 
         <div>    
-        <p>Returns</p>
+        <p>🔁 Returns</p>
         <h4>& Orders</h4>
         </div>
 
         <div>
-            <h3>🛒(0) Cart</h3>
+            <h3>🛒 Cart</h3>
         </div>
     </div>
     <div id='subnavbar'>

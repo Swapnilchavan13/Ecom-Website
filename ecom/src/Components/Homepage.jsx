@@ -144,7 +144,7 @@ export const Homepage = () => {
                     <Link to="/products">
                     <div>
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Wireless/Meghana/Phase3/PC/Desktop_QuadCard_186x116_01._SY116_CB575166656_.jpg" alt="" />
-                        <p>Budget | Under ₹10,000</p>
+                        <p>In Budget | Under ₹10,000</p>
                     </div>
                     </Link>
                     <Link to="/products">
@@ -344,7 +344,7 @@ export const Homepage = () => {
                     <Link to="/products">
                     <div>
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Wireless/Meghana/Phase3/PC/Desktop_QuadCard_186x116_01._SY116_CB575166656_.jpg" alt="" />
-                        <p>Budget | Under ₹10,000</p>
+                        <p>In Budget | Under ₹10,000</p>
                     </div>
                     </Link>
                     <Link to="/products">
@@ -352,7 +352,7 @@ export const Homepage = () => {
                     <div>
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Wireless/Meghana/K8/Desktop_QuadCard_186x116._SY116_CB575152829_.jpg" alt="" />
                         <p>Mid range | ₹10,000 - ₹25,000</p>
-
+                        
                     </div>
                     </Link>
 
