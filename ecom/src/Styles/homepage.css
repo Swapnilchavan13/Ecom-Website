@@ -1,0 +1,42 @@
+body{
+    background-color: #E3E6E6;
+}
+#mainhomediv{
+    margin-top: -300px;
+}
+
+#mainhomediv , #mainhomediv2{
+    display: grid;
+    padding: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+#mainhomediv div, #mainhomediv2 div{
+    background-color: white;
+}
+.mainsubdiv{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10px;
+}
+.mainsubdiv img{
+    width: 130px;
+}
+.mainsubdiv p{
+    font-size: 14px;
+}
+.festivdiv{
+background-color: white;
+width: 98%;
+margin: auto;
+}
+.festivdiv h3{
+    text-align: left;
+    padding: 20px;
+}
+
+.festivdiv div{
+padding: 0px 30px 30px 30px;
+ display: flex;
+ gap: 73px;
+}

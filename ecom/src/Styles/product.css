@@ -1,0 +1,35 @@
+body{
+    background-color: white;
+}
+#productmaindiv{
+    display: flex;
+    padding: 20px;
+}
+#filterdiv {
+    width: 550px;
+}
+.product-list{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: white;
+    gap: 10px;
+}
+.product-card{
+    border: 1px solid rgb(209, 207, 207);
+    padding: 30px;
+    width: auto;
+}
+.product-card img{
+    width: 180px;
+    height: 240px;
+}
+.product-card *{
+margin-top: -10px;
+}
+.pricefont{
+    font-size: 30px;
+}
+#filterdiv{
+    background-color: white;
+    text-align: left;
+}

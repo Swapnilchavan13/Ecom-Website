@@ -1,0 +1,21 @@
+#bottomnav{
+    display: flex;
+    background-color: #232F3E;
+    color: white;
+    padding: 40px;
+    gap:80px;
+    justify-content: center;
+}
+#bottomnav div {
+text-align: left;
+}
+p{
+    text-align: left;
+}
+.backto{
+    /* background-color: ; */
+    background-color: #485769;
+    color: white;
+    padding: 10px;
+
+}
