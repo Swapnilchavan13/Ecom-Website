@@ -5,18 +5,18 @@ import { Homepage } from './Components/Homepage';
 import { Navbar } from './Components/Navbar';
 import { Productpage } from './Components/Productpage';
 import { Bottomnavbar } from './Components/Bottomnavbar';
+import { Login } from './Components/Login';
 
 function App() {
 
   return (
     <div className="App">
-      {/* <Homepage /> */}
-      {/* <Productpage /> */}
       <BrowserRouter>
       <Navbar />
       <Routes>
           <Route index element={<Homepage />} />
           <Route path="products" element={<Productpage />} />
+          <Route path="login" element={<Login />} />
       </Routes>
       <Bottomnavbar />
     </BrowserRouter>

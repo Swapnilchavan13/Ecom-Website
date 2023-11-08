@@ -19,7 +19,9 @@ export const Navbar = () => {
             <button>🔍</button>
         </div>
         <div>
+            <Link to='login'>
             <h3>👨🏻‍💼 Account</h3>
+            </Link>
         </div>
 
         <div>    
