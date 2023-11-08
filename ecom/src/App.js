@@ -6,6 +6,8 @@ import { Navbar } from './Components/Navbar';
 import { Productpage } from './Components/Productpage';
 import { Bottomnavbar } from './Components/Bottomnavbar';
 import { Login } from './Components/Login';
+import { Register } from './Components/Register';
+import { Singleproductpage } from './Components/Singleproductpage';
 
 function App() {
 
@@ -17,6 +19,9 @@ function App() {
           <Route index element={<Homepage />} />
           <Route path="products" element={<Productpage />} />
           <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route path="singleproductpage" element={<Singleproductpage />} />
+
       </Routes>
       <Bottomnavbar />
     </BrowserRouter>

@@ -1,6 +1,6 @@
 .mainlogindiv{
 border: 1px solid rgb(189, 187, 187);
-width: 320px;
+width: fit-content;
 margin: auto;
 text-align: left;
 padding: 20px;
@@ -10,7 +10,7 @@ border-radius: 10px;
 }
 #logindiv{
     margin: auto;
-background-color: white;
+    background-color: white;
 }
 #logindiv label{
     font-weight: bold;
@@ -19,14 +19,23 @@ background-color: white;
     width: 270px;
     height: 30px;
     border-radius: 5px;
-    border: 0.5 px solid grey;
+    border: 0.5px solid grey;
 }
 #logindiv p{
     font-size: 12px;
+    text-align: center;
 }
-#logindiv button{
+#logindiv .btn{
     background-color: #F7CA00;
     padding: 8px;
     width: 280px;
     border-radius: 10px;
+}
+
+#logindiv .btn2{
+    width:350px;
+    height: 40px;
+    background-color: white;
+    border-radius: 5px;
+    border: 0.5px solid grey;
 }
