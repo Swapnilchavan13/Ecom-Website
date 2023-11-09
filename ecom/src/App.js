@@ -9,6 +9,7 @@ import { Login } from './Components/Login';
 import { Register } from './Components/Register';
 import { Singleproductpage } from './Components/Singleproductpage';
 import { Checkout } from './Components/Checkout';
+import { Cartpage } from './Components/Cartpage';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="register" element={<Register />} />
           <Route path="singleproductpage" element={<Singleproductpage />} />
           <Route path="checkoutpage" element={<Checkout />} />
+          <Route path="cartpage" element={<Cartpage />} />
       </Routes>
       <Bottomnavbar />
     </BrowserRouter>

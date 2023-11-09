@@ -30,7 +30,9 @@ export const Navbar = () => {
         </div>
 
         <div>
+            <Link to="cartpage">
             <h3>🛒 Cart</h3>
+            </Link>
         </div>
     </div>
     <div id='subnavbar'>

@@ -1,0 +1,38 @@
+.maincartdiv{
+    padding: 10px;
+}
+.secondcart{
+    padding:10px 80px;
+    display: flex;
+    gap: 30px;
+    width: fit-content;
+}
+.secondcart img{
+    width: 130px;
+}
+.maincartdiv h1{
+    margin-left: 50px;
+    text-align: left;
+}
+.smaincart{
+    display: flex;
+}
+.smaincart> :first-child{
+    background-color: white;
+    width: 70%;
+    padding-top: 60px;
+}
+.subtotaldiv{
+    background-color: white;
+    height: fit-content;
+    margin-left: 10px;
+    padding: 10px;
+}
+
+.cartbtn{
+    background-color: #FFD814;
+    padding: 10px;
+    width: 250px;
+    border: none;
+    border-radius: 10px;
+}
