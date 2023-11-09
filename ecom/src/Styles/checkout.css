@@ -1,0 +1,63 @@
+#checkoutnav{
+    background-color: #F5F5F5;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+#checkoutmain, .ckeckoutdetails{
+    display: flex;
+    gap: 120px;
+}
+#checkoutmain{
+    justify-content: center;
+}
+#maincheckoutdiv{
+    background-color: white;
+}
+#rightdiv{
+    border: 1px solid rgb(173, 170, 170);
+    padding: 10px;
+    border-radius: 10px;
+}
+#rightdiv p{
+    font-size: 11px;
+    text-align: center;
+}
+
+#rightdiv button , .lastbtn{
+    background-color: #FFD814;
+    padding: 10px;
+    width: 250px;
+    border: none;
+    border-radius: 10px;
+}
+
+.middiv {
+    width: 200px;
+    text-align: left;
+}
+.ordersubdiv{
+display: flex;
+justify-content: space-between;
+}
+.ordersubdiv p{
+    font-size: 12px;
+    font-weight: bold;
+}
+.middiv img{
+    width: 40px;
+}
+.ordersubdiv h3{
+color: #B22A07;
+}
+
+.lastdiv h3{
+color: #B22A07;
+}
+.lastdiv{
+    border: 1px solid black;
+    width: fit-content;
+    margin-left: 10%;
+    padding: 10px;
+    border-radius: 10px;
+}

@@ -12,23 +12,27 @@ export const Singleproductpage = () => {
   }
 
   return (
+    <>
     <div id='singleproduct'>
         <div>
       <img src={product.image} alt={product.productname} />
         </div>
 
     <div>
-      <h2>{product.productname}</h2>
+      <p className='pname'>{product.productname}</p>
       <p>Visit the Apple Store</p>
       <p>{product.rating} Star ⭐⭐⭐⭐⭐</p>
-      <p className='psze'>Price: {product.price}</p>
+      <p className='psze'>-{product.discount} {product.price}</p>
       <p>Discount: {product.discount} Off</p>
 </div>
 
 <div className='thirddiv'>
       <p>Delivery: {product.delevery}</p>
-      <h3>In stock</h3>
+      <p className='tprice'>Price: {product.price}</p>
+      <p>Or fastest delivery Tomorrow, 10 November. Order within 12 hrs. Details</p>
+      <p className='stock'>In stock</p>
       <p>Sold by Darshita E-Zone and Fulfilled by Amazon.
+      <p>GreyOwl Pvt Ltd, Juhu, Mumbai.</p>
 <br />
         <button className='btn1'>Add To Cart</button>
         <br />
@@ -37,5 +41,9 @@ export const Singleproductpage = () => {
 </p>
 </div>
     </div>
+    <img src="https://m.media-amazon.com/images/G/31/img21/Wireless/katariy/Apple/Aplus_content/13_desk/iPhone_13_Product_Page_Flex_Module_Amazon_Desktop_Avail_1500__en-IN_01._CB640700609_.jpg" alt="" />
+   <img src="https://m.media-amazon.com/images/G/31/img21/Wireless/katariy/Apple/Aplus_content/13_desk/iPhone_13_Product_Page_Flex_Module_Amazon_Desktop_Avail_1500__en-IN_06._CB640700609_.jpg" alt="" />
+    <img src="https://m.media-amazon.com/images/G/31/img21/Wireless/katariy/Apple/Aplus_content/13_desk/iPhone_13_Product_Page_Flex_Module_Amazon_Desktop_Avail_1500__en-IN_08._CB640700609_.jpg" alt="" />
+    </>
   );
 };

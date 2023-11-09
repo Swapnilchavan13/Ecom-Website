@@ -20,17 +20,33 @@ padding: 100px;
 }
 .thirddiv .btn1{
     margin-top: 10px;
-    width: 200px;
+    width: 250px;
     padding: 10px;
     border-radius: 20px;
 background-color: #F7CA00;
+border: none;
 }
 
 .thirddiv .btn2{
     margin-top: 10px;
-
-    width: 200px;
+    width: 250px;
     padding: 10px;
     border-radius: 20px;
+border: none;
+
     background-color: #FA8900;
+}
+.psze{
+    font-size: 30px;
+}
+.pname , .stock{
+    font-size: 26px;
+    font-weight: bolder;
+}
+.stock{
+    color: green;
+}
+.tprice{
+    color: #aa6107;
+    font-weight: bolder;
 }

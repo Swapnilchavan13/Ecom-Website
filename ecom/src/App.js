@@ -8,6 +8,7 @@ import { Bottomnavbar } from './Components/Bottomnavbar';
 import { Login } from './Components/Login';
 import { Register } from './Components/Register';
 import { Singleproductpage } from './Components/Singleproductpage';
+import { Checkout } from './Components/Checkout';
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="singleproductpage" element={<Singleproductpage />} />
-
+          <Route path="checkoutpage" element={<Checkout />} />
       </Routes>
       <Bottomnavbar />
     </BrowserRouter>
