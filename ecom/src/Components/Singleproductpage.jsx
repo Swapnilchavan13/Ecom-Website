@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../Styles/singleproduct.css'
+import { useNavigate } from 'react-router-dom';
 
 export const Singleproductpage = () => {
+  const navigate = useNavigate()
   // Retrieve the product details from local storage
   const storedProductJSON = localStorage.getItem('selectedProduct');
   const product = JSON.parse(storedProductJSON);
@@ -10,6 +12,16 @@ export const Singleproductpage = () => {
   if (!product) {
     return <div>No product selected.</div>;
   }
+
+  const Buynow =()=>{
+    navigate('/checkoutpage')
+  }
+
+  useEffect(() => {
+    // Scroll to the top when the component mounts
+    window.scrollTo(0, 0);
+  }, []); // The empty dependency array ensures that this effect runs only once, similar to componentDidMount
+
 
   return (
     <>
@@ -36,7 +48,7 @@ export const Singleproductpage = () => {
 <br />
         <button className='btn1'>Add To Cart</button>
         <br />
-        <button className='btn2'>Buy Now</button>
+        <button onClick={Buynow} className='btn2'>Buy Now</button>
 
 </p>
 </div>

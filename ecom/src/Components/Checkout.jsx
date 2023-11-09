@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../Styles/checkout.css'
 
 export const Checkout = () => {
@@ -6,6 +6,12 @@ export const Checkout = () => {
     // Retrieve the product details from local storage
   const storedProductJSON = localStorage.getItem('selectedProduct');
   const product = JSON.parse(storedProductJSON);
+
+  useEffect(() => {
+    // Scroll to the top when the component mounts
+    window.scrollTo(0, 0);
+  }, []); // The empty dependency array ensures that this effect runs only once, similar to componentDidMount
+
 
     return (
         <div id='maincheckoutdiv'>
@@ -55,7 +61,7 @@ export const Checkout = () => {
                             </div>
                             <div className='middiv'>
                                 <img src={product.image} alt="" />
-                                <p>Name: {product.productname}</p>
+                                <p>{product.productname}</p>
                                 <select name="" id="">
                                 <option value="1">Qty</option>
                                     <option value="1">1</option>

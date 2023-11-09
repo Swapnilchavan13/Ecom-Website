@@ -2,11 +2,14 @@ import React from 'react';
 import "../Styles/bottom.css"
 
 export const Bottomnavbar = () => {
+    const Backtotop =() =>{
+        window.scrollTo(0, 0);
+    }
     return (
         <>
         <hr />
         <br />
-        <div className='backto'> Back To Top</div>
+        <div onClick={Backtotop} className='backto'> Back To Top</div>
         <div id='bottomnav'>
 
             <div>

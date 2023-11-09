@@ -50,3 +50,7 @@ border: none;
     color: #aa6107;
     font-weight: bolder;
 }
+
+button{
+    cursor: pointer;
+}

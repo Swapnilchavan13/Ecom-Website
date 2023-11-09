@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../Styles/product.css'
 import { useNavigate } from 'react-router-dom';
 
@@ -6,13 +6,13 @@ const ProductCard = ({ product }) => {
     const navigate=useNavigate();
 
     const handleSaveToLocalStorage = (product) => {
+        navigate('/singleproductpage')
         // Convert the product object to a JSON string
         const productJSON = JSON.stringify(product);
         // Save the product details in local storage
         localStorage.setItem('selectedProduct', productJSON);
-
-        navigate('/singleproductpage')
       };
+
     
     return (
       <div onClick={() => handleSaveToLocalStorage(product)} key={product.productname} className="product-card">
@@ -36,6 +36,12 @@ const ProductCard = ({ product }) => {
   
 
 export const Productpage = () => {
+
+    useEffect(() => {
+        // Scroll to the top when the component mounts
+        window.scrollTo(0, 0);
+      }, []); // The empty dependency array ensures that this effect runs only once, similar to componentDidMount
+    
 
     const productarr=[
     {"productname":"Apple iPhone 13 (128GB) - Midnight",
@@ -134,8 +140,9 @@ export const Productpage = () => {
 "image":"https://m.media-amazon.com/images/I/71qjUzUt+ML._AC_UL320_.jpg",
 "price":"₹44,999","discount":"27%", "rating":"5", "delevery":"FREE delivery by Amazon"},
 
-
 ]
+
+
   return (
 <div className='mainpro'>
     <div id='productmaindiv'>
@@ -183,6 +190,14 @@ export const Productpage = () => {
                 <input type="checkbox" />
                 Android 13.0
                 </label>
+            </div>
+
+            <div>
+                <h4>Customer Reviews</h4>
+                <p>⭐⭐⭐⭐⚝ & Up</p>
+                <p>⭐⭐⭐⚝ ⚝ & Up</p>
+                <p>⭐⭐⚝ ⚝ ⚝ & Up</p>
+                <p>⭐⚝ ⚝ ⚝ ⚝ & Up</p>
             </div>
 
             <div>

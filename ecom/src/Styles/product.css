@@ -18,6 +18,7 @@
     border: 1px solid rgb(209, 207, 207);
     padding: 30px;
     width: auto;
+    border-radius: 5px;
 }
 .product-card img{
     width: 180px;
@@ -25,6 +26,7 @@
 }
 .product-card *{
 margin-top: -10px;
+cursor: pointer;
 }
 .pricefont{
     font-size: 30px;
@@ -32,4 +34,7 @@ margin-top: -10px;
 #filterdiv{
     background-color: white;
     text-align: left;
+}
+.product-card h4{
+text-align: left;
 }
