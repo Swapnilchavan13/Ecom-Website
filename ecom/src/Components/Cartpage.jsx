@@ -1,12 +1,19 @@
-import React from 'react';
-import '../Styles/cartpage.css'
+import React, { useState } from 'react';
+import '../Styles/cartpage.css';
 
 export const Cartpage = () => {
-    // Retrieve cart data from local storage and parse it
-    const cartData = JSON.parse(localStorage.getItem('cart'));
+    const [cartData, setCartData] = useState(JSON.parse(localStorage.getItem('cart')) || []);
+
+    // Function to remove a product from the cart
+    const removeProduct = (index) => {
+        const updatedCart = [...cartData];
+        updatedCart.splice(index, 1);
+        setCartData(updatedCart);
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+    };
 
     // Check if cartData is not null or undefined before rendering
-    if (!cartData) {
+    if (!cartData || cartData.length === 0) {
         return (
             <div>
                 <div>
@@ -17,6 +24,9 @@ export const Cartpage = () => {
         );
     }
 
+    // Calculate subtotal dynamically
+    const subtotal = cartData.reduce((acc, product) => acc + +product.price, 0);
+
     return (
         <div className='maincartdiv'>
             <div>
@@ -24,25 +34,25 @@ export const Cartpage = () => {
                 <hr />
                 <div className='smaincart'>
                     <div>
+                        {cartData.map((product, index) => (
+                            <div className='secondcart' key={index}>
+                                <div>
+                                    <img src={product.image} alt={product.productname} />
+                                </div>
 
-                    {cartData.map((product, index) => (
-                        <div className='secondcart' key={index}>
-                            <div>
-                                <img src={product.image} alt={product.productname} />
+                                <div>
+                                    <h2>{product.productname}</h2>
+                                    <p>Price: ₹ {product.price} /-</p>
+                                    <p>Discount: {product.discount}</p>
+                                    <p>Delivery: {product.delevery}</p>
+                                    <button className='removebtn' onClick={() => removeProduct(index)}>Remove</button>
+                                    <hr />
+                                </div>
                             </div>
-
-                            <div>
-                                <h2>{product.productname}</h2>
-                                <p>Price: {product.price}</p>
-                                <p>Discount: {product.discount}</p>
-                                <p>Delivery: {product.delevery}</p>
-                            <hr />
-                            </div>
-                        </div>
-                    ))}
+                        ))}
                     </div>
                     <div className='subtotaldiv'>
-                        <h3>Subtotal: Rs. 96,498.00 /-</h3>
+                        <h3>Subtotal: ₹ {subtotal} /-</h3>
                         <button className='cartbtn'>Proceed to Buy</button>
                     </div>
                 </div>

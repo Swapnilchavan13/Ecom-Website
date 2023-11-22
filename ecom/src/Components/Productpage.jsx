@@ -25,7 +25,7 @@ const ProductCard = ({ product }) => {
         <h4>{product.productname}</h4>
         <p>{product.rating} Star ⭐⭐⭐⭐⭐</p>
         <span style={{display:'inline'}}>
-            <p className='pricefont'>Price: {product.price}
+            <p className='pricefont'>Price: ₹ {product.price} /-
             </p>
             <p>M.R.P:{product.discount} Off</p>
             </span>
@@ -46,99 +46,99 @@ export const Productpage = () => {
     const productarr=[
     {"productname":"Apple iPhone 13 (128GB) - Midnight",
     "image":"https://m.media-amazon.com/images/I/61VuVU94RnL._AC_UL320_.jpg",
-"price":"₹50,749","discount":"30%", "rating":"5", "delevery":"FREE delivery by Amazon"},
+"price":"50749","discount":"30%", "rating":"5", "delevery":"FREE delivery by Amazon"},
 
 {"productname":"Apple iPhone 13 (128GB) - Starlight",
 "image":"https://m.media-amazon.com/images/I/71GLMJ7TQiL._AC_UL320_.jpg",
-"price":"₹50,749","discount":"22%", "rating":"5", "delevery":"FREE delivery by Amazon"},
+"price":"50749","discount":"22%", "rating":"5", "delevery":"FREE delivery by Amazon"},
 
 {"productname":"Apple iPhone 13 (128GB) - Blue",
 "image":"https://m.media-amazon.com/images/I/71xb2xkN5qL._AC_UL320_.jpg",
-"price":"₹50,749","discount":"33%", "rating":"5", "delevery":"FREE delivery by Amazon"},
+"price":"50749","discount":"33%", "rating":"5", "delevery":"FREE delivery by Amazon"},
 
 {"productname":"Apple iPhone 13 (128GB) - Pink",
 "image":"https://m.media-amazon.com/images/I/61l9ppRIiqL._AC_UL320_.jpg",
-"price":"₹50,749","discount":"12%", "rating":"5", "delevery":"FREE delivery by Amazon"},
+"price":"50749","discount":"12%", "rating":"5", "delevery":"FREE delivery by Amazon"},
 
 {"productname":"Apple iPhone 13 (128GB) - Green",
 "image":"https://m.media-amazon.com/images/I/71xb2xkN5qL._AC_UL320_.jpg",
-"price":"₹50,749","discount":"25%", "rating":"5", "delevery":"FREE delivery by Amazon"},
+"price":"50749","discount":"25%", "rating":"5", "delevery":"FREE delivery by Amazon"},
 
 {"productname":"OnePlus 11R 5G (Sonic Black, 16GB RAM, 256GB Storage)",
 "image":"https://m.media-amazon.com/images/I/71qjUzUt+ML._AC_UL320_.jpg",
-"price":"₹44,999","discount":"15%", "rating":"5", "delevery":"FREE delivery by Amazon"},
+"price":"44999","discount":"15%", "rating":"5", "delevery":"FREE delivery by Amazon"},
 
 {"productname":"Apple iPhone 13 (128GB) - Midnight",
     "image":"https://m.media-amazon.com/images/I/61VuVU94RnL._AC_UL320_.jpg",
-"price":"₹50,749","discount":"17%", "rating":"5", "delevery":"FREE delivery by Amazon"},
+"price":"50749","discount":"17%", "rating":"5", "delevery":"FREE delivery by Amazon"},
 
 {"productname":"Apple iPhone 13 (128GB) - Starlight",
 "image":"https://m.media-amazon.com/images/I/71GLMJ7TQiL._AC_UL320_.jpg",
-"price":"₹50,749","discount":"24%", "rating":"5", "delevery":"FREE delivery by Amazon"},
+"price":"50749","discount":"24%", "rating":"5", "delevery":"FREE delivery by Amazon"},
 
 {"productname":"Apple iPhone 13 (128GB) - Blue",
 "image":"https://m.media-amazon.com/images/I/71xb2xkN5qL._AC_UL320_.jpg",
-"price":"₹50,749","discount":"33%", "rating":"5", "delevery":"FREE delivery by Amazon"},
+"price":"50749","discount":"33%", "rating":"5", "delevery":"FREE delivery by Amazon"},
 
 {"productname":"Apple iPhone 13 (128GB) - Pink",
 "image":"https://m.media-amazon.com/images/I/61l9ppRIiqL._AC_UL320_.jpg",
-"price":"₹50,749","discount":"43%", "rating":"5", "delevery":"FREE delivery by Amazon"},
+"price":"50749","discount":"43%", "rating":"5", "delevery":"FREE delivery by Amazon"},
 
 {"productname":"Apple iPhone 13 (128GB) - Green",
 "image":"https://m.media-amazon.com/images/I/71xb2xkN5qL._AC_UL320_.jpg",
-"price":"₹50,749","discount":"36%", "rating":"5", "delevery":"FREE delivery by Amazon"},
+"price":"50749","discount":"36%", "rating":"5", "delevery":"FREE delivery by Amazon"},
 
 {"productname":"OnePlus 11R 5G (Sonic Black, 16GB RAM, 256GB Storage)",
 "image":"https://m.media-amazon.com/images/I/71qjUzUt+ML._AC_UL320_.jpg",
-"price":"₹44,999","discount":"31%", "rating":"5", "delevery":"FREE delivery by Amazon"},
+"price":"44999","discount":"31%", "rating":"5", "delevery":"FREE delivery by Amazon"},
 
 {"productname":"Apple iPhone 13 (128GB) - Midnight",
     "image":"https://m.media-amazon.com/images/I/61VuVU94RnL._AC_UL320_.jpg",
-"price":"₹50,749","discount":"22%", "rating":"5", "delevery":"FREE delivery by Amazon"},
+"price":"50749","discount":"22%", "rating":"5", "delevery":"FREE delivery by Amazon"},
 
 {"productname":"Apple iPhone 13 (128GB) - Starlight",
 "image":"https://m.media-amazon.com/images/I/71GLMJ7TQiL._AC_UL320_.jpg",
-"price":"₹50,749","discount":"20%", "rating":"5", "delevery":"FREE delivery by Amazon"},
+"price":"50749","discount":"20%", "rating":"5", "delevery":"FREE delivery by Amazon"},
 
 {"productname":"Apple iPhone 13 (128GB) - Blue",
 "image":"https://m.media-amazon.com/images/I/71xb2xkN5qL._AC_UL320_.jpg",
-"price":"₹50,749","discount":"18%", "rating":"5", "delevery":"FREE delivery by Amazon"},
+"price":"50749","discount":"18%", "rating":"5", "delevery":"FREE delivery by Amazon"},
 
 {"productname":"Apple iPhone 13 (128GB) - Pink",
 "image":"https://m.media-amazon.com/images/I/61l9ppRIiqL._AC_UL320_.jpg",
-"price":"₹50,749","discount":"38%", "rating":"5", "delevery":"FREE delivery by Amazon"},
+"price":"50749","discount":"38%", "rating":"5", "delevery":"FREE delivery by Amazon"},
 
 {"productname":"Apple iPhone 13 (128GB) - Green",
 "image":"https://m.media-amazon.com/images/I/71xb2xkN5qL._AC_UL320_.jpg",
-"price":"₹50,749","discount":"54%", "rating":"5", "delevery":"FREE delivery by Amazon"},
+"price":"50749","discount":"54%", "rating":"5", "delevery":"FREE delivery by Amazon"},
 
 {"productname":"OnePlus 11R 5G (Sonic Black, 16GB RAM, 256GB Storage)",
 "image":"https://m.media-amazon.com/images/I/71qjUzUt+ML._AC_UL320_.jpg",
-"price":"₹44,999","discount":"33%", "rating":"5", "delevery":"FREE delivery by Amazon"},
+"price":"44999","discount":"33%", "rating":"5", "delevery":"FREE delivery by Amazon"},
 
 {"productname":"Apple iPhone 13 (128GB) - Midnight",
     "image":"https://m.media-amazon.com/images/I/61VuVU94RnL._AC_UL320_.jpg",
-"price":"₹50,749","discount":"49%", "rating":"5", "delevery":"FREE delivery by Amazon"},
+"price":"50749","discount":"49%", "rating":"5", "delevery":"FREE delivery by Amazon"},
 
 {"productname":"Apple iPhone 13 (128GB) - Starlight",
 "image":"https://m.media-amazon.com/images/I/71GLMJ7TQiL._AC_UL320_.jpg",
-"price":"₹50,749","discount":"22%", "rating":"5", "delevery":"FREE delivery by Amazon"},
+"price":"50749","discount":"22%", "rating":"5", "delevery":"FREE delivery by Amazon"},
 
 {"productname":"Apple iPhone 13 (128GB) - Blue",
 "image":"https://m.media-amazon.com/images/I/71xb2xkN5qL._AC_UL320_.jpg",
-"price":"₹50,749","discount":"21%", "rating":"5", "delevery":"FREE delivery by Amazon"},
+"price":"50749","discount":"21%", "rating":"5", "delevery":"FREE delivery by Amazon"},
 
 {"productname":"Apple iPhone 13 (128GB) - Pink",
 "image":"https://m.media-amazon.com/images/I/61l9ppRIiqL._AC_UL320_.jpg",
-"price":"₹50,749","discount":"27%", "rating":"5", "delevery":"FREE delivery by Amazon"},
+"price":"50749","discount":"27%", "rating":"5", "delevery":"FREE delivery by Amazon"},
 
 {"productname":"Apple iPhone 13 (128GB) - Green",
 "image":"https://m.media-amazon.com/images/I/71xb2xkN5qL._AC_UL320_.jpg",
-"price":"₹50,749","discount":"27%", "rating":"5", "delevery":"FREE delivery by Amazon"},
+"price":"50749","discount":"27%", "rating":"5", "delevery":"FREE delivery by Amazon"},
 
 {"productname":"OnePlus 11R 5G (Sonic Black, 16GB RAM, 256GB Storage)",
 "image":"https://m.media-amazon.com/images/I/71qjUzUt+ML._AC_UL320_.jpg",
-"price":"₹44,999","discount":"27%", "rating":"5", "delevery":"FREE delivery by Amazon"},
+"price":"44999","discount":"27%", "rating":"5", "delevery":"FREE delivery by Amazon"},
 
 ]
 

@@ -18,6 +18,7 @@
     border: 1px solid rgb(173, 170, 170);
     padding: 10px;
     border-radius: 10px;
+    height: fit-content;
 }
 #rightdiv p{
     font-size: 11px;

@@ -33,12 +33,26 @@ export const Singleproductpage = () => {
   };
 
   const Buynow = () => {
+
+    const existingCartJSON = localStorage.getItem('cart');
+    const existingCart = existingCartJSON ? JSON.parse(existingCartJSON) : [];
+
+    // Merge the new product with the existing cart data
+    const updatedCart = [...existingCart, product];
+    
+    // Update the cart in local storage
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    
+    // Update the cart state
+    setCart(updatedCart);
+
+
     navigate('/checkoutpage');
   };
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []);
 
   return (
     <>
@@ -51,13 +65,13 @@ export const Singleproductpage = () => {
           <p className='pname'>{product.productname}</p>
           <p>Visit the Apple Store</p>
           <p>{product.rating} Star ⭐⭐⭐⭐⭐</p>
-          <p className='psze'>-{product.discount} {product.price}/-</p>
+          <p className='psze'>-{product.discount} ₹ {product.price}/-</p>
           <p>Discount: {product.discount} Off</p>
         </div>
 
         <div className='thirddiv'>
           <p>Delivery: {product.delevery}</p>
-          <p className='tprice'>Price: {product.price}/-</p>
+          <p className='tprice'>Price: ₹ {product.price}/-</p>
           <p>Or fastest delivery Tomorrow, 10 November. Order within 12 hrs. Details</p>
           <p className='stock'>In stock</p>
           <p>Sold by Darshita E-Zone and Fulfilled by Amazon.</p>

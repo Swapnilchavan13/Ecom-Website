@@ -4,8 +4,9 @@ import '../Styles/checkout.css'
 export const Checkout = () => {
 
     // Retrieve the product details from local storage
-  const storedProductJSON = localStorage.getItem('selectedProduct');
-  const product = JSON.parse(storedProductJSON);
+  const storedProductJSON = localStorage.getItem('cart');
+  const products = JSON.parse(storedProductJSON);
+//   console.log(products)
 
   useEffect(() => {
     // Scroll to the top when the component mounts
@@ -59,20 +60,26 @@ export const Checkout = () => {
                             <div className='middiv'>
                                 <h3>3  Review Items</h3>
                             </div>
-                            <div className='middiv'>
-                                <img src={product.image} alt="" />
-                                <p>{product.productname}</p>
-                                <select name="" id="">
-                                <option value="1">Qty</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                </select>
-                                <p>{product.price}/-</p>
-                            </div>
+                            <div>
+                            {products.map((product, index) => (
+                                <div style={{border:"1px solid grey", borderRadius:'10px', padding:'20px', marginTop:'5px'}} key={index} className='middiv'>
+        <img src={product.image} alt="" />
+        <p>{product.productname}</p>
+        <select name="" id="">
+            <option value="1">Qty</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+        </select>
+        <p>₹ {product.price}/-</p>
+    </div>
+))}
+</div>
+<br />
+
                             <p>Change</p>
                         </div>
                         <hr />
@@ -84,7 +91,7 @@ export const Checkout = () => {
                       <h3>Order Summary</h3>
                       <div className='ordersubdiv'>
                         <p>Item:</p>
-                        <p>{product.price} /-</p>
+                        <p>₹  /-</p>
                       </div>
                       <div className='ordersubdiv'>
                         <p>Delivery:</p>
@@ -92,7 +99,7 @@ export const Checkout = () => {
                       </div>
                       <div className='ordersubdiv'>
                         <p>Total:</p>
-                        <p>{product.price} /-</p>
+                        <p>₹  /-</p>
                       </div>
                       <div className='ordersubdiv'>
                         <p>Promotion Applied:</p>
@@ -101,7 +108,8 @@ export const Checkout = () => {
                       <hr />
                       <div className='ordersubdiv'>
                         <h3>Order Total:</h3>
-                        <h3>{product.price} /-</h3>
+                        <h3>₹  /-</h3>
+                        
                       </div>
                     </div>
                 </div>
@@ -110,7 +118,7 @@ export const Checkout = () => {
             <br />
             <div className='lastdiv'>
                 <button className='lastbtn'>Place Your Order and Pay</button>
-            <h3>Order Total:{product.price} /-</h3>
+            <h3>Order Total:₹  /-</h3>
             </div>
 
         </div>
