@@ -18,7 +18,7 @@ export const Cartpage = () => {
             <div>
                 <div>
                     <h1>Shopping Cart</h1>
-                    <p>No items in the cart.</p>
+                    <h1>😕 No items in the cart.</h1>
                 </div>
             </div>
         );
