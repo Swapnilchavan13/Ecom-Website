@@ -6,6 +6,10 @@ export const Singleproductpage = () => {
   const navigate = useNavigate();
   const [cart, setCart] = useState([]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // Retrieve the product details from local storage
   const storedProductJSON = localStorage.getItem('selectedProduct');
   const product = JSON.parse(storedProductJSON);
@@ -50,9 +54,7 @@ export const Singleproductpage = () => {
     navigate('/checkoutpage');
   };
 
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, []);
+  
 
   return (
     <>
