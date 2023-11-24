@@ -3,6 +3,9 @@ import '../Styles/navbar.css';
 import { Link } from 'react-router-dom';
 
 export const Navbar = () => {
+
+    const Uname = localStorage.getItem('username') || "Account";
+
   return (
     <>
     <div id='navbarmain'>
@@ -20,7 +23,7 @@ export const Navbar = () => {
         </div>
         <div>
             <Link to='login'>
-            <h3>👨🏻‍💼 Account</h3>
+            <h3>👨🏻‍💼 {Uname}</h3>
             </Link>
         </div>
 
@@ -46,6 +49,5 @@ export const Navbar = () => {
 <h5>Haelth, Household & Personal Care</h5>
 </div>
  </>
-
   )
 }
