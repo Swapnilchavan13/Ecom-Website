@@ -55,3 +55,7 @@ border: none;
 button{
     cursor: pointer;
 }
+
+.bannerimg{
+    width: 100%;
+}

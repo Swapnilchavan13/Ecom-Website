@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import '../Styles/cartpage.css';
+import { useNavigate } from 'react-router-dom';
 
 export const Cartpage = () => {
+    const navigate = useNavigate();
     const [cartData, setCartData] = useState(JSON.parse(localStorage.getItem('cart')) || []);
 
     // Function to remove a product from the cart
@@ -24,8 +26,12 @@ export const Cartpage = () => {
         );
     }
 
+    const ProceedBuy= () =>{
+        navigate('/checkoutpage')
+    }
+
     // Calculate subtotal dynamically
-    const subtotal = cartData.reduce((acc, product) => acc + +product.price, 0);
+    const subtotal = cartData.reduce((acc, product) => acc + +product.productprice, 0);
 
     return (
         <div className='maincartdiv'>
@@ -37,15 +43,15 @@ export const Cartpage = () => {
                         {cartData.map((product, index) => (
                             <div className='secondcart' key={index}>
                                 <div>
-                                    <img src={product.image} alt={product.productname} />
+                                    <img src={product.productimage} alt={product.productname} />
                                 </div>
 
                                 <div>
                                     <h2>{product.productname}</h2>
-                                    <p>Price: ₹ {product.price} /-</p>
-                                    <p>Discount: {product.discount}</p>
-                                    <p>Delivery: {product.delevery}</p>
-                                    <button className='removebtn' onClick={() => removeProduct(index)}>Remove</button>
+                                    <p>Price: ₹ {product.productprice} /-</p>
+                                    <p>Discount: {product.productdiscount}%</p>
+                                    <p>Delivery: Free Delivery by Amazon</p>
+                                    <button className='removebtn' onClick={() => removeProduct(product._id)}>Remove</button>
                                     <hr />
                                 </div>
                             </div>
@@ -53,7 +59,7 @@ export const Cartpage = () => {
                     </div>
                     <div className='subtotaldiv'>
                         <h3>Subtotal: ₹ {subtotal} /-</h3>
-                        <button className='cartbtn'>Proceed to Buy</button>
+                        <button onClick={ProceedBuy} className='cartbtn'>Proceed to Buy</button>
                     </div>
                 </div>
             </div>

@@ -29,7 +29,8 @@ margin-top: -10px;
 cursor: pointer;
 }
 .pricefont{
-    font-size: 25px;
+    font-size: 22px;
+    font-weight: bold;
 }
 #filterdiv{
     background-color: white;

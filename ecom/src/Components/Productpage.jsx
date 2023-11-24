@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../Styles/product.css'
 import { useNavigate } from 'react-router-dom';
 
@@ -19,17 +19,17 @@ const ProductCard = ({ product }) => {
         <br />
         <div className='imgdiv'>
 
-        <img src={product.image} alt={product.productname} />
+        <img src={product.productimage} alt={product.productname} />
         </div>
         <br />
         <h4>{product.productname}</h4>
         <p>{product.rating} Star ⭐⭐⭐⭐⭐</p>
         <span style={{display:'inline'}}>
-            <p className='pricefont'>Price: ₹ {product.price} /-
+            <p className='pricefont'>Price: ₹ {product.productprice} /-
             </p>
-            <p>M.R.P:{product.discount} Off</p>
+            <p>On M.R.P {product.productdiscount}% Off</p>
             </span>
-        <p>{product.delevery}</p>
+        <p>FREE delivery by Amazon</p>
       </div>
     );
   };
@@ -37,111 +37,20 @@ const ProductCard = ({ product }) => {
 
 export const Productpage = () => {
 
+  const [productarr, setProductsarr] = useState([])
+
     useEffect(() => {
-        // Scroll to the top when the component mounts
         window.scrollTo(0, 0);
-      }, []); // The empty dependency array ensures that this effect runs only once, similar to componentDidMount
+      }, []);
     
 
-    const productarr=[
-    {"productname":"Apple iPhone 13 (128GB) - Midnight",
-    "image":"https://m.media-amazon.com/images/I/61VuVU94RnL._AC_UL320_.jpg",
-"price":"50749","discount":"30%", "rating":"5", "delevery":"FREE delivery by Amazon"},
-
-{"productname":"Apple iPhone 13 (128GB) - Starlight",
-"image":"https://m.media-amazon.com/images/I/71GLMJ7TQiL._AC_UL320_.jpg",
-"price":"50749","discount":"22%", "rating":"5", "delevery":"FREE delivery by Amazon"},
-
-{"productname":"Apple iPhone 13 (128GB) - Blue",
-"image":"https://m.media-amazon.com/images/I/71xb2xkN5qL._AC_UL320_.jpg",
-"price":"50749","discount":"33%", "rating":"5", "delevery":"FREE delivery by Amazon"},
-
-{"productname":"Apple iPhone 13 (128GB) - Pink",
-"image":"https://m.media-amazon.com/images/I/61l9ppRIiqL._AC_UL320_.jpg",
-"price":"50749","discount":"12%", "rating":"5", "delevery":"FREE delivery by Amazon"},
-
-{"productname":"Apple iPhone 13 (128GB) - Green",
-"image":"https://m.media-amazon.com/images/I/71xb2xkN5qL._AC_UL320_.jpg",
-"price":"50749","discount":"25%", "rating":"5", "delevery":"FREE delivery by Amazon"},
-
-{"productname":"OnePlus 11R 5G (Sonic Black, 16GB RAM, 256GB Storage)",
-"image":"https://m.media-amazon.com/images/I/71qjUzUt+ML._AC_UL320_.jpg",
-"price":"44999","discount":"15%", "rating":"5", "delevery":"FREE delivery by Amazon"},
-
-{"productname":"Apple iPhone 13 (128GB) - Midnight",
-    "image":"https://m.media-amazon.com/images/I/61VuVU94RnL._AC_UL320_.jpg",
-"price":"50749","discount":"17%", "rating":"5", "delevery":"FREE delivery by Amazon"},
-
-{"productname":"Apple iPhone 13 (128GB) - Starlight",
-"image":"https://m.media-amazon.com/images/I/71GLMJ7TQiL._AC_UL320_.jpg",
-"price":"50749","discount":"24%", "rating":"5", "delevery":"FREE delivery by Amazon"},
-
-{"productname":"Apple iPhone 13 (128GB) - Blue",
-"image":"https://m.media-amazon.com/images/I/71xb2xkN5qL._AC_UL320_.jpg",
-"price":"50749","discount":"33%", "rating":"5", "delevery":"FREE delivery by Amazon"},
-
-{"productname":"Apple iPhone 13 (128GB) - Pink",
-"image":"https://m.media-amazon.com/images/I/61l9ppRIiqL._AC_UL320_.jpg",
-"price":"50749","discount":"43%", "rating":"5", "delevery":"FREE delivery by Amazon"},
-
-{"productname":"Apple iPhone 13 (128GB) - Green",
-"image":"https://m.media-amazon.com/images/I/71xb2xkN5qL._AC_UL320_.jpg",
-"price":"50749","discount":"36%", "rating":"5", "delevery":"FREE delivery by Amazon"},
-
-{"productname":"OnePlus 11R 5G (Sonic Black, 16GB RAM, 256GB Storage)",
-"image":"https://m.media-amazon.com/images/I/71qjUzUt+ML._AC_UL320_.jpg",
-"price":"44999","discount":"31%", "rating":"5", "delevery":"FREE delivery by Amazon"},
-
-{"productname":"Apple iPhone 13 (128GB) - Midnight",
-    "image":"https://m.media-amazon.com/images/I/61VuVU94RnL._AC_UL320_.jpg",
-"price":"50749","discount":"22%", "rating":"5", "delevery":"FREE delivery by Amazon"},
-
-{"productname":"Apple iPhone 13 (128GB) - Starlight",
-"image":"https://m.media-amazon.com/images/I/71GLMJ7TQiL._AC_UL320_.jpg",
-"price":"50749","discount":"20%", "rating":"5", "delevery":"FREE delivery by Amazon"},
-
-{"productname":"Apple iPhone 13 (128GB) - Blue",
-"image":"https://m.media-amazon.com/images/I/71xb2xkN5qL._AC_UL320_.jpg",
-"price":"50749","discount":"18%", "rating":"5", "delevery":"FREE delivery by Amazon"},
-
-{"productname":"Apple iPhone 13 (128GB) - Pink",
-"image":"https://m.media-amazon.com/images/I/61l9ppRIiqL._AC_UL320_.jpg",
-"price":"50749","discount":"38%", "rating":"5", "delevery":"FREE delivery by Amazon"},
-
-{"productname":"Apple iPhone 13 (128GB) - Green",
-"image":"https://m.media-amazon.com/images/I/71xb2xkN5qL._AC_UL320_.jpg",
-"price":"50749","discount":"54%", "rating":"5", "delevery":"FREE delivery by Amazon"},
-
-{"productname":"OnePlus 11R 5G (Sonic Black, 16GB RAM, 256GB Storage)",
-"image":"https://m.media-amazon.com/images/I/71qjUzUt+ML._AC_UL320_.jpg",
-"price":"44999","discount":"33%", "rating":"5", "delevery":"FREE delivery by Amazon"},
-
-{"productname":"Apple iPhone 13 (128GB) - Midnight",
-    "image":"https://m.media-amazon.com/images/I/61VuVU94RnL._AC_UL320_.jpg",
-"price":"50749","discount":"49%", "rating":"5", "delevery":"FREE delivery by Amazon"},
-
-{"productname":"Apple iPhone 13 (128GB) - Starlight",
-"image":"https://m.media-amazon.com/images/I/71GLMJ7TQiL._AC_UL320_.jpg",
-"price":"50749","discount":"22%", "rating":"5", "delevery":"FREE delivery by Amazon"},
-
-{"productname":"Apple iPhone 13 (128GB) - Blue",
-"image":"https://m.media-amazon.com/images/I/71xb2xkN5qL._AC_UL320_.jpg",
-"price":"50749","discount":"21%", "rating":"5", "delevery":"FREE delivery by Amazon"},
-
-{"productname":"Apple iPhone 13 (128GB) - Pink",
-"image":"https://m.media-amazon.com/images/I/61l9ppRIiqL._AC_UL320_.jpg",
-"price":"50749","discount":"27%", "rating":"5", "delevery":"FREE delivery by Amazon"},
-
-{"productname":"Apple iPhone 13 (128GB) - Green",
-"image":"https://m.media-amazon.com/images/I/71xb2xkN5qL._AC_UL320_.jpg",
-"price":"50749","discount":"27%", "rating":"5", "delevery":"FREE delivery by Amazon"},
-
-{"productname":"OnePlus 11R 5G (Sonic Black, 16GB RAM, 256GB Storage)",
-"image":"https://m.media-amazon.com/images/I/71qjUzUt+ML._AC_UL320_.jpg",
-"price":"44999","discount":"27%", "rating":"5", "delevery":"FREE delivery by Amazon"},
-
-]
-
+      useEffect(() => {
+        // Fetch data from the API
+        fetch('http://localhost:3005/allproducts')
+          .then(response => response.json())
+          .then(data => setProductsarr(data))
+          .catch(error => console.error('Error fetching products:', error));
+      }, []);
 
   return (
 <div className='mainpro'>

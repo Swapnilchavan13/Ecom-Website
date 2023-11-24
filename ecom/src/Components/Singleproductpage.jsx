@@ -60,20 +60,20 @@ export const Singleproductpage = () => {
     <>
       <div id='singleproduct'>
         <div>
-          <img src={product.image} alt={product.productname} />
+          <img src={product.productimage} alt={product.productname} />
         </div>
 
         <div>
           <p className='pname'>{product.productname}</p>
           <p>Visit the Apple Store</p>
-          <p>{product.rating} Star ⭐⭐⭐⭐⭐</p>
-          <p className='psze'>-{product.discount} ₹ {product.price}/-</p>
-          <p>Discount: {product.discount} Off</p>
+          <p>{product.rating} Star Rating ⭐⭐⭐⭐⭐</p>
+          <p className='psze'>₹ {product.productprice}/-</p>
+          <p>Discount: {product.productdiscount}% Off</p>
         </div>
 
         <div className='thirddiv'>
-          <p>Delivery: {product.delevery}</p>
-          <p className='tprice'>Price: ₹ {product.price}/-</p>
+          <p>Delivery: Within 3-4 days</p>
+          <p className='tprice'>Price: ₹ {product.productprice}/-</p>
           <p>Or fastest delivery Tomorrow, 10 November. Order within 12 hrs. Details</p>
           <p className='stock'>In stock</p>
           <p>Sold by Darshita E-Zone and Fulfilled by Amazon.</p>
@@ -89,14 +89,19 @@ export const Singleproductpage = () => {
         </div>
       </div>
       <img
+      className='bannerimg'
         src='https://m.media-amazon.com/images/G/31/img21/Wireless/katariy/Apple/Aplus_content/13_desk/iPhone_13_Product_Page_Flex_Module_Amazon_Desktop_Avail_1500__en-IN_01._CB640700609_.jpg'
         alt=''
       />
       <img
+      className='bannerimg'
+
         src='https://m.media-amazon.com/images/G/31/img21/Wireless/katariy/Apple/Aplus_content/13_desk/iPhone_13_Product_Page_Flex_Module_Amazon_Desktop_Avail_1500__en-IN_06._CB640700609_.jpg'
         alt=''
       />
       <img
+      className='bannerimg'
+
         src='https://m.media-amazon.com/images/G/31/img21/Wireless/katariy/Apple/Aplus_content/13_desk/iPhone_13_Product_Page_Flex_Module_Amazon_Desktop_Avail_1500__en-IN_08._CB640700609_.jpg'
         alt=''
       />
