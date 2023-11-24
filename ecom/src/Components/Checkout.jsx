@@ -89,7 +89,7 @@ export const Checkout = () => {
                                             <option value="6">6</option>
                                         </select>
                                         <p>₹ {product.productprice}/-</p>
-                                        <button onClick={() => handleRemoveProduct(index)}>Remove</button>
+                                        <button className='backto' onClick={() => handleRemoveProduct(index)}>Remove</button>
                                     </div>
                                 ))}
                             </div>

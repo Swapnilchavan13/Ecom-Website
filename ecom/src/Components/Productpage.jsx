@@ -3,6 +3,7 @@ import '../Styles/product.css'
 import { useNavigate } from 'react-router-dom';
 
 const ProductCard = ({ product }) => {
+
     const navigate=useNavigate();
 
     const handleSaveToLocalStorage = (product) => {
@@ -13,7 +14,6 @@ const ProductCard = ({ product }) => {
         localStorage.setItem('selectedProduct', productJSON);
       };
 
-    
     return (
       <div onClick={() => handleSaveToLocalStorage(product)} key={product.productname} className="product-card">
         <br />
@@ -23,7 +23,7 @@ const ProductCard = ({ product }) => {
         </div>
         <br />
         <h4>{product.productname}</h4>
-        <p>{product.rating} Star ⭐⭐⭐⭐⭐</p>
+        <p>{product.rating} Rating ⭐⭐⭐⭐⭐</p>
         <span style={{display:'inline'}}>
             <p className='pricefont'>Price: ₹ {product.productprice} /-
             </p>
@@ -37,20 +37,25 @@ const ProductCard = ({ product }) => {
 
 export const Productpage = () => {
 
+  const selectedType = localStorage.getItem('type');
   const [productarr, setProductsarr] = useState([])
 
     useEffect(() => {
         window.scrollTo(0, 0);
       }, []);
-    
+
 
       useEffect(() => {
         // Fetch data from the API
         fetch('http://localhost:3005/allproducts')
           .then(response => response.json())
-          .then(data => setProductsarr(data))
+          .then(data => {
+            // Filter data based on the selected type
+            const filteredData = data.filter(product => product.producttype === selectedType);
+            setProductsarr(filteredData);
+          })
           .catch(error => console.error('Error fetching products:', error));
-      }, []);
+      }, [selectedType]);
 
   return (
 <div className='mainpro'>

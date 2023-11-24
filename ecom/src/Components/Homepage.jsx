@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import '../Styles/homepage.css'
-import { Bottomnavbar } from './Bottomnavbar'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const Homepage = () => {
+    const navigate = useNavigate();
 
     const sliderimg = [
         "https://images-eu.ssl-images-amazon.com/images/G/31/Events/img23/Jupiter23/Homepage/Phase3/J23_P3B_PC_Hero_2x._CB575523010_.jpg",
@@ -28,6 +28,21 @@ export const Homepage = () => {
         };
       }, []);
 
+      const Electronicsclick = () => {
+        localStorage.setItem("type", 'Electronics')
+        navigate('/products')
+      }
+
+      const Toysclick = () => {
+        localStorage.setItem("type", 'Toys')
+        navigate('/products')
+      }
+
+      const Clothingclick = () => {
+        localStorage.setItem("type", 'Clothing')
+        navigate('/products')
+      }
+
     return (
         <>
       <img width="100%" src={sliderimg[currentImageIndex]} alt="" />
@@ -43,7 +58,7 @@ export const Homepage = () => {
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_186x116_7._SY116_CB573889443_.jpg" alt="" />
                         <p>Starting ₹139 | Kitchen products</p>
                     </div>
-                    <div>
+                    <div onClick={Toysclick}>
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_1_1x._SY116_CB573884255_.jpg" alt="" />
                         <p>Starting ₹85 | Toys & games</p>
                     </div>
@@ -64,7 +79,7 @@ export const Homepage = () => {
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_186x116_7._SY116_CB573889443_.jpg" alt="" />
                         <p>Starting ₹139 | Kitchen products</p>
                     </div>
-                    <div>
+                    <div onClick={Toysclick}>
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/Media/Jupiter/kids-toys-1x._SY116_CB574308419_.jpg" alt="" />
                         <p>Starting ₹85 | Toys & games</p>
                     </div>
@@ -85,7 +100,7 @@ export const Homepage = () => {
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_186x116_7._SY116_CB573889443_.jpg" alt="" />
                         <p>Starting ₹139 | Kitchen products</p>
                     </div>
-                    <div>
+                    <div onClick={Clothingclick}>
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/Fashion/Event/Gateway/Jup/Phase3/BTF/PCQC/Rev/Saree-186-116-min._SY116_CB575146091_.png" alt="" />
                         <p>Women`s Clothing</p>
                     </div>
@@ -106,7 +121,7 @@ export const Homepage = () => {
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_186x116_7._SY116_CB573889443_.jpg" alt="" />
                         <p>Starting ₹139 | Kitchen products</p>
                     </div>
-                    <div>
+                    <div onClick={Toysclick}>
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_1_1x._SY116_CB573884255_.jpg" alt="" />
                         <p>Starting ₹85 | Toys & games</p>
                     </div>
@@ -141,34 +156,25 @@ export const Homepage = () => {
             <div>
                 <h2>Deals on smartphones that suits your budget</h2>
                 <div className='mainsubdiv'>
-                    <Link to="/products">
-                    <div>
+                    <div onClick={Electronicsclick}>
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Wireless/Meghana/Phase3/PC/Desktop_QuadCard_186x116_01._SY116_CB575166656_.jpg" alt="" />
                         <p>In Budget | Under ₹10,000</p>
                     </div>
-                    </Link>
-                    <Link to="/products">
-                    <div>
+                    
+                    <div onClick={Electronicsclick}>
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Wireless/Meghana/K8/Desktop_QuadCard_186x116._SY116_CB575152829_.jpg" alt="" />
                         <p>Mid range | ₹10,000 - ₹25,000</p>
                     </div>
-                    </Link>
-
-                    <Link to="/products">
-
-                    <div>
+                    
+                    <div onClick={Electronicsclick}>
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Wireless/Meghana/K8/Desktop_QuadCard_186x116_01._SY116_CB575152829_.jpg" alt="" />
                         <p>Premium | ₹25,000 - ₹40,000</p>
                     </div>
-                    </Link>
 
-                    <Link to="/products">
-
-                    <div>
+                    <div onClick={Electronicsclick}>
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Wireless/Meghana/Phase3/PC/Desktop_QuadCard_186x116_04._SY116_CB575166656_.jpg" alt="" />
                         <p>Ultra premium | Above ₹40,000</p>
                     </div>
-                    </Link>
                 </div>
             </div>
 
@@ -183,7 +189,7 @@ export const Homepage = () => {
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_186x116_7._SY116_CB573889443_.jpg" alt="" />
                         <p>Starting ₹139 | Kitchen products</p>
                     </div>
-                    <div>
+                    <div onClick={Toysclick}>
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_1_1x._SY116_CB573884255_.jpg" alt="" />
                         <p>Starting ₹85 | Toys & games</p>
                     </div>
@@ -204,7 +210,7 @@ export const Homepage = () => {
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG23/Kriti/Sony/Projectors/store/Redmi_2x_Desktop_Quad_card_w_title_-_Card_10.5x._SY116_CB573739774_.jpg" alt="" />
                         <p>Starting ₹139 | Kitchen products</p>
                     </div>
-                    <div>
+                    <div onClick={Toysclick}>
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG23/Kriti/Sony/Projectors/store/Samsung_2x_Desktop_Quad_card_w_title_-_Card_10.5x._SY116_CB573739774_.jpg" alt="" />
                         <p>Starting ₹85 | Toys & games</p>
                     </div>
@@ -218,7 +224,7 @@ export const Homepage = () => {
 
     <div className='festivdiv'>
         <h3>Festive collection | Minimum 60% off</h3>
-        <div>
+        <div onClick={Clothingclick}>
             <img src="https://m.media-amazon.com/images/I/81m+QpZizJL._AC_SY200_.jpg" alt="" />
             <img src="https://m.media-amazon.com/images/I/51ItPJzFvGL._AC_SY200_.jpg" alt="" />
             <img src="https://m.media-amazon.com/images/I/81-QERu5bUL._AC_SY200_.jpg" alt="" />
@@ -306,7 +312,7 @@ export const Homepage = () => {
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_186x116_7._SY116_CB573889443_.jpg" alt="" />
                         <p>Starting ₹139 | Kitchen products</p>
                     </div>
-                    <div>
+                    <div onClick={Toysclick}>
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_1_1x._SY116_CB573884255_.jpg" alt="" />
                         <p>Starting ₹85 | Toys & games</p>
                     </div>
@@ -341,36 +347,27 @@ export const Homepage = () => {
             <div>
                 <h2>Deals on smartphones that suits your budget</h2>
                 <div className='mainsubdiv'>
-                    <Link to="/products">
-                    <div>
+                    
+                <div onClick={Electronicsclick}>
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Wireless/Meghana/Phase3/PC/Desktop_QuadCard_186x116_01._SY116_CB575166656_.jpg" alt="" />
                         <p>In Budget | Under ₹10,000</p>
                     </div>
-                    </Link>
-                    <Link to="/products">
-
-                    <div>
+                    
+                    <div onClick={Electronicsclick}>
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Wireless/Meghana/K8/Desktop_QuadCard_186x116._SY116_CB575152829_.jpg" alt="" />
                         <p>Mid range | ₹10,000 - ₹25,000</p>
                         
                     </div>
-                    </Link>
 
-                    <Link to="/products">
-
-                    <div>
+                    <div onClick={Electronicsclick}>
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Wireless/Meghana/K8/Desktop_QuadCard_186x116_01._SY116_CB575152829_.jpg" alt="" />
                         <p>Premium | ₹25,000 - ₹40,000</p>
                     </div>
-                    </Link>
 
-                    <Link to="/products">
-
-                    <div>
+                    <div onClick={Electronicsclick}>
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Wireless/Meghana/Phase3/PC/Desktop_QuadCard_186x116_04._SY116_CB575166656_.jpg" alt="" />
                         <p>Ultra premium | Above ₹40,000</p>
                     </div>
-                    </Link>
                 </div>
             </div>
 
@@ -385,7 +382,7 @@ export const Homepage = () => {
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_186x116_7._SY116_CB573889443_.jpg" alt="" />
                         <p>Starting ₹139 | Kitchen products</p>
                     </div>
-                    <div>
+                    <div onClick={Toysclick}>
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_1_1x._SY116_CB573884255_.jpg" alt="" />
                         <p>Starting ₹85 | Toys & games</p>
                     </div>
@@ -406,7 +403,7 @@ export const Homepage = () => {
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG23/Kriti/Sony/Projectors/store/Redmi_2x_Desktop_Quad_card_w_title_-_Card_10.5x._SY116_CB573739774_.jpg" alt="" />
                         <p>Starting ₹139 | Kitchen products</p>
                     </div>
-                    <div>
+                    <div onClick={Toysclick}>
                         <img src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG23/Kriti/Sony/Projectors/store/Samsung_2x_Desktop_Quad_card_w_title_-_Card_10.5x._SY116_CB573739774_.jpg" alt="" />
                         <p>Starting ₹85 | Toys & games</p>
                     </div>
@@ -420,15 +417,14 @@ export const Homepage = () => {
     
         <div className='festivdiv'>
         <h3>Explore top offers in smartphones</h3>
-        <Link to="/products">
-        <div>
+        
+        <div onClick={Electronicsclick}>
             <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/Wireless/PHASE31/1._CB575335719_.jpg" alt="" />
             <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/Wireless/PHASE31/15._CB575335719_.jpg" alt="" />
             <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/Wireless/PHASE31/4._CB575335719_.jpg" alt="" />
             <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/Wireless/PHASE31/6._CB575335719_.jpg" alt="" />
             <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/Wireless/PHASE31/9._CB575335719_.jpg" alt="" />
         </div>
-        </Link>
     </div>
 
     <div className='festivdiv'>
