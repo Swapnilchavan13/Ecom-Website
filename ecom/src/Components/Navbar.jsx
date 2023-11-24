@@ -3,9 +3,8 @@ import '../Styles/navbar.css';
 import { Link } from 'react-router-dom';
 
 export const Navbar = () => {
-
+    
     const Uname = localStorage.getItem('username') || "Account";
-
   return (
     <>
     <div id='navbarmain'>
