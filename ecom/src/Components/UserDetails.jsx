@@ -38,7 +38,6 @@ export const Userdetails = () => {
     localStorage.removeItem('cart');
     navigate('/');
     window.location.reload();
-
   };
 
   const saveAddress = async () => {
