@@ -19,6 +19,11 @@ export const UserDetails = () => {
     alert("Backend Is Not Connected")
   }
 
+  fetch('https://indian-cities-api-nocbegfhqg.now.sh/cities')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.log(error));
+
   return (
     <div className="user-details-container">
       <h2 className="user-details-header">User Details</h2>
@@ -28,16 +33,11 @@ export const UserDetails = () => {
         <input className="address-input" placeholder='Enter Your House No.' type="text" />
         <br />
         <label>
-          <input className="address-input" placeholder='Enter The Landmark Or Near By' type="text" />
-        </label>
-        <br />
-        <label>
           Select The City
           <br />
           <input className="address-input" type="text" />
         </label>
         <br />
-
         <label>
           Enter Pincode
           <br />
