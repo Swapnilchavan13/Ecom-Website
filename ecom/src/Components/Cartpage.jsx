@@ -45,7 +45,6 @@ export const Cartpage = () => {
                                 <div>
                                     <img src={product.productimage} alt={product.productname} />
                                 </div>
-
                                 <div>
                                     <h2>{product.productname}</h2>
                                     <p>Price: ₹ {product.productprice} /-</p>

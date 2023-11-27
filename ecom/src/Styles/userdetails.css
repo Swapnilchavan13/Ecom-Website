@@ -49,3 +49,11 @@
     cursor: pointer;
   }
   
+  .addadd{
+    background-color: rgb(212, 212, 212);
+    padding: 8px;
+    border-radius: 10px;
+    color: rgb(20, 19, 19);
+    font-weight: bolder;
+    margin-bottom: 10px;
+  }

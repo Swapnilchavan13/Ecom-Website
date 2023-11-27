@@ -1,11 +1,11 @@
-// Userdetails.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Styles/userdetails.css';
 
 export const UserDetails = () => {
   const navigate = useNavigate();
   const username = localStorage.getItem('username');
+  const [isPopupVisible, setPopupVisible] = useState(false);
 
   const handleLogout = () => {
     localStorage.removeItem('username');
@@ -16,36 +16,40 @@ export const UserDetails = () => {
   };
 
   const Saveaddress = () => {
-    alert("Backend Is Not Connected")
-  }
+    alert("Backend Is Not Connected");
+    setPopupVisible(false); 
+  };
 
-  fetch('https://indian-cities-api-nocbegfhqg.now.sh/cities')
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.log(error));
+  const showPopup = () => {
+    setPopupVisible(true);
+  };
 
   return (
     <div className="user-details-container">
       <h2 className="user-details-header">User Details</h2>
       <h2>Name: {username}</h2>
-      <h3>Address: {localStorage.getItem('address')}</h3>
-      <div className="user-details-info">
-        <input className="address-input" placeholder='Enter Your House No.' type="text" />
-        <br />
-        <label>
-          Select The City
+      <h3>Address:</h3>
+      <button className='addadd' onClick={showPopup}>Add Address</button>
+      <br />
+      {isPopupVisible && (
+        <div className="popup">
+          <input className="address-input" placeholder='Enter Your House No. and Street' type="text" />
           <br />
-          <input className="address-input" type="text" />
-        </label>
-        <br />
-        <label>
-          Enter Pincode
+          <label>
+            Select The City
+            <br />
+            <input placeholder='Enter City' className="address-input" type="text" />
+          </label>
           <br />
-          <input className="address-input" placeholder='Enter Pincode' type="text" />
-        </label>
-        <br />
-        <button onClick={Saveaddress} className="save-button">Save Address</button>
-      </div>
+          <label>
+            Enter Pincode
+            <br />
+            <input className="address-input" placeholder='Enter Pincode' type="text" />
+          </label>
+          <br />
+          <button onClick={Saveaddress} className="save-button">Save Address</button>
+        </div>
+      )}
       <button className="logout-button" onClick={handleLogout}>Logout</button>
     </div>
   );
