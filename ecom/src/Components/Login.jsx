@@ -5,10 +5,10 @@ import { Userdeails } from './Userdeails';
 
 export const Login = () => {
   const navigate = useNavigate();
+  const isloggedin= localStorage.getItem('isLoginSuccessful')  || false;
 
   const [mobileNumber, setMobileNumber] = useState('');
   const [password, setPassword] = useState('');
-  const isloggedin= localStorage.getItem('isLoginSuccessful')  || false;
 
   const handleLogin = async () => {
     try {

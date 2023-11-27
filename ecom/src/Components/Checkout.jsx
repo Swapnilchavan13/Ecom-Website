@@ -27,7 +27,7 @@ export const Checkout = () => {
 
     const Placeorder = () => {
         if(isLogin){
-            alert("Working Inprocess")
+            alert("Page Under Construction")
         }
         else{
             alert("Please Login First")

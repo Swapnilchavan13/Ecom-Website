@@ -11,7 +11,7 @@ export const Userdeails = () => {
     localStorage.removeItem('isLoginSuccessful');
     localStorage.removeItem('address'); // If you have an 'address' stored
     navigate('/')
-
+    
     window.location.reload();
 
   };
