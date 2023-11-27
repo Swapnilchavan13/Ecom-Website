@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Styles/userdetails.css';
 
-export const UserDetails = () => {
+export const Userdetails = () => {
   const navigate = useNavigate();
   const username = localStorage.getItem('username');
   const [isPopupVisible, setPopupVisible] = useState(false);
