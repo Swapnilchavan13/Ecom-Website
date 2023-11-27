@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 export const Checkout = () => {
     const navigate = useNavigate()
     const isLogin = localStorage.getItem('isLoginSuccessful') || false;
+    const user = localStorage.getItem('username')
     // Retrieve the product details from local storage
     const storedProductJSON = localStorage.getItem('cart');
     // const products = JSON.parse(storedProductJSON);
@@ -45,10 +46,10 @@ export const Checkout = () => {
                     <div>
                         <div className='ckeckoutdetails'>
                             <div className='middiv'>
-                                <h3>1  Delivery address</h3>
+                                <h3>1 Delivery address</h3>
                             </div>
                             <div className='middiv'>
-                                <p>User Name <br /> Home No. 333, Juhu , Mumbai <br />
+                                <p>{user} <br /> Home No. 333, Juhu , Mumbai <br />
                                     Near Of Iskon Temple</p>
                             </div>
                             <p>Change</p>
