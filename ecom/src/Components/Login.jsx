@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../Styles/login.css';
 import { useNavigate } from 'react-router-dom';
-import { Userdeails } from './Userdeails';
+import { UserDetails } from './UserDetails';
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -44,7 +44,7 @@ export const Login = () => {
   return (
     <div id='logindiv'>
       {isloggedin ? (
-        <Userdeails />
+        <UserDetails />
       ) : (
         <>
           <br />
