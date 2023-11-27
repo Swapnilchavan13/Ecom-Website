@@ -1,23 +1,65 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Styles/userdetails.css';
 
 export const Userdetails = () => {
   const navigate = useNavigate();
   const username = localStorage.getItem('username');
-  const [isPopupVisible, setPopupVisible] = useState(false);
+  const usermobile = localStorage.getItem('usermobile');
 
+  const [isPopupVisible, setPopupVisible] = useState(false);
+  const [address, setAddress] = useState('');
+
+  const [userData, setUserData] = useState(null);
+
+
+  useEffect(() => {
+    // Fetch user data when the component mounts
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`http://localhost:3005/userdata`);
+        const data = await response.json();
+
+        if (response.ok) {
+          setUserData(data);
+        } else {
+          console.error('Error fetching user data:', data.message);
+        }
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+
+    fetchData();
+  }, [username]);
   const handleLogout = () => {
     localStorage.removeItem('username');
     localStorage.removeItem('isLoginSuccessful');
     localStorage.removeItem('cart');
     navigate('/');
     window.location.reload();
+
   };
 
-  const Saveaddress = () => {
-    alert("Backend Is Not Connected");
-    setPopupVisible(false); 
+  const saveAddress = async () => {
+    try {
+      const response = await fetch('http://localhost:3005/userdata', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          useraddress: address,
+        }),
+      });
+
+      const data = await response.json();
+      console.log(data.message); // Log the response from the server
+
+      setPopupVisible(false);
+    } catch (error) {
+      console.error('Error saving address:', error);
+    }
   };
 
   const showPopup = () => {
@@ -26,31 +68,40 @@ export const Userdetails = () => {
 
   return (
     <div className="user-details-container">
-      <h2 className="user-details-header">User Details</h2>
-      <h2>Name: {username}</h2>
-      <h3>Address:</h3>
-      <button className='addadd' onClick={showPopup}>Add Address</button>
+
+       <h2 className="user-details-header">User Details</h2>
+      {userData ? (
+        <>
+          <h2>Name: {username}</h2>
+          <h3>Mobile Number: {usermobile}</h3>
+          <h3>Address: {userData.useraddress}</h3>
+          
+        </>
+      ) : ( 
+         <p>Loading user data...</p> 
+       )} 
+       
+      <button className='addadd' onClick={showPopup}>
+        Add Address
+      </button>
       <br />
       {isPopupVisible && (
         <div className="popup">
-          <input className="address-input" placeholder='Enter Your House No. and Street' type="text" />
+          <input
+            className="address-input"
+            placeholder='Enter Your House No. and Street with City And Pincode'
+            type="text"
+            onChange={(e) => setAddress(e.target.value)}
+          />
           <br />
-          <label>
-            Select The City
-            <br />
-            <input placeholder='Enter City' className="address-input" type="text" />
-          </label>
-          <br />
-          <label>
-            Enter Pincode
-            <br />
-            <input className="address-input" placeholder='Enter Pincode' type="text" />
-          </label>
-          <br />
-          <button onClick={Saveaddress} className="save-button">Save Address</button>
+          <button onClick={saveAddress} className="save-button">
+            Save Address
+          </button>
         </div>
       )}
-      <button className="logout-button" onClick={handleLogout}>Logout</button>
+      <button className="logout-button" onClick={handleLogout}>
+        Logout
+      </button>
     </div>
   );
 };
