@@ -12,16 +12,16 @@ export const Userdetails = () => {
 
   const [userData, setUserData] = useState(null);
 
-
   useEffect(() => {
     // Fetch user data when the component mounts
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:3005/userdata`);
+        const response = await fetch(`http://localhost:3005/userdata?username=${username}&usernumber=${usermobile}`);
         const data = await response.json();
 
         if (response.ok) {
-          setUserData(data);
+          // Assuming the server returns an array of users and you want the first one
+          setUserData(data[0]);
         } else {
           console.error('Error fetching user data:', data.message);
         }
@@ -31,7 +31,8 @@ export const Userdetails = () => {
     };
 
     fetchData();
-  }, [username]);
+  }, [username, usermobile]);
+
   const handleLogout = () => {
     localStorage.removeItem('username');
     localStorage.removeItem('isLoginSuccessful');
@@ -42,8 +43,9 @@ export const Userdetails = () => {
 
   const saveAddress = async () => {
     try {
-      const response = await fetch('http://localhost:3005/userdata', {
-        method: 'POST',
+      const userId = userData._id;
+      const response = await fetch(`http://localhost:3005/userdata/${userId}`, {
+        method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -53,7 +55,7 @@ export const Userdetails = () => {
       });
 
       const data = await response.json();
-      console.log(data.message); // Log the response from the server
+      console.log(data.message);
 
       setPopupVisible(false);
     } catch (error) {
@@ -67,14 +69,12 @@ export const Userdetails = () => {
 
   return (
     <div className="user-details-container">
-
        <h2 className="user-details-header">User Details</h2>
       {userData ? (
         <>
           <h2>Name: {username}</h2>
           <h3>Mobile Number: {usermobile}</h3>
           <h3>Address: {userData.useraddress}</h3>
-          
         </>
       ) : ( 
          <p>Loading user data...</p> 
