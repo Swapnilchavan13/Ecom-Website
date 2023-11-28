@@ -100,7 +100,7 @@ export const Userdetails = () => {
         <div className="popup">
           <input
             className="address-input"
-            placeholder='Enter Your House No. and Street with City And Pincode'
+            placeholder='Enter Your House No. Street with City And Pincode'
             type="text"
             onChange={(e) => setAddress(e.target.value)}
           />

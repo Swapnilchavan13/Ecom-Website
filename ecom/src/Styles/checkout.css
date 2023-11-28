@@ -71,3 +71,9 @@ color: #B22A07;
     margin-left: 5px;
     border: none;
 }
+.change{
+    cursor: pointer;
+}
+.change:hover{
+    color: rgb(6, 139, 139);
+}

@@ -117,7 +117,7 @@ export const Checkout = () => {
                             <div className='middiv'>
                                 <h4>{user} <br /> {userData.useraddress}</h4>
                             </div>
-                            <h4 onClick={showPopup}>Change</h4>
+                            <h4 className='change' onClick={showPopup}>Change</h4>
                             <br />
                         </div>
 
@@ -125,7 +125,7 @@ export const Checkout = () => {
                             <div className="popup">
                                 <input
                                     className="address-input"
-                                    placeholder='Enter Your House No. and Street with City And Pincode'
+                                    placeholder='Enter Your House No. Street with City And Pincode'
                                     type="text"
                                     onChange={(e) => setAddress(e.target.value)}
                                 />
