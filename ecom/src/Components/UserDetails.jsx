@@ -9,7 +9,6 @@ export const Userdetails = () => {
 
   const [isPopupVisible, setPopupVisible] = useState(false);
   const [address, setAddress] = useState('');
-
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
@@ -69,7 +68,6 @@ export const Userdetails = () => {
     } catch (error) {
       console.error('Error saving address:', error);
     }
-
     window.location.reload()
   };
 

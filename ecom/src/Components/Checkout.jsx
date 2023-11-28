@@ -16,6 +16,7 @@ export const Checkout = () => {
 
     const [isPopupVisible, setPopupVisible] = useState(false);
     const [address, setAddress] = useState('');
+    const [order, setOrder] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -40,7 +41,7 @@ export const Checkout = () => {
             } finally {
             }
         };
-        
+
         fetchData();
     }, [username, usermobile]);
 
@@ -84,6 +85,7 @@ export const Checkout = () => {
                 },
                 body: JSON.stringify({
                     useraddress: address,
+                    userorder: order,
                 }),
             });
 

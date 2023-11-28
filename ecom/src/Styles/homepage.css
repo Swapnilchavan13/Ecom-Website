@@ -44,3 +44,22 @@ a{
     text-decoration: none;
     color: black;
 }
+
+
+/* Media Query for Small Screens */
+@media only screen and (max-width: 767px) {
+    #mainhomediv, #mainhomediv2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .festivdiv div {
+        /* flex-direction: column; */
+        gap: 20px;
+        text-align: center;
+    }
+    .festivdiv div img{
+        display: flex;
+        height: 100px;
+        width: 50px;
+    }
+}
