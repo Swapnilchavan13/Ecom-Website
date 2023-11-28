@@ -40,7 +40,7 @@ export const Checkout = () => {
             } finally {
             }
         };
-
+        
         fetchData();
     }, [username, usermobile]);
 
@@ -94,7 +94,6 @@ export const Checkout = () => {
         } catch (error) {
             console.error('Error saving address:', error);
         }
-
         window.location.reload()
     };
 
@@ -117,7 +116,7 @@ export const Checkout = () => {
                             <div className='middiv'>
                                 <h4>{user} <br /> {userData.useraddress}</h4>
                             </div>
-                            <h4 className='change' onClick={showPopup}>Change</h4>
+                            <h4 className='change' onClick={showPopup}>Change/Add</h4>
                             <br />
                         </div>
 
@@ -165,7 +164,7 @@ export const Checkout = () => {
                         <hr />
                         <div className='ckeckoutdetails'>
                             <div className='middiv'>
-                                <h3>3  Review Items</h3>
+                                <h3>3 Review Items</h3>
                             </div>
                             <div>
                                 {products.map((product, index) => (

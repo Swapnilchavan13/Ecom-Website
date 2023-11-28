@@ -39,8 +39,6 @@ export const Userdetails = () => {
     fetchData();
   }, [username, usermobile]);
   
-
-
   const handleLogout = () => {
     localStorage.removeItem('username');
     localStorage.removeItem('isLoginSuccessful');
