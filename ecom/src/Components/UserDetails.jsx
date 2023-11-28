@@ -13,30 +13,40 @@ export const Userdetails = () => {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    // Fetch user data when the component mounts
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:3005/userdata?username=${username}&usernumber=${usermobile}`);
+        const response = await fetch(`http://localhost:3005/userdata`);
         const data = await response.json();
-
+  
         if (response.ok) {
-          // Assuming the server returns an array of users and you want the first one
-          setUserData(data[0]);
+          // Find the user that matches both username and usernumber
+          const matchingUser = data.find(user => user.username === username && user.usernumber === usermobile);
+  
+          if (matchingUser) {
+            setUserData(matchingUser);
+          } else {
+            console.error('User not found');
+          }
         } else {
           console.error('Error fetching user data:', data.message);
         }
       } catch (error) {
         console.error('Error fetching user data:', error);
+      } finally {
       }
     };
-
+  
     fetchData();
   }, [username, usermobile]);
+  
+
 
   const handleLogout = () => {
     localStorage.removeItem('username');
     localStorage.removeItem('isLoginSuccessful');
     localStorage.removeItem('cart');
+    localStorage.removeItem('usermobile');
+
     navigate('/');
     window.location.reload();
   };
@@ -61,6 +71,8 @@ export const Userdetails = () => {
     } catch (error) {
       console.error('Error saving address:', error);
     }
+
+    window.location.reload()
   };
 
   const showPopup = () => {
@@ -81,7 +93,7 @@ export const Userdetails = () => {
        )} 
        
       <button className='addadd' onClick={showPopup}>
-        Add Address
+        Add/Edit Address
       </button>
       <br />
       {isPopupVisible && (

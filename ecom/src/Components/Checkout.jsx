@@ -1,15 +1,49 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../Styles/checkout.css'
 import { useNavigate } from 'react-router-dom';
 
 export const Checkout = () => {
     const navigate = useNavigate()
     const isLogin = localStorage.getItem('isLoginSuccessful') || false;
+    const username = localStorage.getItem('username');
     const user = localStorage.getItem('username')
+    const usermobile = localStorage.getItem('usermobile');
     // Retrieve the product details from local storage
     const storedProductJSON = localStorage.getItem('cart');
-    // const products = JSON.parse(storedProductJSON);
+
+    const [userData, setUserData] = useState('');
     const [products, setProducts] = React.useState(JSON.parse(storedProductJSON) || []);
+
+    const [isPopupVisible, setPopupVisible] = useState(false);
+    const [address, setAddress] = useState('');
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(`http://localhost:3005/userdata`);
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Find the user that matches both username and usernumber
+                    const matchingUser = data.find(user => user.username === username && user.usernumber === usermobile);
+
+                    if (matchingUser) {
+                        setUserData(matchingUser);
+                    } else {
+                        console.error('User not found');
+                    }
+                } else {
+                    console.error('Error fetching user data:', data.message);
+                }
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+            } finally {
+            }
+        };
+
+        fetchData();
+    }, [username, usermobile]);
+
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -22,20 +56,48 @@ export const Checkout = () => {
         // Update local storage and state
         localStorage.setItem('cart', JSON.stringify(updatedProducts));
         setProducts(updatedProducts);
-      };
+    };
 
     const subtotal = products.reduce((acc, product) => acc + +product.productprice, 0);
 
     const Placeorder = () => {
-        if(isLogin){
+        if (isLogin) {
             alert("Page Under Construction")
         }
-        else{
+        else {
             alert("Please Login First")
             navigate('/login')
         }
     }
-    
+
+    const showPopup = () => {
+        setPopupVisible(true);
+    };
+
+    const saveAddress = async () => {
+        try {
+            const userId = userData._id;
+            const response = await fetch(`http://localhost:3005/userdata/${userId}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    useraddress: address,
+                }),
+            });
+
+            const data = await response.json();
+            console.log(data.message);
+
+            setPopupVisible(false);
+        } catch (error) {
+            console.error('Error saving address:', error);
+        }
+
+        window.location.reload()
+    };
+
     return (
         <div id='maincheckoutdiv'>
             <div>
@@ -49,11 +111,26 @@ export const Checkout = () => {
                                 <h3>1 Delivery address</h3>
                             </div>
                             <div className='middiv'>
-                                <p>{user} <br /> Home No. 333, Juhu , Mumbai <br />
-                                    Near Of Iskon Temple</p>
+                                <h4>{user} <br /> {userData.useraddress}</h4>
                             </div>
-                            <p>Change</p>
+                            <h4 onClick={showPopup}>Change</h4>
+                            <br />
                         </div>
+
+                        {isPopupVisible && (
+                            <div className="popup">
+                                <input
+                                    className="address-input"
+                                    placeholder='Enter Your House No. and Street with City And Pincode'
+                                    type="text"
+                                    onChange={(e) => setAddress(e.target.value)}
+                                />
+                                <br />
+                                <button onClick={saveAddress} className="save-button">
+                                    Save Address
+                                </button>
+                            </div>
+                        )}
                         <hr />
                         <div className='ckeckoutdetails'>
                             <div className='middiv'>
