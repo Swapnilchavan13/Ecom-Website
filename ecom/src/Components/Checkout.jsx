@@ -98,6 +98,10 @@ export const Checkout = () => {
         window.location.reload()
     };
 
+    const cancelButton = () => {
+        setPopupVisible(false);
+    }
+
     return (
         <div id='maincheckoutdiv'>
             <div>
@@ -128,6 +132,10 @@ export const Checkout = () => {
                                 <br />
                                 <button onClick={saveAddress} className="save-button">
                                     Save Address
+                                </button>
+
+                                <button onClick={cancelButton} className="cancel-button">
+                                    Cancel
                                 </button>
                             </div>
                         )}
