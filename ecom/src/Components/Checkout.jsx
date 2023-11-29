@@ -280,7 +280,7 @@ export const Checkout = () => {
                 <div className="popup-container">
                     <div className="popup-content">
                     <img onClick={closePopup} src="https://cdn.dribbble.com/users/282075/screenshots/4756095/icon_confirmation.gif" alt="Order Placed" />
-                        <h2>Order placed successfully!</h2>
+                        <h2> 🎉Order Placed Successfully! 🎉</h2>
                     </div>
                 </div>
             )}
