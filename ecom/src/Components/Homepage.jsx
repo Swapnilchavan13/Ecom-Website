@@ -43,6 +43,10 @@ export const Homepage = () => {
         navigate('/products')
       }
 
+      useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+
     return (
         <>
       <img width="100%" src={sliderimg[currentImageIndex]} alt="" />

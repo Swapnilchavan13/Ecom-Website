@@ -23,6 +23,7 @@ export const Login = () => {
       if (matchingUser) {
         // Login successful
         localStorage.setItem('username', matchingUser.username);
+        localStorage.setItem('uid', matchingUser._id);
         localStorage.setItem('usermobile', matchingUser.usernumber);
         localStorage.setItem('isLoginSuccessful', true);
         alert('Login Successful');

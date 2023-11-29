@@ -74,6 +74,7 @@ export const Checkout = () => {
                     userId: userData._id,
                     products: products.map((product, index) => ({
                         productId: product._id, // Assuming your product model has an "_id" property
+                        productName: product.productname,
                         quantity: quantity[index],
                         price: product.productprice * quantity[index],
                     })),

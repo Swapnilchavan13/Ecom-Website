@@ -78,11 +78,8 @@ color: #B22A07;
     color: rgb(6, 139, 139);
 }
 
-
 /* popup */
-
 /* Add these styles to your existing checkout.css file or create a new CSS file */
-
 .popup-container {
     position: fixed;
     top: 0;

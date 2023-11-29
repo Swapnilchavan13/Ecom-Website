@@ -1,0 +1,51 @@
+/* Orderpage component styles */
+
+.order-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .page-title {
+    color: #333;
+  }
+  
+  .order-list {
+    list-style-type: none;
+    padding: 0;
+    background-color: #b9b7b7;
+  }
+  
+  .order-item {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 15px;
+  }
+  
+  .order-id, .product-title {
+    color: #555;
+    
+  }
+  
+  .order-total, .order-address, .order-payment-method, .product-item {
+    margin: 10px 0;
+  }
+  
+  .product-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .cancel-button {
+    background-color: #dc3545;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .cancel-button:hover {
+    background-color: #c82333;
+  }
+  
