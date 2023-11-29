@@ -14,9 +14,12 @@ export const Checkout = () => {
     const [userData, setUserData] = useState('');
     const [products, setProducts] = React.useState(JSON.parse(storedProductJSON) || []);
 
+    const [orderPopupVisible, setorderPopupVisible] = useState(false);
     const [isPopupVisible, setPopupVisible] = useState(false);
     const [address, setAddress] = useState('');
-    const [order, setOrder] = useState('');
+
+    const [quantity, setQuantity] = useState(products.map(() => 1)); // initialize with default quantity of 1 for each product
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -59,25 +62,61 @@ export const Checkout = () => {
         setProducts(updatedProducts);
     };
 
-    const subtotal = products.reduce((acc, product) => acc + +product.productprice, 0);
+    // const subtotal = products.reduce((acc, product) => acc + +product.productprice, 0);
+    const subtotal = products.reduce((acc, product, _id) => acc + +product.productprice * quantity[_id], 0);
 
-    const Placeorder = () => {
+
+    const Placeorder = async () => {
         if (isLogin) {
-            alert("Page Under Construction")
+            try {
+                // Create an order object with relevant data
+                const orderData = {
+                    userId: userData._id,
+                    products: products.map((product, index) => ({
+                        productId: product._id, // Assuming your product model has an "_id" property
+                        quantity: quantity[index],
+                        price: product.productprice * quantity[index],
+                    })),
+                    address: userData.useraddress,
+                    paymentMethod: 'COD', // You can modify this based on the selected payment method
+                    total: subtotal,
+                };
+    
+                // Make a POST request to your backend API
+                const response = await fetch('http://localhost:3005/createorder', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(orderData),
+                });
+    
+                if (response.ok) {
+                    console.log('Order placed successfully');
+                    localStorage.removeItem('cart');
+                    localStorage.removeItem('order');
+                    setorderPopupVisible(true); // Show the popup
+                } else {
+                    console.error('Failed to place order:', response.statusText);
+                    alert('Failed to place order');
+                }
+            } catch (error) {
+                console.error('Error placing order:', error);
+                alert('Error placing order');
+            }
+        } else {
+            alert('Please Login First');
+            navigate('/login');
         }
-        else {
-            alert("Please Login First")
-            navigate('/login')
-        }
-    }
-
+    };
+    
     const showPopup = () => {
         setPopupVisible(true);
     };
 
     const saveAddress = async () => {
+        const userId = userData._id;
         try {
-            const userId = userData._id;
             const response = await fetch(`http://localhost:3005/userdata/${userId}`, {
                 method: 'PATCH',
                 headers: {
@@ -85,7 +124,6 @@ export const Checkout = () => {
                 },
                 body: JSON.stringify({
                     useraddress: address,
-                    userorder: order,
                 }),
             });
 
@@ -101,8 +139,19 @@ export const Checkout = () => {
 
     const cancelButton = () => {
         setPopupVisible(false);
-    }
+    }    
 
+    const handleQuantityChange = (e, index) => {
+        const newQuantity = [...quantity];
+        newQuantity[index] = parseInt(e.target.value, 10);
+        setQuantity(newQuantity);
+    };
+
+    const closePopup = () => {
+        setorderPopupVisible(false);
+        navigate('/')
+    };
+    
     return (
         <div id='maincheckoutdiv'>
             <div>
@@ -141,23 +190,24 @@ export const Checkout = () => {
                             </div>
                         )}
                         <hr />
+                        
                         <div className='ckeckoutdetails'>
                             <div className='middiv'>
                                 <h3>2 Payment method</h3>
                             </div>
                             <div className='middiv'>
                                 <label htmlFor="Cod">
-                                    <input type="radio" />
+                                    <input type="radio" checked/>
                                     COD
                                 </label>
                                 <br />
                                 <label htmlFor="Upi">
-                                    <input type="radio" />
+                                    <input type="radio" disabled/>
                                     UPI
                                 </label>
-                                <br />
+                                <br /> 
                                 <label htmlFor="Net">
-                                    <input type="radio" />
+                                    <input type="radio" disabled/>
                                     Net Banking
                                 </label>
                             </div>
@@ -173,14 +223,13 @@ export const Checkout = () => {
                                     <div style={{ border: "1px solid grey", borderRadius: '10px', padding: '20px', marginTop: '5px' }} key={index} className='middiv'>
                                         <img src={product.productimage} alt="" />
                                         <p>{product.productname}</p>
-                                        <select name="" id="">
-                                            <option value="1">Qty</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
+                                        <select name="" id="" value={quantity[index]} onChange={(e) => handleQuantityChange(e, index)}>
+                                             <option value="1">Qty 1</option>
+                                             <option value="2">Qty 2</option>
+                                             <option value="3">Qty 3</option>
+                                             <option value="4">Qty 4</option>
+                                             <option value="5">Qty 5</option>
+                                             <option value="6">Qty 6</option>
                                         </select>
                                         <p>₹ {product.productprice}/-</p>
                                         <button className='backto' onClick={() => handleRemoveProduct(index)}>Remove</button>
@@ -226,6 +275,15 @@ export const Checkout = () => {
                 <button onClick={Placeorder} className='lastbtn'>Place Your Order and Pay</button>
                 <h3>Order Total:₹ {subtotal}/-</h3>
             </div>
+
+            {orderPopupVisible && (
+                <div className="popup-container">
+                    <div className="popup-content">
+                    <img onClick={closePopup} src="https://cdn.dribbble.com/users/282075/screenshots/4756095/icon_confirmation.gif" alt="Order Placed" />
+                        <h2>Order placed successfully!</h2>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }

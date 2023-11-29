@@ -77,3 +77,67 @@ color: #B22A07;
 .change:hover{
     color: rgb(6, 139, 139);
 }
+
+
+/* popup */
+
+/* Add these styles to your existing checkout.css file or create a new CSS file */
+
+.popup-container {
+    position: fixed;
+    top: 30px;
+    margin-top: 20px;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background for the blur effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* Higher z-index to overlay on top of other content */
+}
+
+.popup-content {
+    background: #fff;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.popup-image {
+    /* max-width: 100%; */
+    max-height: 300px; /* Set the maximum height of the image */
+    margin-bottom: 20px;
+}
+
+.close-button {
+    background: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Add these styles to blur the background when the popup is visible */
+body.popup-visible {
+    overflow: hidden;
+    filter: blur(5px); /* Adjust the blur effect as needed */
+}
+
+/* Add these styles to prevent scrolling of the body when the popup is visible */
+body.popup-visible {
+    position: fixed;
+    width: 80%;
+}
+
+/* Add these styles to center the popup */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
