@@ -41,35 +41,35 @@ export const Orderpage = () => {
 
   return (
     <div className="order-page">
-    <h1 className="page-title">My Orders</h1>
-    {orders.length === 0 ? (
-      <h1 className="no-orders-message">🚫 You have no orders.</h1>
-    ) : (
-      <ul className="order-list">
-        {orders.map(order => (
-          <li key={order._id} className="order-item">
-            <h3 className="order-id">Order ID: {order._id}</h3>
-            <p className="order-total">Total: ₹{order.total}</p>
-            <p className="order-address">Address: {order.address}</p>
-            <p className="order-payment-method">Payment Method: {order.paymentMethod}</p>
-            <h4 className="product-title">Products:</h4>
-            <ul className="product-list">
-              {order.products.map(product => (
-                <li key={product._id} className="product-item">
-                  {product.quantity} x {product.productName} - ₹{product.price}
-                  <br />
-                  <br />
-                  <img width="50px" src={product.productImage} alt="" />
-                </li>
-              ))}
-            </ul>
+      <h1 className="page-title">My Orders</h1>
+      {orders.length === 0 ? (
+        <h1 className="no-orders-message">🚫 You have no orders.</h1>
+      ) : (
+        <ul className="order-list">
+          {orders.map(order => (
+            <li key={order._id} className="order-item">
+              <h3 className="order-id">Order ID: {order._id}</h3>
+              <p className="order-total">Total: ₹{order.total}</p>
+              <p className="order-address">Address: {order.address}</p>
+              <p className="order-payment-method">Payment Method: {order.paymentMethod}</p>
+              <h4 className="product-title">Products:</h4>
+              <ul className="product-list">
+                {order.products.map(product => (
+                  <li key={product._id} className="product-item">
+                    {product.quantity} x {product.productName} - ₹{product.price}
+                    <br />
+                    <br />
+                    <img width="50px" src={product.productImage} alt="" />
+                  </li>
+                ))}
+              </ul>
 
-            <br />
-            <button className="cancel-button" onClick={() => handleCancelOrder(order._id)}>Cancel Order</button>
-          </li>
-        ))}
-      </ul>
-        )}
+              <br />
+              <button className="cancel-button" onClick={() => handleCancelOrder(order._id)}>Cancel Order</button>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
