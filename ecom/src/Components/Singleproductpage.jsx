@@ -62,9 +62,6 @@ export const Singleproductpage = () => {
       });
     }
   };
-  
-  
-  
 
   const Buynow = () => {
 
@@ -84,9 +81,7 @@ export const Singleproductpage = () => {
 
   return (
     <>
-      <ToastContainer />
       <div id='singleproduct'>
-
         <div>
           <img src={product.productimage} alt={product.productname} />
         </div>
