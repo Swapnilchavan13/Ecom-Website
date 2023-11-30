@@ -21,33 +21,49 @@ export const Singleproductpage = () => {
   if (!product) {
     return <div>No product selected.</div>;
   }
-  
+
   const addToCart = () => {
     // Retrieve existing cart data from local storage
     const existingCartJSON = localStorage.getItem('cart');
     const existingCart = existingCartJSON ? JSON.parse(existingCartJSON) : [];
-    
-    // Merge the new product with the existing cart data
-    const updatedCart = [...existingCart, product];
-    
-    // Update the cart in local storage
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
-    
-    // Update the cart state
-    setCart(updatedCart);
-    
-    toast("Added To The Cart" , {
-      position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
+  
+    // Check if the product is already in the cart
+    const isProductInCart = existingCart.some((item) => JSON.stringify(item) === JSON.stringify(product));
+  
+    if (isProductInCart) {
+      // Product is already in the cart, display a message or handle as needed
+      toast.warn("Product is already in the cart", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
       });
-    // alert("Added To The Cart")
+    } else {
+      // Update the cart in local storage
+      const updatedCart = [...existingCart, product];
+      localStorage.setItem('cart', JSON.stringify(updatedCart));
+  
+      // Update the cart state
+      setCart(updatedCart);
+  
+      toast("Added To The Cart", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        draggable: true,
+         closeOnClick: true,
+        pauseOnHover: true,
+       progress: undefined,
+        theme: "light",
+      });
+    }
   };
+  
+  
   
 
   const Buynow = () => {

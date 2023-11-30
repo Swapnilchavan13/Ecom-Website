@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import '../Styles/login.css';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const Register = () => {
   const navigate = useNavigate();
@@ -25,13 +27,37 @@ export const Register = () => {
 
       if (response.ok) {
         // Registration successful, you can handle the success here
-        alert('User registered successfully');
-        
+
+        toast.success('User registered successfully', {
+          position: "top-right",
+          autoClose: 800,
+          hideProgressBar: false,
+          draggable: true,
+           closeOnClick: true,
+          pauseOnHover: true,
+         progress: undefined,
+          theme: "light",
+        });
+
         // Optionally, you can navigate to another page after successful registration
-        navigate('/login');
+        
+        setTimeout(() => {
+          navigate('/login');  
+        }, 2000);
+
       } else {
         // Registration failed, handle the error
-        alert('Failed to register user');
+        toast.error('Failed to register user', {
+          position: "top-center",
+          autoClose: 800,
+          hideProgressBar: false,
+          draggable: true,
+           closeOnClick: true,
+          pauseOnHover: true,
+         progress: undefined,
+          theme: "light",
+        });
+
       }
     } catch (error) {
       console.error('Error during registration:', error);

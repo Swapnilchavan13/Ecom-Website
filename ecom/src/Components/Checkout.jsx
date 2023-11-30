@@ -174,7 +174,7 @@ export const Checkout = () => {
                         </div>
 
                         {isPopupVisible && (
-                            <div className="popup">
+                            <div>
                                 <input
                                     className="address-input"
                                     placeholder='Enter Your House No. Street with City And Pincode'
