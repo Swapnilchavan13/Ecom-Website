@@ -16,7 +16,7 @@ export const Orderpage = () => {
         setOrders(userOrders);
       })
       .catch(error => console.error('Error fetching data:', error));
-  }, [uid]); // Dependency array now includes 'uname' so that the effect runs when the username changes
+  }, [uid]);
 
   const handleCancelOrder = async (orderId) => {
     try {
