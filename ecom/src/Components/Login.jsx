@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import '../Styles/login.css';
 import { useNavigate } from 'react-router-dom';
 import { Userdetails } from './Userdetails';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -26,13 +30,33 @@ export const Login = () => {
         localStorage.setItem('uid', matchingUser._id);
         localStorage.setItem('usermobile', matchingUser.usernumber);
         localStorage.setItem('isLoginSuccessful', true);
-        alert('Login Successful');
-        navigate('/');
+        
+        toast.success('Login Successful', {
+          position: "top-center",
+          autoClose: 800,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
+        // navigate('/');
        window.location.reload();
 
       } else {
         // Login failed
-        alert('Invalid credentials. Please try again.');
+        toast.error('Invalid credentials. Please try again.', {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
+        // alert('Invalid credentials. Please try again.');
       }
     } catch (error) {
       console.error('Error during login:', error);
@@ -43,12 +67,16 @@ export const Login = () => {
     navigate('/register');
   };
 
+  
+
   return (
+    
     <div id='logindiv'>
       {isloggedin ? (
         <Userdetails />
-      ) : (
-        <>
+        ) : (
+          <>
+          <ToastContainer />
           <br />
           <img width='180px' src='https://pngimg.com/d/amazon_PNG9.png' alt='' />
 

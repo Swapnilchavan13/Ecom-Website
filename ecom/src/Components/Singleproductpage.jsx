@@ -1,29 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import '../Styles/singleproduct.css';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export const Singleproductpage = () => {
   const navigate = useNavigate();
   const [cart, setCart] = useState([]);
-
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
+  
   // Retrieve the product details from local storage
   const storedProductJSON = localStorage.getItem('selectedProduct');
   const product = JSON.parse(storedProductJSON);
-
+  
   // Check if there is a selected product in local storage
   if (!product) {
     return <div>No product selected.</div>;
   }
-
+  
   const addToCart = () => {
     // Retrieve existing cart data from local storage
     const existingCartJSON = localStorage.getItem('cart');
     const existingCart = existingCartJSON ? JSON.parse(existingCartJSON) : [];
-
+    
     // Merge the new product with the existing cart data
     const updatedCart = [...existingCart, product];
     
@@ -32,9 +35,20 @@ export const Singleproductpage = () => {
     
     // Update the cart state
     setCart(updatedCart);
-
-    alert("Added To The Cart")
+    
+    toast("Added To The Cart" , {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+    // alert("Added To The Cart")
   };
+  
 
   const Buynow = () => {
 
@@ -49,16 +63,14 @@ export const Singleproductpage = () => {
     
     // Update the cart state
     setCart(updatedCart);
-
-
     navigate('/checkoutpage');
   };
 
-  
-
   return (
     <>
+      <ToastContainer />
       <div id='singleproduct'>
+
         <div>
           <img src={product.productimage} alt={product.productname} />
         </div>
@@ -82,6 +94,7 @@ export const Singleproductpage = () => {
           <button className='btn1' onClick={addToCart}>
             Add To Cart
           </button>
+
           <br />
           <button onClick={Buynow} className='btn2'>
             Buy Now

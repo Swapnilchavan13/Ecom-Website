@@ -41,7 +41,10 @@ export const Orderpage = () => {
 
   return (
     <div className="order-page">
-      <h1 className="page-title">My Orders</h1>
+    <h1 className="page-title">My Orders</h1>
+    {orders.length === 0 ? (
+      <h1 className="no-orders-message">🚫 You have no orders.</h1>
+    ) : (
       <ul className="order-list">
         {orders.map(order => (
           <li key={order._id} className="order-item">
@@ -60,11 +63,13 @@ export const Orderpage = () => {
                 </li>
               ))}
             </ul>
+
             <br />
             <button className="cancel-button" onClick={() => handleCancelOrder(order._id)}>Cancel Order</button>
           </li>
         ))}
       </ul>
+        )}
     </div>
   );
 };

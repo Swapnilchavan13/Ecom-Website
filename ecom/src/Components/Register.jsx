@@ -26,6 +26,7 @@ export const Register = () => {
       if (response.ok) {
         // Registration successful, you can handle the success here
         alert('User registered successfully');
+        
         // Optionally, you can navigate to another page after successful registration
         navigate('/login');
       } else {
