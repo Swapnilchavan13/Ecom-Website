@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import '../Styles/login.css';
 import { useNavigate } from 'react-router-dom';
 import { Userdetails } from './Userdetails';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -74,6 +75,7 @@ export const Login = () => {
         <Userdetails />
         ) : (
           <>
+          <ToastContainer />
           <br />
           <img width='180px' src='https://pngimg.com/d/amazon_PNG9.png' alt='' />
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../Styles/singleproduct.css';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -81,7 +81,9 @@ export const Singleproductpage = () => {
 
   return (
     <>
+      <ToastContainer />
       <div id='singleproduct'>
+
         <div>
           <img src={product.productimage} alt={product.productname} />
         </div>

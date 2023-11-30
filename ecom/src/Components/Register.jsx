@@ -29,7 +29,7 @@ export const Register = () => {
         // Registration successful, you can handle the success here
 
         toast.success('User registered successfully', {
-          position: "top-right",
+          position: "top-center",
           autoClose: 800,
           hideProgressBar: false,
           draggable: true,
@@ -66,6 +66,7 @@ export const Register = () => {
 
   return (
     <div id='logindiv'>
+      <ToastContainer />
       <br />
       <img width='180px' src='https://pngimg.com/d/amazon_PNG9.png' alt='' />
 
