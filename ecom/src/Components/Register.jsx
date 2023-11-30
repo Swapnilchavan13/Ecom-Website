@@ -33,16 +33,16 @@ export const Register = () => {
           autoClose: 800,
           hideProgressBar: false,
           draggable: true,
-           closeOnClick: true,
+          closeOnClick: true,
           pauseOnHover: true,
-         progress: undefined,
+          progress: undefined,
           theme: "light",
         });
 
         // Optionally, you can navigate to another page after successful registration
-        
+
         setTimeout(() => {
-          navigate('/login');  
+          navigate('/login');
         }, 2000);
 
       } else {
@@ -52,9 +52,9 @@ export const Register = () => {
           autoClose: 800,
           hideProgressBar: false,
           draggable: true,
-           closeOnClick: true,
+          closeOnClick: true,
           pauseOnHover: true,
-         progress: undefined,
+          progress: undefined,
           theme: "light",
         });
 
