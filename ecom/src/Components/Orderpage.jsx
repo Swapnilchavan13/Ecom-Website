@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import '../Styles/order.css';
 
-
 export const Orderpage = () => {
   const [orders, setOrders] = useState([]);
   const uid = localStorage.getItem('uid');
@@ -40,7 +39,6 @@ export const Orderpage = () => {
     }
   }
 
-
   return (
     <div className="order-page">
       <h1 className="page-title">My Orders</h1>
@@ -56,6 +54,9 @@ export const Orderpage = () => {
               {order.products.map(product => (
                 <li key={product._id} className="product-item">
                   {product.quantity} x {product.productName} - ₹{product.price}
+                  <br />
+                  <br />
+                  <img width="50px" src={product.productImage} alt="" />
                 </li>
               ))}
             </ul>
