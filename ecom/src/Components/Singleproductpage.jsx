@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../Styles/singleproduct.css';
 import { useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
