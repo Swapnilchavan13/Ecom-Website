@@ -86,7 +86,7 @@ export const Checkout = () => {
                     total: subtotal,
                     status: false,
                 };
-    
+
                 // Make a POST request to your backend API
                 const response = await fetch('http://localhost:3005/createorder', {
                     method: 'POST',
@@ -95,7 +95,7 @@ export const Checkout = () => {
                     },
                     body: JSON.stringify(orderData),
                 });
-    
+
                 if (response.ok) {
                     console.log('Order placed successfully');
                     localStorage.removeItem('cart');
@@ -114,7 +114,7 @@ export const Checkout = () => {
             navigate('/login');
         }
     };
-    
+
     const showPopup = () => {
         setPopupVisible(true);
     };
@@ -144,7 +144,7 @@ export const Checkout = () => {
 
     const cancelButton = () => {
         setPopupVisible(false);
-    }    
+    }
 
     const handleQuantityChange = (e, index) => {
         const newQuantity = [...quantity];
@@ -156,7 +156,7 @@ export const Checkout = () => {
         setorderPopupVisible(false);
         navigate('/')
     };
-    
+
     return (
         <div id='maincheckoutdiv'>
             <div>
@@ -195,24 +195,24 @@ export const Checkout = () => {
                             </div>
                         )}
                         <hr />
-                        
+
                         <div className='ckeckoutdetails'>
                             <div className='middiv'>
                                 <h3>2 Payment method</h3>
                             </div>
                             <div className='middiv'>
                                 <label htmlFor="Cod">
-                                    <input type="radio" checked/>
+                                    <input type="radio" checked />
                                     COD
                                 </label>
                                 <br />
                                 <label htmlFor="Upi">
-                                    <input type="radio" disabled/>
+                                    <input type="radio" disabled />
                                     UPI
                                 </label>
-                                <br /> 
+                                <br />
                                 <label htmlFor="Net">
-                                    <input type="radio" disabled/>
+                                    <input type="radio" disabled />
                                     Net Banking
                                 </label>
                             </div>
@@ -229,12 +229,12 @@ export const Checkout = () => {
                                         <img src={product.productimage} alt="" />
                                         <p>{product.productname}</p>
                                         <select name="" id="" value={quantity[index]} onChange={(e) => handleQuantityChange(e, index)}>
-                                             <option value="1">Qty 1</option>
-                                             <option value="2">Qty 2</option>
-                                             <option value="3">Qty 3</option>
-                                             <option value="4">Qty 4</option>
-                                             <option value="5">Qty 5</option>
-                                             <option value="6">Qty 6</option>
+                                            <option value="1">Qty 1</option>
+                                            <option value="2">Qty 2</option>
+                                            <option value="3">Qty 3</option>
+                                            <option value="4">Qty 4</option>
+                                            <option value="5">Qty 5</option>
+                                            <option value="6">Qty 6</option>
                                         </select>
                                         <p>₹ {product.productprice}/-</p>
                                         <button className='backto' onClick={() => handleRemoveProduct(index)}>Remove</button>
@@ -284,7 +284,7 @@ export const Checkout = () => {
             {orderPopupVisible && (
                 <div className="popup-container">
                     <div className="popup-content">
-                    <img onClick={closePopup} src="https://cdn.dribbble.com/users/282075/screenshots/4756095/icon_confirmation.gif" alt="Order Placed" />
+                        <img onClick={closePopup} src="https://cdn.dribbble.com/users/282075/screenshots/4756095/icon_confirmation.gif" alt="Order Placed" />
                         <h2> 🎉Order Placed Successfully! 🎉</h2>
                     </div>
                 </div>

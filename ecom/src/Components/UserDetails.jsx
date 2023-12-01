@@ -16,11 +16,11 @@ export const Userdetails = () => {
       try {
         const response = await fetch(`http://localhost:3005/userdata`);
         const data = await response.json();
-  
+
         if (response.ok) {
           // Find the user that matches both username and usernumber
           const matchingUser = data.find(user => user.username === username && user.usernumber === usermobile);
-  
+
           if (matchingUser) {
             setUserData(matchingUser);
           } else {
@@ -34,10 +34,10 @@ export const Userdetails = () => {
       } finally {
       }
     };
-  
+
     fetchData();
   }, [username, usermobile]);
-  
+
   const handleLogout = () => {
     localStorage.removeItem('username');
     localStorage.removeItem('isLoginSuccessful');
@@ -78,17 +78,17 @@ export const Userdetails = () => {
 
   return (
     <div className="user-details-container">
-       <h2 className="user-details-header">User Details</h2>
+      <h2 className="user-details-header">User Details</h2>
       {userData ? (
         <>
           <h2>Name: {userData.username}</h2>
           <h3>Mobile Number: {userData.usernumber}</h3>
           <h3>Address: {userData.useraddress}</h3>
         </>
-      ) : ( 
-         <p>Loading user data...</p> 
-       )} 
-       
+      ) : (
+        <p>Loading user data...</p>
+      )}
+
       <button className='addadd' onClick={showPopup}>
         Add/Edit Address
       </button>

@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export const Login = () => {
   const navigate = useNavigate();
-  const isloggedin= localStorage.getItem('isLoginSuccessful')  || false;
+  const isloggedin = localStorage.getItem('isLoginSuccessful') || false;
 
   const [mobileNumber, setMobileNumber] = useState('');
   const [password, setPassword] = useState('');
@@ -29,7 +29,7 @@ export const Login = () => {
         localStorage.setItem('uid', matchingUser._id);
         localStorage.setItem('usermobile', matchingUser.usernumber);
         localStorage.setItem('isLoginSuccessful', true);
-        
+
         toast.success('Login Successful', {
           position: "top-center",
           autoClose: 800,
@@ -39,9 +39,9 @@ export const Login = () => {
           draggable: true,
           progress: undefined,
           theme: "light",
-          });
+        });
         // navigate('/');
-       window.location.reload();
+        window.location.reload();
 
       } else {
         // Login failed
@@ -54,7 +54,7 @@ export const Login = () => {
           draggable: true,
           progress: undefined,
           theme: "light",
-          });
+        });
         // alert('Invalid credentials. Please try again.');
       }
     } catch (error) {
@@ -66,15 +66,15 @@ export const Login = () => {
     navigate('/register');
   };
 
-  
+
 
   return (
-    
+
     <div id='logindiv'>
       {isloggedin ? (
         <Userdetails />
-        ) : (
-          <>
+      ) : (
+        <>
           <ToastContainer />
           <br />
           <img width='180px' src='https://pngimg.com/d/amazon_PNG9.png' alt='' />

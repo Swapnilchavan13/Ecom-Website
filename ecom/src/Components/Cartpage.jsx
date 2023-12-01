@@ -26,7 +26,7 @@ export const Cartpage = () => {
         );
     }
 
-    const ProceedBuy= () =>{
+    const ProceedBuy = () => {
         navigate('/checkoutpage')
     }
 
