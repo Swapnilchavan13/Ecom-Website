@@ -8,7 +8,6 @@ export const Userdetails = () => {
   const usermobile = localStorage.getItem('usermobile');
   const uid = localStorage.getItem('uid');
 
-
   const [isPopupVisible, setPopupVisible] = useState(false);
   const [address, setAddress] = useState('');
   const [userData, setUserData] = useState(null);
@@ -46,7 +45,6 @@ export const Userdetails = () => {
     localStorage.removeItem('cart');
     localStorage.removeItem('usermobile');
     localStorage.removeItem('uid');
-
     navigate('/');
     window.location.reload();
   };

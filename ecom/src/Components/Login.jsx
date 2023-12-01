@@ -5,7 +5,6 @@ import { Userdetails } from './Userdetails';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 export const Login = () => {
   const navigate = useNavigate();
   const isloggedin = localStorage.getItem('isLoginSuccessful') || false;
