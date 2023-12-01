@@ -6,6 +6,8 @@ export const Userdetails = () => {
   const navigate = useNavigate();
   const username = localStorage.getItem('username');
   const usermobile = localStorage.getItem('usermobile');
+  const uid = localStorage.getItem('uid');
+
 
   const [isPopupVisible, setPopupVisible] = useState(false);
   const [address, setAddress] = useState('');
@@ -19,7 +21,7 @@ export const Userdetails = () => {
 
         if (response.ok) {
           // Find the user that matches both username and usernumber
-          const matchingUser = data.find(user => user.username === username && user.usernumber === usermobile);
+          const matchingUser = data.find(user => user._id === uid);
 
           if (matchingUser) {
             setUserData(matchingUser);
