@@ -1,4 +1,3 @@
-// Orderpage component with added classes
 import React, { useState, useEffect } from 'react';
 import '../Styles/order.css';
 
@@ -52,6 +51,8 @@ export const Orderpage = () => {
               <p className="order-total">Total: ₹{order.total}</p>
               <p className="order-address">Address: {order.address}</p>
               <p className="order-payment-method">Payment Method: {order.paymentMethod}</p>
+              <p className="order-payment-method">Order Date: {order.orderdate}</p>
+
               <h4 className="product-title">Products:</h4>
               <ul className="product-list">
                 {order.products.map(product => (
@@ -65,7 +66,13 @@ export const Orderpage = () => {
               </ul>
 
               <br />
-              <button className="cancel-button" onClick={() => handleCancelOrder(order._id)}>Cancel Order</button>
+              <button
+                className={`cancel-button ${order.status ? 'grey-bg' : ''}`}
+                onClick={() => handleCancelOrder(order._id)}
+                disabled={order.status}
+              >
+                Cancel Order
+              </button>
             </li>
           ))}
         </ul>

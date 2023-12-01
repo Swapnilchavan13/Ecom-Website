@@ -48,7 +48,6 @@ export const Checkout = () => {
         fetchData();
     }, [username, usermobile]);
 
-
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -66,12 +65,15 @@ export const Checkout = () => {
     const subtotal = products.reduce((acc, product, _id) => acc + +product.productprice * quantity[_id], 0);
 
 
+    console.log(Date())
+
     const Placeorder = async () => {
         if (isLogin) {
             try {
                 // Create an order object with relevant data
                 const orderData = {
                     userId: userData._id,
+                    orderdate: Date(),
                     products: products.map((product, index) => ({
                         productId: product._id, // Assuming your product model has an "_id" property
                         productName: product.productname,
@@ -82,6 +84,7 @@ export const Checkout = () => {
                     address: userData.useraddress,
                     paymentMethod: 'COD', // You can modify this based on the selected payment method
                     total: subtotal,
+                    status: false,
                 };
     
                 // Make a POST request to your backend API
