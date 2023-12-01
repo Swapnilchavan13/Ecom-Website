@@ -43,6 +43,7 @@ export const Userdetails = () => {
     localStorage.removeItem('isLoginSuccessful');
     localStorage.removeItem('cart');
     localStorage.removeItem('usermobile');
+    localStorage.removeItem('uid');
 
     navigate('/');
     window.location.reload();
@@ -80,8 +81,8 @@ export const Userdetails = () => {
        <h2 className="user-details-header">User Details</h2>
       {userData ? (
         <>
-          <h2>Name: {username}</h2>
-          <h3>Mobile Number: {usermobile}</h3>
+          <h2>Name: {userData.username}</h2>
+          <h3>Mobile Number: {userData.usernumber}</h3>
           <h3>Address: {userData.useraddress}</h3>
         </>
       ) : ( 
