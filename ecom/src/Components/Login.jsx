@@ -65,10 +65,7 @@ export const Login = () => {
     navigate('/register');
   };
 
-
-
   return (
-
     <div id='logindiv'>
       {isloggedin ? (
         <Userdetails />
