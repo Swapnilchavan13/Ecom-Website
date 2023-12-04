@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../Styles/navbar.css';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 export const Navbar = () => {
     const Uname = localStorage.getItem('username') || "Account";
+    const [currlocation, setCurrlocation] = useState({});
+
+    useEffect(() => {
+        getLocation();
+    }, []);
+
+    const getLocation = async () => {
+        try {
+            const response = await axios.get("https://ipapi.co/json");
+            setCurrlocation(response.data);
+        } catch (error) {
+            console.error('Error getting location:', error);
+        }
+    };
 
     return (
         <>
@@ -14,7 +29,7 @@ export const Navbar = () => {
                     </Link>
                 </div>
                 <div>
-                    <h3>🌍 Location</h3>
+                    <h3>🌍{currlocation.city ? currlocation.city : "Location"}</h3>
                 </div>
                 <div id='searchdiv'>
                     <input placeholder='Search Greyowl.in' type="text" name="" id="" />

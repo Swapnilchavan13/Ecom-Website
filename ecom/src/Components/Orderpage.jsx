@@ -52,7 +52,6 @@ export const Orderpage = () => {
               <p className="order-address">Address: {order.address}</p>
               <p className="order-payment-method">Payment Method: {order.paymentMethod}</p>
               <p className="order-payment-method">Order Date: {order.orderdate}</p>
-
               <h4 className="product-title">Products:</h4>
               <ul className="product-list">
                 {order.products.map(product => (
@@ -64,7 +63,6 @@ export const Orderpage = () => {
                   </li>
                 ))}
               </ul>
-
               <br />
               <button
                 className={`cancel-button ${order.status ? 'grey-bg' : ''}`}
