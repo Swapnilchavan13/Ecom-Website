@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../Styles/login.css';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import { Userdetails } from './Userdetails'
+import { Userdetails } from './Userdetails.jsx'
 import 'react-toastify/dist/ReactToastify.css';
 
 export const Login = () => {
@@ -68,7 +68,6 @@ export const Login = () => {
   return (
     <div id='logindiv'>
       {isloggedin ? (
-        // <Userdetails />
         <Userdetails />
       ) : (
         <>
