@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../Styles/checkout.css';
 import { useNavigate } from 'react-router-dom';
+import { Cardpayment } from './Cardpayment';
 
 export const Checkout = () => {
   const navigate = useNavigate();
@@ -223,15 +224,15 @@ export const Checkout = () => {
                 </label>
                 <br />
                 <label htmlFor="Net">
-                  <input
-                    type="radio"
-                    checked={selectedPaymentOption === 'Net Banking'}
-                    onChange={() => setSelectedPaymentOption('Net Banking')}
-                    disabled
-                  />
-                  Net Banking
-                </label>
-              </div>
+    <input
+      type="radio"
+      checked={selectedPaymentOption === 'Net Banking'}
+      onChange={() => setSelectedPaymentOption('Net Banking')}
+    />
+    Net Banking
+  </label>
+  {selectedPaymentOption === 'Net Banking' && <Cardpayment />}
+</div>
               <p>Change</p>
             </div>
             <hr />
