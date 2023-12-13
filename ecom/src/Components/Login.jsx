@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 // import { Userdetails } from './Userdetails.jsx'
 import 'react-toastify/dist/ReactToastify.css';
+import { UserData } from './UserData';
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -69,7 +70,7 @@ export const Login = () => {
     <div id='logindiv'>
       {isloggedin ? (
         // <Userdetails />
-        "No Data"
+        <UserData />
       ) : (
         <>
           <ToastContainer />

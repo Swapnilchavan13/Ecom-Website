@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import '../Styles/userdetails.css';
 
 export const Userdetails = () => {
-  const navigate = useNavigate();
-  const username = localStorage.getItem('username');
+    const navigate = useNavigate();
+const username = localStorage.getItem('username');
   const usermobile = localStorage.getItem('usermobile');
   const uid = localStorage.getItem('uid');
 
