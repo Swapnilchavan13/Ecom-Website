@@ -223,16 +223,16 @@ export const Checkout = () => {
                   UPI
                 </label>
                 <br />
-                <label htmlFor="Net">
-    <input
-      type="radio"
-      checked={selectedPaymentOption === 'Net Banking'}
-      onChange={() => setSelectedPaymentOption('Net Banking')}
-    />
-    Net Banking
-  </label>
-  {selectedPaymentOption === 'Net Banking' && <Cardpayment />}
-</div>
+                <label htmlFor="Card">
+                  <input
+                    type="radio"
+                    checked={selectedPaymentOption === 'Card Payment'}
+                    onChange={() => setSelectedPaymentOption('Card Payment')}
+                  />
+                  Card Payment
+                </label>
+                {selectedPaymentOption === 'Card Payment' && <Cardpayment />}
+              </div>
               <p>Change</p>
             </div>
             <hr />
