@@ -47,7 +47,7 @@ export const Productpage = () => {
 
   useEffect(() => {
     // Fetch data from the API
-    fetch('http://localhost:3005/allproducts')
+    fetch('http://62.72.59.146:3008/allproducts')
       .then(response => response.json())
       .then(data => {
         // Filter data based on the selected type

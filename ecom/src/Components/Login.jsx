@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import '../Styles/login.css';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-// import { Userdetails } from './Userdetails.jsx'
 import 'react-toastify/dist/ReactToastify.css';
 import { UserData } from './UserData';
 
@@ -15,7 +14,7 @@ export const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('http://localhost:3005/allusers');
+      const response = await fetch('http://62.72.59.146:3008/allusers');
       const users = await response.json();
 
       // Find the user with matching credentials

@@ -16,7 +16,7 @@ export const UserData = () => {
    useEffect(() => {
      const fetchData = async () => {
        try {
-         const response = await fetch(`http://localhost:3005/userdata`);
+         const response = await fetch(`http://62.72.59.146:3008/userdata`);
          const data = await response.json();
  
          if (response.ok) {
@@ -53,7 +53,7 @@ export const UserData = () => {
    const saveAddress = async () => {
      try {
        const userId = userData._id;
-       const response = await fetch(`http://localhost:3005/userdata/${userId}`, {
+       const response = await fetch(`http://62.72.59.146:3008/userdata/${userId}`, {
          method: 'PATCH',
          headers: {
            'Content-Type': 'application/json',

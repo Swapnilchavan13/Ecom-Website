@@ -7,7 +7,7 @@ export const Orderpage = () => {
 
   useEffect(() => {
     // Fetch data from the API endpoint
-    fetch('http://localhost:3005/allorders')
+    fetch('http://62.72.59.146:3008/allorders')
       .then(response => response.json())
       .then(data => {
         // Filter orders based on the username
@@ -20,7 +20,7 @@ export const Orderpage = () => {
   const handleCancelOrder = async (orderId) => {
     try {
       // Send a DELETE request to the API to cancel the order
-      const response = await fetch(`http://localhost:3005/allorders/${orderId}`, {
+      const response = await fetch(`http://62.72.59.146:3008/allorders${orderId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
