@@ -42,6 +42,12 @@ export const Navbar = () => {
                 </div>
 
                 <div>
+                    <Link to='merchantregistration'>
+                        <h3>Merchant</h3>
+                    </Link>
+                </div>
+
+                <div>
                     <Link to="orderpage">
                         <p>🔁 Returns</p>
                         <h4>& Orders</h4>
