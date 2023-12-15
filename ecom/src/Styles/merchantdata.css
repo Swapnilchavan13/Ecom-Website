@@ -4,7 +4,8 @@
   display: flex;
   justify-content: space-between;
   border: 2px solid black;
-  padding: 20px;
+  padding: 10px;
+  background-color: #b8b6b6;
   }
 
 .merchant-data-container {
