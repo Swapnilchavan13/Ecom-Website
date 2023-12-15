@@ -42,7 +42,6 @@ export const Addmerchantproduct = () => {
       if (response.ok) {
         alert('Product added successfully');
         // Optionally, you can redirect or update state here
-
         setProductData({
           merchantid: '',
           producttype: '',
@@ -145,6 +144,6 @@ export const Addmerchantproduct = () => {
         <button className="form-button" type="submit">Add Product</button>
       </form>
     </div>
-            </>
+    </>
   );
 };
