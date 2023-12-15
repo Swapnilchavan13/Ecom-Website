@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../Styles/merchant.css';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
 export const MerchantRegistrationForm = () => {
@@ -71,9 +71,11 @@ export const MerchantRegistrationForm = () => {
   };
   
 
-
   return (
     <form className="merchant-form" onSubmit={handleSubmit}>
+      <Link to="/merchantlogin">
+      <h3>Already have an account</h3>
+      </Link>
         <h2>Merchant Registration Form</h2>
       <label htmlFor="businessName" className="form-label">
         Business Name:
