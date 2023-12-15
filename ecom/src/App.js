@@ -12,6 +12,8 @@ import { Checkout } from './Components/Checkout';
 import { Cartpage } from './Components/Cartpage';
 import { Orderpage } from './Components/Orderpage';
 import {MerchantRegistrationForm} from './Components/MerchantRegistrationForm';
+import { Merchantdatapage } from './Components/Merchantdatapage';
+import { MerchantLoginForm } from './Components/MerchantLoginForm';
 
 function App() {
 
@@ -29,6 +31,9 @@ function App() {
           <Route path="orderpage" element={<Orderpage/>} />
           <Route path="cartpage" element={<Cartpage />} />
           <Route path="merchantregistration" element={<MerchantRegistrationForm />} />
+          <Route path="merchantdatapage" element={<Merchantdatapage />} />
+          <Route path="merchantlogin" element={<MerchantLoginForm />} />
+          
       </Routes>
       <Bottomnavbar />
     </BrowserRouter>

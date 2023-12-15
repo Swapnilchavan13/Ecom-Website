@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import '../Styles/merchant.css';
+import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
 export const MerchantRegistrationForm = () => {
+
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     businessName: '',
     businessType: '',
@@ -21,20 +26,42 @@ export const MerchantRegistrationForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
-      const response = await fetch('https://api.example.com/merchant-registration', {
+      const response = await fetch('http://localhost:3008/merchantdata', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
-
+  
       if (response.ok) {
-        console.log('Merchant registered successfully!');
-        // You can handle success as needed
+        const data = await response.json();
+  
+        if (data.success) {
+
+          console.log('Merchant registered successfully!');
+          toast.success('Merchant Register Successful', {
+            position: "top-center",
+            autoClose: 800,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+         
+          navigate('/merchantlogin');
+          // You can handle success as needed
+        } else {
+          alert(data.errorMessage);
+          console.error('Failed to register merchant');
+          // Handle errors appropriately
+        }
       } else {
+        alert('Business Email or phone number already in use');
         console.error('Failed to register merchant');
         // Handle errors appropriately
       }
@@ -42,6 +69,7 @@ export const MerchantRegistrationForm = () => {
       console.error('Error:', error);
     }
   };
+  
 
 
   return (
@@ -58,7 +86,6 @@ export const MerchantRegistrationForm = () => {
           onChange={handleInputChange}
         />
       </label>
-  
       <label htmlFor="businessType" className="form-label">
   Business Type:
   <select
@@ -75,7 +102,6 @@ export const MerchantRegistrationForm = () => {
     <option value="partnership">Partnership</option>
     <option value="nonProfit">Non-Profit Organization</option>
     <option value="cooperative">Cooperative</option>
-    {/* Add more options as needed */}
   </select>
 </label>
 
@@ -162,11 +188,7 @@ export const MerchantRegistrationForm = () => {
           onChange={handleInputChange}
         />
       </label>
-     
-  
-  
-      {/* Add more form fields as needed */}
-      
+           
       <button type="submit" className="form-button">
         Register
       </button>
