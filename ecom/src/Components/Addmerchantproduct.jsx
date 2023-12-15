@@ -7,6 +7,7 @@ export const Addmerchantproduct = () => {
     const mid= localStorage.getItem('merchantid')
 
     console.log(mid)
+    
   const [productData, setProductData] = useState({
     mercahntid: mid,
     producttype: '',
