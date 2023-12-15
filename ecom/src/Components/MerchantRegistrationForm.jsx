@@ -74,7 +74,7 @@ export const MerchantRegistrationForm = () => {
   return (
     <form className="merchant-form" onSubmit={handleSubmit}>
       <Link to="/merchantlogin">
-      <h3>Already have an account</h3>
+      <h3 style={{color:"blue"}}>Already have an account</h3>
       </Link>
         <h2>Merchant Registration Form</h2>
       <label htmlFor="businessName" className="form-label">

@@ -11,16 +11,30 @@ import { Singleproductpage } from './Components/Singleproductpage';
 import { Checkout } from './Components/Checkout';
 import { Cartpage } from './Components/Cartpage';
 import { Orderpage } from './Components/Orderpage';
-import {MerchantRegistrationForm} from './Components/MerchantRegistrationForm';
+import { MerchantRegistrationForm } from './Components/MerchantRegistrationForm';
 import { Merchantdatapage } from './Components/Merchantdatapage';
 import { MerchantLoginForm } from './Components/MerchantLoginForm';
+import { Addmerchantproduct } from './Components/Addmerchantproduct';
+import { Allmerchantproduct } from './Components/Allmerchantproduct';
+import { Merchantorders } from './Components/Merchantorders';
 
 function App() {
+
+  const shouldRenderNavbar = () => {
+    const allowedPaths = [
+      '/merchantdatapage',
+      '/merchantdatapage/merchantadd',
+      '/merchantdatapage/merchantproduct',
+      '/merchantdatapage/merchantorders',
+    ];
+  
+    return !allowedPaths.includes(window.location.pathname);
+  };
 
   return (
     <div className="App">
       <BrowserRouter>
-      <Navbar />
+      {shouldRenderNavbar() && <Navbar />}
       <Routes>
           <Route index element={<Homepage />} />
           <Route path="products" element={<Productpage />} />
@@ -33,9 +47,13 @@ function App() {
           <Route path="merchantregistration" element={<MerchantRegistrationForm />} />
           <Route path="merchantdatapage" element={<Merchantdatapage />} />
           <Route path="merchantlogin" element={<MerchantLoginForm />} />
-          
-      </Routes>
-      <Bottomnavbar />
+          <Route path="merchantdatapage/merchantadd" element={<Addmerchantproduct />} />
+          <Route path="merchantdatapage/merchantproduct" element={<Allmerchantproduct />} />
+          <Route path="merchantdatapage/merchantorder" element={<Merchantorders />} />
+ </Routes>
+      
+ {shouldRenderNavbar() && <Bottomnavbar />}
+
     </BrowserRouter>
     </div>
   );

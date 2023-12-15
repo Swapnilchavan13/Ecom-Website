@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -32,8 +32,9 @@ export const MerchantLoginForm = () => {
           progress: undefined,
           theme: 'light',
         });
-
         navigate('/merchantdatapage');
+
+        window.location.reload();
       } else {
         toast.error('Invalid credentials. Please try again.', {
           position: 'top-center',
@@ -55,13 +56,15 @@ export const MerchantLoginForm = () => {
     navigate('/merchantregistration');
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="merchant-login-container">
       <>
         <ToastContainer />
         <br />
-        {/* <img className="logo" src="https://pngimg.com/d/amazon_PNG9.png" alt="" /> */}
-
         <div className="mainlogindiv">
           <h1>Sign in</h1>
           <label htmlFor="">Business Email Id</label> <br />
@@ -88,11 +91,8 @@ export const MerchantLoginForm = () => {
             <button className="btn" onClick={handleLogin}>
               Continue
             </button>
-            <p>
-              By continuing, you agree to Amazon's Conditions <br /> of Use and Privacy Notice.
-            </p>
           </div>
-          <p>New to Amazon?</p>
+          <br />
           <button onClick={newAccount} className="btn2">
             Create New Merchant account
           </button>

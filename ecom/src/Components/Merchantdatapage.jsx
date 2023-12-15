@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Styles/merchantdata.css'; // Import the CSS file
+import { Navbarmarchant } from './Navbarmarchant';
 
 export const Merchantdatapage = () => {
   const navigate = useNavigate();
@@ -12,7 +13,6 @@ export const Merchantdatapage = () => {
         // Get the merchant id from localStorage
         const merchantId = localStorage.getItem('merchantid');
 
-        // Redirect to login page if merchant ID is not present
         if (!merchantId) {
           navigate('/merchantlogin');
           return;
@@ -22,31 +22,30 @@ export const Merchantdatapage = () => {
         const response = await fetch('http://localhost:3008/allmerchants');
         const merchants = await response.json();
 
-        // Find the merchant with the matching id
         const matchingMerchant = merchants.find((merchant) => merchant._id === merchantId);
 
         if (matchingMerchant) {
           setMerchantData(matchingMerchant);
         } else {
           console.error('Merchant not found');
-          // Handle case where merchant is not found
         }
       } catch (error) {
         console.error('Error fetching merchant data:', error);
-        // Handle error
       }
     };
-
     fetchData();
   }, [navigate]);
 
   const handleBack = () => {
-    // Remove the merchantid from localStorage
     localStorage.removeItem('merchantid');
-    navigate('/'); // Replace with the appropriate path
+    navigate('/merchantlogin'); 
+    window.location.reload();
+
   };
 
   return (
+    <>
+      <Navbarmarchant />
     <div className="merchant-data-container">
       {merchantData ? (
         <>
@@ -65,7 +64,8 @@ export const Merchantdatapage = () => {
         </>
       ) : (
         <p>Loading...</p>
-      )}
+        )}
     </div>
+        </>
   );
 };

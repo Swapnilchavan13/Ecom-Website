@@ -1,5 +1,12 @@
 /* Merchantdatapage.css */
 
+.nav{
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid black;
+  padding: 20px;
+  }
+
 .merchant-data-container {
     max-width: 600px;
     margin: 0 auto;
