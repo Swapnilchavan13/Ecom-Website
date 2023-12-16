@@ -5,8 +5,6 @@ import { Navbarmarchant } from './Navbarmarchant';
 export const Addmerchantproduct = () => {
 
   const mid = localStorage.getItem('merchantid') || 'adminupload';
-
-    // console.log(mid)
     
   const [productData, setProductData] = useState({
     merchantid: mid,
@@ -52,6 +50,8 @@ export const Addmerchantproduct = () => {
           productdiscount: '',
           productquantity: '',
         });
+
+        window.location.reload();
 
       } else {
         console.error('Failed to add product');
