@@ -76,6 +76,7 @@ export const Checkout = () => {
           userId: userData._id,
           orderdate: Date(),
           products: products.map((product, index) => ({
+            mercahntId: product.mercahntid,
             productId: product._id, // Assuming your product model has an "_id" property
             productName: product.productname,
             productImage: product.productimage,
@@ -89,7 +90,7 @@ export const Checkout = () => {
         };
 
         // Make a POST request to your backend API
-        const response = await fetch('http://62.72.59.146:3008/createorder', {
+        const response = await fetch('http://localhost:3008/createorder', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

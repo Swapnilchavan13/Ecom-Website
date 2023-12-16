@@ -1,0 +1,49 @@
+.all-merchant-product-container>div {
+    padding: 20px;
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.loading-message {
+    font-size: 16px;
+    color: #888;
+}
+
+.product-list {
+    list-style: none;
+    padding: 0;
+}
+
+.product-item {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  
+  .product-name {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .product-image {
+    max-width: 40%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .product-price,
+  .product-discount,
+  .product-quantity {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  .delete-button{
+    background-color: rgb(219, 66, 66);
+    color: white;
+  }

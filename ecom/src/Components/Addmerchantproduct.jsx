@@ -4,7 +4,7 @@ import { Navbarmarchant } from './Navbarmarchant';
 
 export const Addmerchantproduct = () => {
 
-    const mid= localStorage.getItem('merchantid')
+  const mid = localStorage.getItem('merchantid') || 'adminupload';
 
     console.log(mid)
     
@@ -32,7 +32,7 @@ export const Addmerchantproduct = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://62.72.59.146:3008/addproduct', {
+      const response = await fetch('http://localhost:3008/addproduct', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
