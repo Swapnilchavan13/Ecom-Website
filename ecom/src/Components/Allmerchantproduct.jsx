@@ -11,9 +11,14 @@ export const Allmerchantproduct = () => {
     const storedMerchantId = localStorage.getItem('merchantid');
     if (storedMerchantId) {
       setMerchantId(storedMerchantId);
-
+  
       fetch(`http://localhost:3008/allproducts/${storedMerchantId}`)
-        .then(response => response.json())
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
         .then(data => {
           setProductData(data);
           setLoading(false);
@@ -24,6 +29,8 @@ export const Allmerchantproduct = () => {
         });
     }
   }, []);
+  
+      
 
   const handleDelete = async (productId) => {
     try {
@@ -46,6 +53,8 @@ export const Allmerchantproduct = () => {
         <h1 className="title">All Merchant Products</h1>
         {loading ? (
           <p className="loading-message">Loading...</p>
+        ) : productData.length === 0 ? (
+          <p className="no-products-message">No products added.</p>
         ) : (
           <div className="product-list">
             {productData.map(product => (

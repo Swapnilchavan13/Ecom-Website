@@ -6,10 +6,10 @@ export const Addmerchantproduct = () => {
 
   const mid = localStorage.getItem('merchantid') || 'adminupload';
 
-    console.log(mid)
+    // console.log(mid)
     
   const [productData, setProductData] = useState({
-    mercahntid: mid,
+    merchantid: mid,
     producttype: '',
     productname: '',
     productimage: '',
