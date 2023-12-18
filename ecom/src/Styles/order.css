@@ -24,6 +24,8 @@
     border: 1px solid #ddd;
     margin-bottom: 20px;
     padding: 15px;
+    background-color: #dfdfe2;
+    border-radius: 10px;
   }
   
   .order-id, .product-title {
