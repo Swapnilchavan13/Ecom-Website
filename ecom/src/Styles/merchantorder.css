@@ -1,60 +1,51 @@
-/* MerchantOrders.css */
+/* merchantorder.css */
 
-.merchant-orders-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-  
-  .order-card {
-    border: 1px solid #eaeaea;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 20px;
-    width: 300px;
-    background-color: #fff;
-    transition: transform 0.3s ease-in-out;
-  
-    &:hover {
-      transform: scale(1.05);
-    }
-  }
-  
-  .order-info {
-    margin: 10px 0;
-    font-size: 14px;
-  }
-  
-  .product-heading {
-    margin-top: 20px;
-    font-size: 18px;
-  }
-  
-  .product-card {
-    border: 1px solid #eaeaea;
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    margin-top: 10px;
-    background-color: #f8f8f8;
-  }
-  
-  .product-info {
-    margin: 10px 0;
-    font-size: 14px;
-  }
-  
-  .product-image {
-    max-width: 100%;
-    max-height: 150px;
-    border-radius: 8px;
-  }
-  
-  h2 {
-    font-size: 24px;
-    color: #333;
-  }
-  
-  /* Add more styles as needed */
-  
+.orders-container input {
+  padding: 8px;
+  margin: 5px 0;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #111111;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.order-row-true {
+  background-color: #d4edda; /* Light green for delivered orders */
+}
+
+.order-row-false {
+  background-color: #f7e8e9; /* Light red for pending orders */
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.pdata {
+  margin-bottom: 10px;
+}
+
+img {
+  margin-top: 5px;
+}
