@@ -16,7 +16,7 @@ export const Merchantorders = () => {
                setMerchantId(storedMerchantId);
           
                 // Step 2: Make a request to the API endpoint
-                fetch('http://localhost:3008/allorders')
+                fetch('http://62.72.59.146:3008/allorders')
                   .then(response => response.json())
                   .then(data => {
                     // Step 3: Filter orders based on merchantId
@@ -157,8 +157,7 @@ export const Merchantorders = () => {
                 </ul>
               </td>
               <td>
-                <button onClick={() => handleDelete(order._id)}>Delete</button>
-                
+                <button onClick={() => handleDelete(order._id)}>Delete</button>    
                 <button onClick={() => handleStatusChange(order._id)}>Delivered</button>
               </td>
             </tr>

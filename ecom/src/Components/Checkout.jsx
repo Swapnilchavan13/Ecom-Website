@@ -90,7 +90,7 @@ export const Checkout = () => {
         };
 
         // Make a POST request to your backend API
-        const response = await fetch('http://localhost:3008/createorder', {
+        const response = await fetch('http://62.72.59.146:3008/createorder', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
