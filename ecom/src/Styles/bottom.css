@@ -18,3 +18,13 @@ p{
     padding: 10px;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 767px) {
+    p{
+        font-size: 8px;
+    }
+    #bottomnav{
+        display: flex;
+        gap: 30px;
+    }
+}

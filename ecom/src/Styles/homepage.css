@@ -48,10 +48,21 @@ a{
 
 /* Media Query for Small Screens */
 @media only screen and (max-width: 767px) {
+
     #mainhomediv, #mainhomediv2 {
-        grid-template-columns: repeat(2, 1fr);
+        margin-top: -80px;
+        grid-template-columns: repeat(2, 178px);
     }
     
+    h2{
+        font-size: 10px;
+    }
+    #mainhomediv p, #mainhomediv2 p{
+        font-size: 5px;
+    }
+    #mainhomediv img, #mainhomediv2 img{
+        width: 80px;
+    }
     .festivdiv div {
         gap: 20px;
         text-align: center;
@@ -59,7 +70,15 @@ a{
 
     .festivdiv div img{
         display: flex;
-        height: 100px;
-        width: 50px;
+        height: 80px;
+        width: 26px;
     }
+    #mainhomediv2{
+        margin-top: 0px;
+    }
+
+    .festivdiv .lstdiv img{
+        width: 51px;
+    }
+   
 }

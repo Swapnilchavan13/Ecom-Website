@@ -59,3 +59,23 @@ font-size: 10px;
     text-decoration: none;
     color: white;
 }
+
+/* Media Query for Small Screens */
+@media only screen and (max-width: 767px) {
+
+    #searchdiv{
+        display: none;
+    }
+    #navbarmain img{
+        width: 60px;
+        margin-top: -10px;
+    }
+    h3, h4, p{
+        font-size: 10px;
+    }
+    #subnavbar h5{
+        font-size: 7px;
+        margin-left: -28px;
+    }
+   
+}

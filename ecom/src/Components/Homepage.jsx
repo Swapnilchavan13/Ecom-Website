@@ -422,7 +422,7 @@ export const Homepage = () => {
             <div className='festivdiv'>
                 <h3>Explore top offers in smartphones</h3>
 
-                <div onClick={Electronicsclick}>
+                <div className='lstdiv' onClick={Electronicsclick}>
                     <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/Wireless/PHASE31/1._CB575335719_.jpg" alt="" />
                     <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/Wireless/PHASE31/15._CB575335719_.jpg" alt="" />
                     <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/Wireless/PHASE31/4._CB575335719_.jpg" alt="" />
@@ -433,7 +433,7 @@ export const Homepage = () => {
 
             <div className='festivdiv'>
                 <h3>Shop deals in top categories</h3>
-                <div>
+                <div className='lstdiv'>
                     <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/Wireless/lshruthi/Jupiter/CentralPage/P2/200/D96279181_INWLD_Jupiter_CentralPage-Inputs_DesktopShoveler_200x200._CB574628988_.jpg" alt="" />
                     <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/phase3/footercard/DesktopShoveler_200x200._CB576470749_.jpg" alt="" />
                     <img src="https://images-eu.ssl-images-amazon.com/images/G/31/OHL/23/Central/BAU/Shoveler/P3/DesktopShoveler_400x400_eng_1x._CB574622737_.jpg" alt="" />
