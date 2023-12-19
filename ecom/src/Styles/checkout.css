@@ -131,3 +131,26 @@ body.popup-visible {
     transform: translate(-50%, -50%);
     z-index: 1000;
 }
+
+
+@media only screen and (max-width: 767px) {
+    #checkoutmain{
+    display: inline;
+    }
+    .lstchange{
+        display: none;
+    }
+    #maincheckoutdiv{
+        padding: 20px;
+    }
+    .ckeckoutdetails p{
+        margin-left: -10px;
+    }
+    .ckeckoutdetails .change{
+        margin-left: -30px;
+    }
+    .pdata{
+        margin-left: -30px;
+    }
+
+}

@@ -241,7 +241,7 @@ export const Checkout = () => {
               <div className="middiv">
                 <h3>3 Review Items</h3>
               </div>
-              <div>
+              <div className='pdata'>
                 {products.map((product, index) => (
                   <div
                     style={{
@@ -276,7 +276,7 @@ export const Checkout = () => {
                 ))}
               </div>
               <br />
-              <p>Change</p>
+              <p className='lstchange'>Change</p>
             </div>
             <hr />
           </div>

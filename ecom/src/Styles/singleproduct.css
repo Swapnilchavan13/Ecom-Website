@@ -2,7 +2,6 @@
     display: flex;
     background-color: white;
     padding: 10px;
-
 }
 #singleproduct div{
     padding: 50px;
@@ -58,4 +57,26 @@ button{
 
 .bannerimg{
     width: 100%;
+}
+
+@media only screen and (max-width: 767px) {
+
+#singleproduct>:nth-child(1) img {
+    margin-left: -100px; 
+    margin-top: -150px;  
+    width: 250px;
+}
+#singleproduct>:nth-child(2)  {
+    margin-top: -200px;  
+}
+#singleproduct {
+    display: inline;
+}
+.psze{
+    font-size: 15px;
+}
+.pname{
+    font-size: 15px;
+
+}
 }
