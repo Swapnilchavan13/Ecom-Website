@@ -18,7 +18,6 @@ const ProductCard = ({ product }) => {
     <div onClick={() => handleSaveToLocalStorage(product)} key={product.productname} className="product-card">
       <br />
       <div className='imgdiv'>
-
         <img src={product.productimage} alt={product.productname} />
       </div>
       <br />
@@ -138,8 +137,7 @@ export const Productpage = () => {
           </div>
 
         </div>
-        <div className="product-list">
-
+        <div id="product-list" className="product-list">
           {productarr.map((product) => (
             <ProductCard product={product} />
           ))}
