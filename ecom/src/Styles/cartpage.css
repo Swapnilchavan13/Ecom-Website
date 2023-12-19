@@ -34,7 +34,6 @@
     padding: 10px;
     border-radius: 10px;
 }
-
 .cartbtn{
     background-color: #FFD814;
     padding: 10px;
@@ -42,7 +41,6 @@
     border: none;
     border-radius: 10px;
 }
-
 @media only screen and (max-width: 767px) {
     .secondcart img{
         width: 100px;
