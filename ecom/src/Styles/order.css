@@ -64,3 +64,10 @@
   .grey-bg {
     background-color: #808080 !important;
   }
+
+  @media only screen and (max-width: 767px) {
+  .order-item, .order-list
+      {
+    display: inline;
+    }
+  }

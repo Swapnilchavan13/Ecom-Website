@@ -42,3 +42,24 @@
     border: none;
     border-radius: 10px;
 }
+
+@media only screen and (max-width: 767px) {
+    .secondcart img{
+        width: 100px;
+        margin-left: -70px;
+    }
+    .smaincart> :first-child{
+        margin:auto;
+    }
+    .secondcart div{
+        margin-top: -50px;
+    }
+    .smaincart {
+        display: inline;
+    }
+    .subtotaldiv{
+        margin: auto;
+        margin-top: 20px;
+        width: 300px;
+    }
+}
