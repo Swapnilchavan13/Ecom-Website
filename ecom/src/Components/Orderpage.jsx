@@ -17,26 +17,19 @@ export const Orderpage = () => {
       .catch(error => console.error('Error fetching data:', error));
   }, [uid]);
 
-  const handleCancelOrder = async (orderId) => {
+
+  const handleDelete = async (orderId) => {
     try {
-      // Send a DELETE request to the API to cancel the order
-      const response = await fetch(`http://62.72.59.146:3008/allorders${orderId}`, {
+      await fetch(`http://62.72.59.146:3008/allorders/${orderId}`, {
         method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
       });
 
-      if (response.ok) {
-        // If the deletion was successful, update the local state
-        setOrders(prevOrders => prevOrders.filter(order => order._id !== orderId));
-      } else {
-        console.error('Failed to cancel order');
-      }
+      setOrders((prevOrders) => prevOrders.filter((order) => order._id !== orderId));
     } catch (error) {
-      console.error('Error while canceling order:', error);
+      console.error('Error deleting order:', error);
     }
-  }
+  };
+  
 
   return (
     <div className="order-page">
@@ -66,7 +59,7 @@ export const Orderpage = () => {
               <br />
               <button
                 className={`cancel-button ${order.status ? 'grey-bg' : ''}`}
-                onClick={() => handleCancelOrder(order._id)}
+                onClick={() => handleDelete(order._id)}
                 disabled={order.status}
               >
                 Cancel Order
