@@ -65,7 +65,7 @@ export const Addmerchantproduct = () => {
   return (
     <>
     <Navbarmarchant />
-    <div className="admin-container">
+    <div id='adminc' className="admin-container">
       <h2 className="form-title">Add Product</h2>
       <form className="product-form" onSubmit={handleSubmit}>
         <label className="form-label">

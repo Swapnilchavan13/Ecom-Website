@@ -49,3 +49,30 @@ button:hover {
 img {
   margin-top: 5px;
 }
+
+@media only screen and (max-width: 767px) {
+  .orders-table {
+    width: 300px;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: 3px;
+  }
+  
+  th, td {
+    border: 1px solid #111111;
+    padding: 2px;
+    text-align: left;
+    font-size: 6px;
+  }
+
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 8px;
+    margin-top: 3px;
+    margin-right: 5px;
+  }
+}

@@ -23,14 +23,12 @@ export const Orderpage = () => {
       await fetch(`http://62.72.59.146:3008/allorders/${orderId}`, {
         method: 'DELETE',
       });
-
       setOrders((prevOrders) => prevOrders.filter((order) => order._id !== orderId));
     } catch (error) {
       console.error('Error deleting order:', error);
     }
   };
   
-
   return (
     <div className="order-page">
       <h1 className="page-title">My Orders</h1>

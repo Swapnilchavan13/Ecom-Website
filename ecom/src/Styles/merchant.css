@@ -37,3 +37,11 @@
     background-color: #45a049;
   }
   
+
+  @media only screen and (max-width: 767px) {
+
+    .merchant-form {
+      width: 340px;
+    }
+    
+  }
