@@ -52,23 +52,22 @@ img {
 
 @media only screen and (max-width: 767px) {
   .orders-table {
-    width: 300px;
+    width: 98%;
     border-collapse: collapse;
     margin-top: 20px;
-    margin-left: 3px;
+    margin-left: 6px;
   }
   
   th, td {
     border: 1px solid #111111;
     padding: 2px;
     text-align: left;
-    font-size: 4px;
+    font-size: 6px;
   }
 .tdid, .thid{
   /* background-color: teal; */
   display: none;
 }
-
 
   button {
     background-color: #007bff;
