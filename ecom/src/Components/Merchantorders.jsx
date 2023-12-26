@@ -118,7 +118,7 @@ export const Merchantorders = () => {
       <table className="orders-table">
         <thead>
           <tr>
-            <th>Order ID</th>
+            <th className='thid'>Order ID</th>
             <th>Date and Time</th>
             <th>User Name</th>
             <th>Address</th>
@@ -132,7 +132,7 @@ export const Merchantorders = () => {
           {filteredOrders.slice().reverse().map((order) => (
             <tr key={order._id} className={`order-row-${order.status ? 'true' : 'false'}`}
             >
-              <td>{order._id}</td>
+              <td className='tdid'>{order._id}</td>
               <td>{order.orderdate}</td>
               <td>{getUsernameById(order.userId)}</td>
               <td>{order.address}</td>
