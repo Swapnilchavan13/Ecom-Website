@@ -82,7 +82,6 @@ export const Addmerchantproduct = () => {
                 ))}
           </select>
         </label>
-
         <label className="form-label">
           Product Name:
           <input

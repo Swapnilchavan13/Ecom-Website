@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export const Navbarmarchant = () => {
+  
   return (
     <div className='nav'>
       <Link to="/merchantdatapage">
@@ -20,6 +21,5 @@ export const Navbarmarchant = () => {
         <h3>Campaign Registration</h3>
       </a>
     </div>
-
   )
 }

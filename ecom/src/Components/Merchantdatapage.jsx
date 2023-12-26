@@ -40,15 +40,14 @@ export const Merchantdatapage = () => {
     localStorage.removeItem('merchantid');
     navigate('/merchantlogin'); 
     window.location.reload();
-
   };
 
   return (
     <>
-      <Navbarmarchant />
+    <Navbarmarchant />
     <div className="merchant-data-container">
       {merchantData ? (
-        <>
+      <>
           <h1 className="merchant-title">Merchant Details</h1>
           <div className="merchant-details">
             <p><span className="detail-label">Business Name:</span> {merchantData.businessName}</p>
@@ -61,11 +60,11 @@ export const Merchantdatapage = () => {
             <p><span className="detail-label">Owner Phone:</span> {merchantData.ownerPhone}</p>
           </div>
           <button className="back-button" onClick={handleBack}>Logout</button>
-        </>
+      </>
       ) : (
         <p>Loading...</p>
         )}
     </div>
-        </>
+    </>
   );
 };

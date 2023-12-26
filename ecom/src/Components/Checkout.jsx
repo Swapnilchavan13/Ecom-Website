@@ -73,9 +73,9 @@ export const Checkout = () => {
       try {
         // Create an order object with relevant data
         const orderData = {
-          userId: userData._id,
-          orderdate: Date(),
-          products: products.map((product, index) => ({
+            userId: userData._id,
+            orderdate: Date(),
+            products: products.map((product, index) => ({
             merchantId: product.merchantid,
             productId: product._id, // Assuming your product model has an "_id" property
             productName: product.productname,

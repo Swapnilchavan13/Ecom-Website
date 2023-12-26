@@ -76,6 +76,10 @@ export const UserData = () => {
    const showPopup = () => {
      setPopupVisible(true);
    };
+
+   const hidePopup = () => {
+    setPopupVisible(false);
+  };
  
    return (
      <div className="user-details-container">
@@ -106,6 +110,10 @@ export const UserData = () => {
            <button onClick={saveAddress} className="save-button">
              Save Address
            </button>
+           <button onClick={hidePopup} className="save-button">
+             cancel
+           </button>
+           
          </div>
        )} 
        <button className="logout-button" onClick={handleLogout}>
