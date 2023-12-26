@@ -95,10 +95,6 @@ export const UserData = () => {
     setAddresses(newAddresses);
   };
  
-  const addAddress = () => {
-    setAddresses([...address, { street: '', city: '', pincode: '' }]);
-  };
-
   
    return (
      <div className="user-details-container">
