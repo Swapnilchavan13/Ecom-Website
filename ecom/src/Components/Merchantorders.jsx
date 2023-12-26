@@ -157,7 +157,9 @@ export const Merchantorders = () => {
                 </ul>
               </td>
               <td>
-                <button onClick={() => handleDelete(order._id)}>Delete</button>    
+                <button onClick={() => handleDelete(order._id)}>Delete</button>  
+                <br />
+                <br />  
                 <button onClick={() => handleStatusChange(order._id)}>Delivered</button>
               </td>
             </tr>
