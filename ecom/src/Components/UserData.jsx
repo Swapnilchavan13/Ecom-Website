@@ -10,7 +10,9 @@ export const UserData = () => {
    const uid = localStorage.getItem('uid');
  
    const [isPopupVisible, setPopupVisible] = useState(false);
-   const [address, setAddress] = useState('');
+  //  const [address, setAddress] = useState('');
+   const [address, setAddresses] = useState([{ street: '', city: '', pincode: '' }]);
+
    const [userData, setUserData] = useState(null);
  
    useEffect(() => {
@@ -51,27 +53,30 @@ export const UserData = () => {
    };
  
    const saveAddress = async () => {
-     try {
-       const userId = userData._id;
-       const response = await fetch(`http://62.72.59.146:3008/userdata/${userId}`, {
-         method: 'PATCH',
-         headers: {
-           'Content-Type': 'application/json',
-         },
-         body: JSON.stringify({
-           useraddress: address,
-         }),
-       });
+    try {
+      const userId = userData._id;
+      const response = await fetch(`http://62.72.59.146:3008/userdata/${userId}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          useraddress: address.map(addr => `${addr.street}, ${addr.city}, ${addr.pincode}`).join(' | '),
+        }),
+      });
  
-       const data = await response.json();
-       console.log(data.message);
+      const data = await response.json();
+      console.log(data.message);
  
-       setPopupVisible(false);
-     } catch (error) {
-       console.error('Error saving address:', error);
-     }
-     window.location.reload()
-   };
+      setPopupVisible(false);
+    } catch (error) {
+      console.error('Error saving address:', error);
+    }
+    window.location.reload();
+  };
+ 
+      
+ 
  
    const showPopup = () => {
      setPopupVisible(true);
@@ -81,6 +86,20 @@ export const UserData = () => {
     setPopupVisible(false);
   };
  
+
+  const handleAddressChange = (index, e) => {
+    const newAddresses = address.map((address, addrIndex) => {
+      if (index !== addrIndex) return address;
+      return { ...address, [e.target.name]: e.target.value };
+    });
+    setAddresses(newAddresses);
+  };
+ 
+  const addAddress = () => {
+    setAddresses([...address, { street: '', city: '', pincode: '' }]);
+  };
+
+  
    return (
      <div className="user-details-container">
        <h2 className="user-details-header">User Details</h2>
@@ -98,21 +117,48 @@ export const UserData = () => {
          Add/Edit Address
        </button>
        <br />
+
        {isPopupVisible && (
-         <div className="popup">
-           <input
-             className="address-input"
-             placeholder='Enter Your House No. Street with City And Pincode'
-             type="text"
-             onChange={(e) => setAddress(e.target.value)}
-           />
-           <br />
-           <button onClick={saveAddress} className="save-button">
-             Save Address
-           </button>
-           <button onClick={hidePopup} className="save-button">
-             cancel
-           </button>
+       <div className="popup">
+         {address.map((address, index) => (
+           <div key={index}>
+             <input
+               className="address-input"
+               placeholder='House No. and Street'
+               name="street"
+               type="text"
+               value={address.street}
+               onChange={(e) => handleAddressChange(index, e)}
+             />
+             <br />
+             <input
+               className="address-input"
+               placeholder='Enter City'
+               name="city"
+               type="text"
+               value={address.city}
+               onChange={(e) => handleAddressChange(index, e)}
+             />
+             <br />
+             <input
+               className="address-input"
+               placeholder='Enter Pincode'
+               name="pincode"
+               type="text"
+               value={address.pincode}
+               onChange={(e) => handleAddressChange(index, e)}
+             />
+           </div>
+         ))}
+        
+         <br />
+         <button onClick={saveAddress} className="save-button">
+           Save Address
+         </button>
+         <button onClick={hidePopup} className="cancel-button">
+           Cancel
+         </button>
+
            
          </div>
        )} 
