@@ -3,14 +3,11 @@ import '../Styles/product.css'
 import { useNavigate } from 'react-router-dom';
 
 const ProductCard = ({ product }) => {
-
   const navigate = useNavigate();
 
   const handleSaveToLocalStorage = (product) => {
-    navigate('/singleproductpage')
-    // Convert the product object to a JSON string
+    navigate('/singleproductpage');
     const productJSON = JSON.stringify(product);
-    // Save the product details in local storage
     localStorage.setItem('selectedProduct', productJSON);
   };
 
@@ -24,8 +21,7 @@ const ProductCard = ({ product }) => {
       <h4>{product.productname}</h4>
       <p>{product.rating} Rating ⭐⭐⭐⭐⭐</p>
       <span style={{ display: 'inline' }}>
-        <p className='pricefont'>Price: ₹ {product.productprice} /-
-        </p>
+        <p className='pricefont'>Price: ₹ {product.productprice} /-</p>
         <p>On M.R.P {product.productdiscount}% Off</p>
       </span>
       <p>FREE delivery by Amazon</p>
@@ -33,28 +29,35 @@ const ProductCard = ({ product }) => {
   );
 };
 
-
 export const Productpage = () => {
-
   const selectedType = localStorage.getItem('type');
-  const [productarr, setProductsarr] = useState([])
+  const [productarr, setProductsarr] = useState([]);
+  const [sortOrder, setSortOrder] = useState('asc'); // 'asc' for ascending, 'desc' for descending
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-
   useEffect(() => {
-    // Fetch data from the API
     fetch('http://62.72.59.146:3008/allproducts')
       .then(response => response.json())
       .then(data => {
-        // Filter data based on the selected type
-        const filteredData = data.filter(product => product.producttype === selectedType);
+        let filteredData = data.filter(product => product.producttype === selectedType);
+
+        if (sortOrder === 'asc') {
+          filteredData = filteredData.sort((a, b) => parseFloat(a.productprice) - parseFloat(b.productprice));
+        } else {
+          filteredData = filteredData.sort((a, b) => parseFloat(b.productprice) - parseFloat(a.productprice));
+        }
+
         setProductsarr(filteredData);
       })
       .catch(error => console.error('Error fetching products:', error));
-  }, [selectedType]);
+  }, [selectedType, sortOrder]);
+
+  const toggleSortOrder = () => {
+    setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+  };
 
   return (
     <div className='mainpro'>
@@ -62,6 +65,9 @@ export const Productpage = () => {
         <div id='filterdiv'>
           <div>
             <h4>Price</h4>
+            <button onClick={toggleSortOrder}>
+              Sort {sortOrder === 'asc' ? 'Low to High' : 'High to Low'}
+            </button>
             <p>Under ₹1,000</p>
             <p>₹1,000 - ₹5,000</p>
             <p>₹5,000 - ₹10,000</p>
