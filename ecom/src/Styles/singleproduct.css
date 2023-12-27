@@ -1,84 +1,103 @@
-#singleproduct{
+#singleproduct {
     display: flex;
     background-color: white;
     padding: 10px;
 }
-#singleproduct div{
+
+#singleproduct div {
     padding: 50px;
     background-color: white;
 }
-#singleproduct img{
-    margin-top: -80px;
-width: 300px;
-padding: 100px;
+
+#singleproduct>:nth-child(2) {
+    margin-left: -80px;
+
 }
 
-.thirddiv{
+#singleproduct img {
+    margin-top: -80px;
+    width: 300px;
+    padding: 100px;
+}
+
+.thirddiv {
     margin-top: 40px;
     border: 1px solid rgb(173, 172, 172);
     border-radius: 10px;
-}
-.thirddiv .btn1{
-    margin-top: 10px;
-    width: 250px;
-    padding: 10px;
-    border-radius: 20px;
-background-color: #F7CA00;
-border: none;
+    height: fit-content;
 }
 
-.thirddiv .btn2{
+.thirddiv .btn1 {
     margin-top: 10px;
     width: 250px;
     padding: 10px;
     border-radius: 20px;
-border: none;
+    background-color: #F7CA00;
+    border: none;
+}
+
+.thirddiv .btn2 {
+    margin-top: 10px;
+    width: 250px;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
 
     background-color: #FA8900;
 }
-.psze{
+
+.psze {
     font-size: 30px;
 }
-.pname , .stock{
+
+.pname,
+.stock {
     font-size: 26px;
     font-weight: bolder;
 }
-.stock{
+
+.stock {
     color: green;
 }
-.tprice{
+
+.tprice {
     color: #aa6107;
     font-weight: bolder;
 }
 
-button{
+button {
     cursor: pointer;
 }
 
-.bannerimg{
+.bannerimg {
     width: 100%;
 }
 
 @media only screen and (max-width: 767px) {
 
-#singleproduct>:nth-child(1) img {
-    margin-left: -100px; 
-    margin-top: -150px;  
-    width: 250px;
-}
-#singleproduct>:nth-child(2)  {
-    margin-top: -200px;  
-}
-#singleproduct {
-    display: inline;
-}
-.psze{
-    font-size: 15px;
-}
-.pname{
-    font-size: 15px;
-}
-.thirddiv{
-    margin-top: -50px;
-}
+    #singleproduct>:nth-child(1) img {
+        margin-left: -100px;
+        margin-top: -150px;
+        width: 250px;
+    }
+
+    #singleproduct>:nth-child(2) {
+        margin-top: -200px;
+    }
+
+    #singleproduct {
+        display: inline;
+    }
+
+    .psze {
+        font-size: 15px;
+    }
+
+    .pname {
+        font-size: 15px;
+    }
+
+    .thirddiv {
+        margin-top: -50px;
+    }
 }

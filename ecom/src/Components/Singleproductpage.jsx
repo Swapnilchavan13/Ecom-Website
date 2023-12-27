@@ -7,11 +7,17 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export const Singleproductpage = () => {
   const navigate = useNavigate();
+  const [showFullDescription, setShowFullDescription] = useState(false);
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const toggleDescription = () => {
+    setShowFullDescription(!showFullDescription);
+  };
+
 
   // Retrieve the product details from local storage
   const storedProductJSON = localStorage.getItem('selectedProduct');
@@ -79,6 +85,9 @@ export const Singleproductpage = () => {
     navigate('/checkoutpage');
   };
 
+  const discountedPrice = product.productprice - (product.productprice * (product.productdiscount / 100));
+
+
   return (
     <>
       <ToastContainer />
@@ -92,14 +101,33 @@ export const Singleproductpage = () => {
           <p className='pname'>{product.productname}</p>
           <p>Visit the Apple Store</p>
           <p>{product.rating} Star Rating ⭐⭐⭐⭐⭐</p>
-          <p className='psze'>₹ {product.productprice}/-</p>
+          <p style={{ textDecoration: 'line-through' }} className='psze'>₹ {product.productprice}/-</p>
           <p>Discount: {product.productdiscount}% Off</p>
+          <p className='psze'>₹ {discountedPrice}/-</p>
+          <p>🔖Offers: {product.productoffer}</p>
+          <h5 style={{textAlign:'left'}}>Brand : {product.brand}</h5>
+          <h5 style={{textAlign:'left'}}>Storage : {product.storage}</h5>
+          <h5 style={{textAlign:'left'}}>Operating System : {product.operatingSystem}</h5>
+          <h5 style={{textAlign:'left'}}>Cellular Technology : {product.cellularTechnology}</h5>
+
+          <h5 style={{textAlign:'left'}}>About this item</h5>
+      {showFullDescription ? (
+        <p>{product.productdescription}</p>
+      ) : (
+        <p>
+          {product.productdescription.split('\n').slice(0, 1).join('\n')}
+          <br />
+          {product.productdescription.split('\n').length > 1 && (
+            <button onClick={toggleDescription}>See More</button>
+          )}
+        </p>
+      )}
         </div>
 
         <div className='thirddiv'>
-          <p>Delivery: Within 3-4 days</p>
-          <p className='tprice'>Price: ₹ {product.productprice}/-</p>
-          <p>Or fastest delivery Tomorrow, 10 November. Order within 12 hrs. Details</p>
+          <p>Delivery: Within {product.productdeliveryDate} days</p>
+          <p className='tprice'>Price: ₹ {discountedPrice}/-</p>
+          <p>Or fastest delivery, {Date()}. Order within 12 hrs. Details</p>
           <p className='stock'>In stock</p>
           <p>Sold by Darshita E-Zone and Fulfilled by Amazon.</p>
           <p>GreyOwl Pvt Ltd, Juhu, Mumbai.</p>
@@ -107,12 +135,13 @@ export const Singleproductpage = () => {
           <button className='btn1' onClick={addToCart}>
             Add To Cart
           </button>
-
           <br />
           <button onClick={Buynow} className='btn2'>
             Buy Now
           </button>
+          
         </div>
+        
       </div>
       <img
         className='bannerimg'
@@ -121,13 +150,11 @@ export const Singleproductpage = () => {
       />
       <img
         className='bannerimg'
-
         src='https://m.media-amazon.com/images/G/31/img21/Wireless/katariy/Apple/Aplus_content/13_desk/iPhone_13_Product_Page_Flex_Module_Amazon_Desktop_Avail_1500__en-IN_06._CB640700609_.jpg'
         alt=''
       />
       <img
         className='bannerimg'
-
         src='https://m.media-amazon.com/images/G/31/img21/Wireless/katariy/Apple/Aplus_content/13_desk/iPhone_13_Product_Page_Flex_Module_Amazon_Desktop_Avail_1500__en-IN_08._CB640700609_.jpg'
         alt=''
       />

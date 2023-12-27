@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import '../Styles/product.css'
 import { useNavigate } from 'react-router-dom';
 
-const ProductCard = ({ product }) => {
+  const ProductCard = ({ product }) => {
   const navigate = useNavigate();
 
   const handleSaveToLocalStorage = (product) => {
@@ -10,6 +10,8 @@ const ProductCard = ({ product }) => {
     const productJSON = JSON.stringify(product);
     localStorage.setItem('selectedProduct', productJSON);
   };
+
+  const discountedPrice = (product.productprice * (1 - product.productdiscount / 100)).toFixed(0);
 
   return (
     <div onClick={() => handleSaveToLocalStorage(product)} key={product.productname} className="product-card">
@@ -21,8 +23,9 @@ const ProductCard = ({ product }) => {
       <h4>{product.productname}</h4>
       <p>{product.rating} Rating ⭐⭐⭐⭐⭐</p>
       <span style={{ display: 'inline' }}>
-        <p className='pricefont'>Price: ₹ {product.productprice} /-</p>
+        <p style={{textDecoration:'line-through', color:'grey'}} className='pricefont'>Price: ₹ {product.productprice} /-</p>
         <p>On M.R.P {product.productdiscount}% Off</p>
+        <p className='pricefont'>Price: ₹ {discountedPrice} /-</p>
       </span>
       <p>FREE delivery by Amazon</p>
     </div>
