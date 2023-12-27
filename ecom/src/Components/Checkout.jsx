@@ -63,10 +63,15 @@ export const Checkout = () => {
     setProducts(updatedProducts);
   };
 
+  // (product.productprice * (1 - product.productdiscount / 100)).toFixed(0)
+
+
   // const subtotal = products.reduce((acc, product) => acc + +product.productprice, 0);
-  const subtotal = products.reduce((acc, product, _id) => acc + +product.productprice * quantity[_id], 0);
+  const subtotal = products.reduce((acc, product, _id) => acc + +
+  (product.productprice * (1 - product.productdiscount / 100)).toFixed(0)* quantity[_id], 0);
 
   console.log(Date());
+  
 
   const Placeorder = async () => {
     if (isLogin) {
@@ -160,6 +165,7 @@ export const Checkout = () => {
     setorderPopupVisible(false);
     navigate('/');
   };
+
 
   return (
     <div id="maincheckoutdiv">
@@ -268,7 +274,7 @@ export const Checkout = () => {
                       <option value="5">Qty 5</option>
                       <option value="6">Qty 6</option>
                     </select>
-                    <p>₹ {product.productprice}/-</p>
+                    <p>₹ {subtotal}/-</p>
                     <button className="backto" onClick={() => handleRemoveProduct(index)}>
                       Remove
                     </button>
