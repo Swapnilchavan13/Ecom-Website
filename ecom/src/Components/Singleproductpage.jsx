@@ -84,9 +84,8 @@ export const Singleproductpage = () => {
     setCart(updatedCart);
     navigate('/checkoutpage');
   };
-
-  const discountedPrice = product.productprice - (product.productprice * (product.productdiscount / 100));
-
+  
+  const discountedPrice = (product.productprice * (1 - product.productdiscount / 100)).toFixed(0);
 
   return (
     <>
@@ -101,15 +100,19 @@ export const Singleproductpage = () => {
           <p className='pname'>{product.productname}</p>
           <p>Visit the Apple Store</p>
           <p>{product.rating} Star Rating ⭐⭐⭐⭐⭐</p>
-          <p style={{ textDecoration: 'line-through' }} className='psze'>₹ {product.productprice}/-</p>
-          <p>Discount: {product.productdiscount}% Off</p>
+          <hr />
           <p className='psze'>₹ {discountedPrice}/-</p>
-          <p>🔖Offers: {product.productoffer}</p>
+          <p>Discount: {product.productdiscount}% Off</p>
+          <p style={{ textDecoration: 'line-through', fontSize:'15px' }} className='psze'>₹ {product.productprice}/-</p>
+        <p>Inclusive of all taxes</p>
+        <hr />
+          <p>🔖% Offers: {product.productoffer}</p>
+          <hr />
           <h5 style={{textAlign:'left'}}>Brand : {product.brand}</h5>
           <h5 style={{textAlign:'left'}}>Storage : {product.storage}</h5>
           <h5 style={{textAlign:'left'}}>Operating System : {product.operatingSystem}</h5>
           <h5 style={{textAlign:'left'}}>Cellular Technology : {product.cellularTechnology}</h5>
-
+<hr />
           <h5 style={{textAlign:'left'}}>About this item</h5>
       {showFullDescription ? (
         <p>{product.productdescription}</p>
@@ -118,7 +121,7 @@ export const Singleproductpage = () => {
           {product.productdescription.split('\n').slice(0, 1).join('\n')}
           <br />
           {product.productdescription.split('\n').length > 1 && (
-            <button onClick={toggleDescription}>See More</button>
+            <p style={{color:'blue'}} onClick={toggleDescription}>See More Details</p>
           )}
         </p>
       )}
@@ -127,7 +130,7 @@ export const Singleproductpage = () => {
         <div className='thirddiv'>
           <p>Delivery: Within {product.productdeliveryDate} days</p>
           <p className='tprice'>Price: ₹ {discountedPrice}/-</p>
-          <p>Or fastest delivery, {Date()}. Order within 12 hrs. Details</p>
+          <p>Or fastest delivery, {Date()}. Order will be delivered Within {product.productdeliveryDate} days. Details</p>
           <p className='stock'>In stock</p>
           <p>Sold by Darshita E-Zone and Fulfilled by Amazon.</p>
           <p>GreyOwl Pvt Ltd, Juhu, Mumbai.</p>
