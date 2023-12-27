@@ -16,7 +16,7 @@ export const Merchantorders = () => {
                setMerchantId(storedMerchantId);
           
                 // Step 2: Make a request to the API endpoint
-                fetch('http://62.72.59.146:3008/allorders')
+                fetch('http://localhost:3008/allorders')
                   .then(response => response.json())
                   .then(data => {
                     // Step 3: Filter orders based on merchantId
@@ -32,7 +32,7 @@ export const Merchantorders = () => {
               }
 
         // Fetch users data
-        const usersResponse = await fetch('http://62.72.59.146:3008/allusers');
+        const usersResponse = await fetch('http://localhost:3008/allusers');
         const usersData = await usersResponse.json();
         setUsers(usersData);
 
@@ -54,7 +54,7 @@ export const Merchantorders = () => {
   const handleDelete = async (orderId) => {
     try {
       // Make a DELETE request to your API endpoint for deleting orders
-      await fetch(`http://62.72.59.146:3008/allorders/${orderId}`, {
+      await fetch(`http://localhost:3008/allorders/${orderId}`, {
         method: 'DELETE',
       });
 
@@ -75,14 +75,14 @@ export const Merchantorders = () => {
   const handleStatusChange = async (orderId) => {
     try {
       // Fetch the current order to get its existing status
-      const response = await fetch(`http://62.72.59.146:3008/allorders/${orderId}`);
+      const response = await fetch(`http://localhost:3008/allorders/${orderId}`);
       const existingOrder = await response.json();
 
       // Toggle the status (true to false or false to true)
       const newStatus = !existingOrder.status;
 
       // Make a PATCH request to your API endpoint for updating order status
-      await fetch(`http://62.72.59.146:3008/updateorderstatus/${orderId}`, {
+      await fetch(`http://localhost:3008/updateorderstatus/${orderId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

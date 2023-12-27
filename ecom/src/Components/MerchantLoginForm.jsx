@@ -12,7 +12,7 @@ export const MerchantLoginForm = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('http://62.72.59.146:3008/allmerchants');
+      const response = await fetch('http://localhost:3008/allmerchants');
       const merchants = await response.json();
 
       const matchingMerchant = merchants.find(

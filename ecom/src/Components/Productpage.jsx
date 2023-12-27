@@ -39,7 +39,7 @@ export const Productpage = () => {
   }, []);
 
   useEffect(() => {
-    fetch('http://62.72.59.146:3008/allproducts')
+    fetch('http://localhost:3008/allproducts')
       .then(response => response.json())
       .then(data => {
         let filteredData = data.filter(product => product.producttype === selectedType);

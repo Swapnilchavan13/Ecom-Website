@@ -18,7 +18,7 @@ export const UserData = () => {
    useEffect(() => {
      const fetchData = async () => {
        try {
-         const response = await fetch(`http://62.72.59.146:3008/userdata`);
+         const response = await fetch(`http://localhost:3008/userdata`);
          const data = await response.json();
  
          if (response.ok) {
@@ -55,7 +55,7 @@ export const UserData = () => {
    const saveAddress = async () => {
     try {
       const userId = userData._id;
-      const response = await fetch(`http://62.72.59.146:3008/userdata/${userId}`, {
+      const response = await fetch(`http://localhost:3008/userdata/${userId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -75,9 +75,6 @@ export const UserData = () => {
     window.location.reload();
   };
  
-      
- 
- 
    const showPopup = () => {
      setPopupVisible(true);
    };
@@ -86,7 +83,6 @@ export const UserData = () => {
     setPopupVisible(false);
   };
  
-
   const handleAddressChange = (index, e) => {
     const newAddresses = address.map((address, addrIndex) => {
       if (index !== addrIndex) return address;
@@ -95,7 +91,6 @@ export const UserData = () => {
     setAddresses(newAddresses);
   };
  
-  
    return (
      <div className="user-details-container">
        <h2 className="user-details-header">User Details</h2>
