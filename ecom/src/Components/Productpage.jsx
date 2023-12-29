@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom';
   const discountedPrice = (product.productprice * (1 - product.productdiscount / 100)).toFixed(0);
 
   return (
-    <div onClick={() => handleSaveToLocalStorage(product)} key={product.productname} className="product-card">
+    <div style={{display: product.productblock? 'none' : 'block'}} onClick={() => handleSaveToLocalStorage(product)} key={product.productname} className="product-card">
       <br />
       <div className='imgdiv'>
         <img src={product.image_one} alt={product.productname} />
