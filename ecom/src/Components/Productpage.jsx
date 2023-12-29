@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import '../Styles/product.css'
 import { useNavigate } from 'react-router-dom';
 
-  const ProductCard = ({ product }) => {
+const ProductCard = ({ product }) => {
   const navigate = useNavigate();
 
   const handleSaveToLocalStorage = (product) => {
@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom';
   const discountedPrice = (product.productprice * (1 - product.productdiscount / 100)).toFixed(0);
 
   return (
-    <div style={{display: product.productblock? 'none' : 'block'}} onClick={() => handleSaveToLocalStorage(product)} key={product.productname} className="product-card">
+    <div style={{ display: product.productblock ? 'none' : 'block' }} onClick={() => handleSaveToLocalStorage(product)} key={product.productname} className="product-card">
       <br />
       <div className='imgdiv'>
         <img src={product.image_one} alt={product.productname} />
@@ -23,7 +23,7 @@ import { useNavigate } from 'react-router-dom';
       <h4>{product.productname}</h4>
       <p>{product.rating} Rating ⭐⭐⭐⭐⭐</p>
       <span style={{ display: 'inline' }}>
-        <p style={{textDecoration:'line-through', color:'grey'}} className='pricefont'>Price: ₹ {product.productprice} /-</p>
+        <p style={{ textDecoration: 'line-through', color: 'grey' }} className='pricefont'>Price: ₹ {product.productprice} /-</p>
         <p>On M.R.P {product.productdiscount}% Off</p>
         <p className='pricefont'>Price: ₹ {discountedPrice} /-</p>
       </span>
