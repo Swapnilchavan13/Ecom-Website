@@ -58,9 +58,10 @@ export const Allmerchantproduct = () => {
         ) : (
           <div className="product-list">
             {productData.map(product => (
-              <div key={product._id} className="product-item">
+              <div key={product._id} className="product-item" style={{ backgroundColor: product.productblock ? '#f68585' : 'white' }} // Conditional background color
+              >
                 <h6 className="product-name">{product.productname}</h6>
-                <img className="product-image" src={product.productimage} alt={product.productname} />
+                <img className="product-image" src={product.image_one} alt={product.productname} />
                 <p className="product-price">Price: {product.productprice}</p>
                 <p className="product-discount">Discount: {product.productdiscount}%</p>
                 <p className="product-quantity">Quantity: {product.productquantity}</p>

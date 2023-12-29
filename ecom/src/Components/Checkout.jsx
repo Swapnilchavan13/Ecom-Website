@@ -259,7 +259,7 @@ export const Checkout = () => {
                     key={index}
                     className="middiv"
                   >
-                    <img src={product.productimage} alt="" />
+                    <img src={product.image_one} alt="" />
                     <p>{product.productname}</p>
                     <select
                       name=""

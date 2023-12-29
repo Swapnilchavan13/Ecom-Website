@@ -17,7 +17,7 @@ import { useNavigate } from 'react-router-dom';
     <div onClick={() => handleSaveToLocalStorage(product)} key={product.productname} className="product-card">
       <br />
       <div className='imgdiv'>
-        <img src={product.productimage} alt={product.productname} />
+        <img src={product.image_one} alt={product.productname} />
       </div>
       <br />
       <h4>{product.productname}</h4>

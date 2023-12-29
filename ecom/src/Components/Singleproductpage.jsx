@@ -93,7 +93,7 @@ export const Singleproductpage = () => {
       <div id='singleproduct'>
 
         <div>
-          <img src={product.productimage} alt={product.productname} />
+          <img src={product.image_one} alt={product.productname} />
         </div>
 
         <div>
