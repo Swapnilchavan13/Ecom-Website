@@ -19,10 +19,11 @@
     padding: 30px;
     width: auto;
     border-radius: 5px;
+    height: fit-content;
 }
 .product-card img{
     width: 200px;
-    height: 240px;
+    height: 220px;
 }
 .product-card *{
 margin-top: -10px;

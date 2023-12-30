@@ -9,6 +9,8 @@ export const Singleproductpage = () => {
   const navigate = useNavigate();
   const [showFullDescription, setShowFullDescription] = useState(false);
   const [cart, setCart] = useState([]);
+  const [mainImage, setMainImage] = useState('');
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -18,11 +20,17 @@ export const Singleproductpage = () => {
     setShowFullDescription(!showFullDescription);
   };
 
-
   // Retrieve the product details from local storage
   const storedProductJSON = localStorage.getItem('selectedProduct');
   const product = JSON.parse(storedProductJSON);
 
+  useEffect(() => {
+    if (product && product.image_one) {
+      setMainImage(product.image_one);
+    }
+  }, [product]);
+
+ 
   // Check if there is a selected product in local storage
   if (!product) {
     return <div>No product selected.</div>;
@@ -69,6 +77,7 @@ export const Singleproductpage = () => {
     }
   };
 
+
   const Buynow = () => {
 
     const existingCartJSON = localStorage.getItem('cart');
@@ -85,20 +94,39 @@ export const Singleproductpage = () => {
     navigate('/checkoutpage');
   };
   
+  
+  const handleImageClick = (imageSrc) => {
+    setMainImage(imageSrc);
+  };
+
+
   const discountedPrice = (product.productprice * (1 - product.productdiscount / 100)).toFixed(0);
 
   return (
     <>
       <ToastContainer />
       <div id='singleproduct'>
-
         <div>
-          <img src={product.image_one} alt={product.productname} />
+          <img src={mainImage} alt={product.productname} style={{ maxWidth: '100%' }} />
+          <div className="thumbnails">
+            {[product.image_one, product.image_two, product.image_three, product.image_four, product.image_five].map((image, index) => (
+              image && (
+                <img
+                  key={index}
+                  src={image}
+                  alt={`Thumbnail ${index}`}
+                  onClick={() => handleImageClick(image)}
+                  className="thumbnail"
+                  style={{ maxWidth: '20%', cursor: 'pointer' }}
+                />
+              )
+            ))}
+          </div>
         </div>
 
         <div>
           <p className='pname'>{product.productname}</p>
-          <p>Visit the Apple Store</p>
+          <p>Visit the Merchant Store {product.merchantid}</p>
           <p>{product.rating} Star Rating ⭐⭐⭐⭐⭐</p>
           <hr />
           <p className='psze'>₹ {discountedPrice}/-</p>
@@ -126,7 +154,6 @@ export const Singleproductpage = () => {
         </p>
       )}
         </div>
-
         <div className='thirddiv'>
           <p>Delivery: Within {product.productdeliveryDate} days</p>
           <p className='tprice'>Price: ₹ {discountedPrice}/-</p>

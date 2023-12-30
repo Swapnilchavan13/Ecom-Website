@@ -39,9 +39,15 @@ export const Homepage = () => {
     }
 
     const Clothingclick = () => {
-        localStorage.setItem("type", 'Clothing')
-        navigate('/products')
+      localStorage.setItem("type", 'Clothing')
+          navigate('/products')
     }
+
+    const Shoesclick = () => {
+        localStorage.setItem("type", 'Shoes')
+            navigate('/products')
+      }
+  
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -117,7 +123,7 @@ export const Homepage = () => {
                 <div>
                     <h2>Great Indian Festival | Finale days</h2>
                     <div className='mainsubdiv'>
-                        <div>
+                        <div onClick={Shoesclick}>
                             <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/Fashion/Event/Gateway/Jup/Phase3/BTF/PCQC/Rev/Saree-186-116-min._SY116_CB575146091_.png" alt="" />
                             <p>Footwear</p>
                         </div>
