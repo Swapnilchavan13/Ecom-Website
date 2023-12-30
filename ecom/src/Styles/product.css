@@ -17,9 +17,9 @@
 .product-card{
     border: 1px solid rgb(209, 207, 207);
     padding: 30px;
-    width: auto;
+    width: 200px;
     border-radius: 5px;
-    height: fit-content;
+    height: auto;
 }
 .product-card img{
     width: 200px;

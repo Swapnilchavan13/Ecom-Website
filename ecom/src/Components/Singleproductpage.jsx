@@ -100,30 +100,33 @@ export const Singleproductpage = () => {
   };
 
 
+
   const discountedPrice = (product.productprice * (1 - product.productdiscount / 100)).toFixed(0);
 
+  const imageList = [product.image_one, product.image_two, product.image_three, product.image_four, product.image_five];
+
+  
   return (
     <>
       <ToastContainer />
       <div id='singleproduct'>
         <div>
-          <img src={mainImage} alt={product.productname} style={{ maxWidth: '100%' }} />
+        <img src={mainImage} alt={`Main view of ${product.productname}`} style={{ maxWidth: '100%' }} />
           <div className="thumbnails">
-            {[product.image_one, product.image_two, product.image_three, product.image_four, product.image_five].map((image, index) => (
+            {imageList.map((image, index) => (
               image && (
                 <img
                   key={index}
                   src={image}
-                  alt={`Thumbnail ${index}`}
+                  alt={`${product.productname} - Image ${index + 1}`}
                   onClick={() => handleImageClick(image)}
                   className="thumbnail"
-                  style={{ maxWidth: '20%', cursor: 'pointer' }}
+                  style={{ maxWidth: '15%', cursor: 'pointer' }}
                 />
               )
             ))}
           </div>
         </div>
-
         <div>
           <p className='pname'>{product.productname}</p>
           <p>Visit the Merchant Store {product.merchantid}</p>
