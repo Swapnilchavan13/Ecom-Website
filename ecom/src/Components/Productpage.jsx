@@ -71,11 +71,6 @@ export const Productpage = () => {
             <button onClick={toggleSortOrder}>
               Sort {sortOrder === 'asc' ? 'Low to High' : 'High to Low'}
             </button>
-            <p>Under ₹1,000</p>
-            <p>₹1,000 - ₹5,000</p>
-            <p>₹5,000 - ₹10,000</p>
-            <p>₹10,000 - ₹20,000</p>
-            <p>Over ₹20,000</p>
           </div>
 
           <div>
@@ -93,24 +88,6 @@ export const Productpage = () => {
             <label htmlFor="">
               <input type="checkbox" />
               Oneplus
-            </label>
-          </div>
-
-          <div>
-            <h4>Operating System</h4>
-            <label htmlFor="">
-              <input type="checkbox" />
-              Android 10.0
-            </label>
-            <br />
-            <label htmlFor="">
-              <input type="checkbox" />
-              Android 12.0
-            </label>
-            <br />
-            <label htmlFor="">
-              <input type="checkbox" />
-              Android 13.0
             </label>
           </div>
 
