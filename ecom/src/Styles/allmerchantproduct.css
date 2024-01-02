@@ -1,63 +1,66 @@
-.all-merchant-product-container>div {
-    padding: 20px;
+.mainpro{
+  background-color: white;
+}
+#productmaindiv{
+  display: flex;
+  padding: 20px;
+}
+#filterdiv {
+  width: 550px;
+}
+.product-list{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background-color: white;
+  gap: 10px;
+}
+.product-card{
+  border: 1px solid rgb(209, 207, 207);
+  padding: 30px;
+  width: 200px;
+  border-radius: 5px;
+  height: auto;
+}
+.product-card img{
+  width: 200px;
+  height: 220px;
+}
+.product-card *{
+margin-top: -10px;
+cursor: pointer;
+}
+.pricefont{
+  font-size: 22px;
+  font-weight: bold;
+}
+#filterdiv{
+  background-color: white;
+  text-align: left;
+}
+.product-card h4{
+text-align: left;
 }
 
-.title {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
 
-.loading-message {
-    font-size: 16px;
-    color: #888;
-}
-
-.product-list {
-    display: grid;
-    grid-template-columns: repeat(4 , 1fr);
-    list-style: none;
-    padding: 0;
-}
-
-.product-item {
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    padding: 15px;
-    border-radius: 5px;
-    width: 280px;
+@media only screen and (max-width: 767px) {
+  #filterdiv div label{
+      font-size: 8px;
   }
-  
-  .product-name {
-    font-size: 18px;
-    margin-bottom: 10px;
+  .product-card img{
+   width: 80px;
+   height: 100px;
   }
-  
-  .product-image {
-    max-width: 40%;
-    height: auto;
-    margin-bottom: 10px;
+  .product-card {
+      width: 100px;
+     padding: 10px;
   }
-  
-  .product-price,
-  .product-discount,
-  .product-quantity {
-    font-size: 14px;
-    margin: 5px 0;
-    color: #555;
+  .pricefont{
+      font-size: 10px;
+      margin-top: 2px;
   }
-  
-  .delete-button{
-    background-color: rgb(219, 66, 66);
-    color: white;
-  }
-
-  @media only screen and (max-width: 767px) {
-
-    .product-list {
+  #product-list{
       display: grid;
-      grid-template-columns: repeat(1 , 1fr);
-      list-style: none;
-      padding: 0;
+      grid-template-columns: repeat(2, 1fr);
   }
-    
-  }
+
+}

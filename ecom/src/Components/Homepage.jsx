@@ -47,6 +47,11 @@ export const Homepage = () => {
         localStorage.setItem("type", 'Shoes')
             navigate('/products')
       }
+     
+    const Cosmeticsclick = () => {
+        localStorage.setItem("type", 'Cosmetics')
+            navigate('/products')
+      }
   
 
     useEffect(() => {
@@ -57,6 +62,96 @@ export const Homepage = () => {
         <>
             <img width="100%" src={sliderimg[currentImageIndex]} alt="" />
             <div id='mainhomediv'>
+
+                <div>
+                    <h2>All Brands Mobile Phones</h2>
+                    <div className='mainsubdiv'>
+                        <div>
+                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_186x116_1._SY116_CB573889351_.jpg" alt="" />
+                            <p>Starting ₹99 | Home decor</p>
+                        </div>
+                        <div>
+                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_186x116_7._SY116_CB573889443_.jpg" alt="" />
+                            <p>Starting ₹139 | Kitchen products</p>
+                        </div>
+                        <div onClick={Toysclick}>
+                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_1_1x._SY116_CB573884255_.jpg" alt="" />
+                            <p>Starting ₹85 | Toys & games</p>
+                        </div>
+                        <div onClick={Cosmeticsclick}>
+                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/Symbol/2023/Jupiter23/Phase3/Desktop_QC/PB/2_1x._SY116_CB575198763_.png" alt="" />
+                            <p>Min. 60% off | Festive collections</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2>Shoes and Footware</h2>
+                    <div className='mainsubdiv'>
+                        <div>
+                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_186x116_1._SY116_CB573889351_.jpg" alt="" />
+                            <p>Starting ₹99 | Home decor</p>
+                        </div>
+                        <div>
+                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_186x116_7._SY116_CB573889443_.jpg" alt="" />
+                            <p>Starting ₹139 | Kitchen products</p>
+                        </div>
+                        <div onClick={Toysclick}>
+                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_1_1x._SY116_CB573884255_.jpg" alt="" />
+                            <p>Starting ₹85 | Toys & games</p>
+                        </div>
+                        <div>
+                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/Symbol/2023/Jupiter23/Phase3/Desktop_QC/PB/2_1x._SY116_CB575198763_.png" alt="" />
+                            <p>Min. 60% off | Festive collections</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2>Collection and Clothing</h2>
+                    <div className='mainsubdiv'>
+                        <div>
+                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_186x116_1._SY116_CB573889351_.jpg" alt="" />
+                            <p>Starting ₹99 | Home decor</p>
+                        </div>
+                        <div>
+                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_186x116_7._SY116_CB573889443_.jpg" alt="" />
+                            <p>Starting ₹139 | Kitchen products</p>
+                        </div>
+                        <div onClick={Toysclick}>
+                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_1_1x._SY116_CB573884255_.jpg" alt="" />
+                            <p>Starting ₹85 | Toys & games</p>
+                        </div>
+                        <div>
+                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/Symbol/2023/Jupiter23/Phase3/Desktop_QC/PB/2_1x._SY116_CB575198763_.png" alt="" />
+                            <p>Min. 60% off | Festive collections</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2>Skin care and Cosmatics</h2>
+                    <div className='mainsubdiv'>
+                        <div>
+                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_186x116_1._SY116_CB573889351_.jpg" alt="" />
+                            <p>Starting ₹99 | Home decor</p>
+                        </div>
+                        <div>
+                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_186x116_7._SY116_CB573889443_.jpg" alt="" />
+                            <p>Starting ₹139 | Kitchen products</p>
+                        </div>
+                        <div onClick={Toysclick}>
+                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_1_1x._SY116_CB573884255_.jpg" alt="" />
+                            <p>Starting ₹85 | Toys & games</p>
+                        </div>
+                        <div>
+                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/Symbol/2023/Jupiter23/Phase3/Desktop_QC/PB/2_1x._SY116_CB575198763_.png" alt="" />
+                            <p>Min. 60% off | Festive collections</p>
+                        </div>
+                    </div>
+                </div>
+
+
                 <div>
                     <h2>Up to 70% off | Deals on Amazon Brands & more</h2>
                     <div className='mainsubdiv'>

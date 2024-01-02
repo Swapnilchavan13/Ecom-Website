@@ -6,8 +6,8 @@ import '../Styles/userdetails.css';
 export const UserData = () => {
  const navigate = useNavigate();
  const username = localStorage.getItem('username');
-   const usermobile = localStorage.getItem('usermobile');
-   const uid = localStorage.getItem('uid');
+ const usermobile = localStorage.getItem('usermobile');
+ const uid = localStorage.getItem('uid');
  
    const [isPopupVisible, setPopupVisible] = useState(false);
   //  const [address, setAddress] = useState('');
