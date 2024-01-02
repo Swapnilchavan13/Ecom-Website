@@ -10,6 +10,7 @@ const ProductCard = ({ product }) => {
     navigate('/singleproductpage');
     const productJSON = JSON.stringify(product);
     localStorage.setItem('selectedProduct', productJSON);
+    window.location.reload();
   };
 
   const discountedPrice = (product.productprice * (1 - product.productdiscount / 100)).toFixed(0);

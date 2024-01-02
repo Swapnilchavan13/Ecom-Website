@@ -17,6 +17,7 @@ import { MerchantLoginForm } from './Components/MerchantLoginForm';
 import { Addmerchantproduct } from './Components/Addmerchantproduct';
 import { Allmerchantproduct } from './Components/Allmerchantproduct';
 import { Merchantorders } from './Components/Merchantorders';
+import { Merchantproductpage } from './Components/Merchantproductpage';
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
           <Route path="merchantregistration" element={<MerchantRegistrationForm />} />
           <Route path="merchantdatapage" element={<Merchantdatapage />} />
           <Route path="merchantlogin" element={<MerchantLoginForm />} />
+          <Route path="merchantproductpage" element={<Merchantproductpage />} />
           <Route path="merchantdatapage/merchantadd" element={<Addmerchantproduct />} />
           <Route path="merchantdatapage/merchantproduct" element={<Allmerchantproduct />} />
           <Route path="merchantdatapage/merchantorder" element={<Merchantorders />} />

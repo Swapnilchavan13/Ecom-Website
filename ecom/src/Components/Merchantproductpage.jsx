@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
     const productJSON = JSON.stringify(product);
     localStorage.setItem('selectedProduct', productJSON);
     localStorage.setItem('selectedmi', product.merchantid);
-    
+
   };
 
   const discountedPrice = (product.productprice * (1 - product.productdiscount / 100)).toFixed(0);
@@ -27,6 +27,7 @@ const ProductCard = ({ product }) => {
       <span style={{ display: 'inline' }}>
         <p style={{ textDecoration: 'line-through', color: 'grey' }} className='pricefont'>Price: ₹ {product.productprice} /-</p>
         <p>On M.R.P {product.productdiscount}% Off</p>
+        <p>{product.merchantid}</p>
         <p className='pricefont'>Price: ₹ {discountedPrice} /-</p>
       </span>
       <p>FREE delivery by Amazon</p>
@@ -34,17 +35,24 @@ const ProductCard = ({ product }) => {
   );
 };
 
-export const Productpage = () => {
+export const Merchantproductpage = () => {
   const selectedType = localStorage.getItem('type');
   const [productarr, setProductsarr] = useState([]);
   const [sortOrder, setSortOrder] = useState('asc'); // 'asc' for ascending, 'desc' for descending
+  const [merchantId, setMerchantId] = useState('');
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
+  
   useEffect(() => {
-    fetch('http://localhost:3008/allproducts')
+      window.scrollTo(0, 0);
+    }, []);
+    
+    useEffect(() => {
+        const storedMerchantId = localStorage.getItem('selectedmi');
+
+
+    fetch(`http://localhost:3008/allproducts/${storedMerchantId}`)
+
       .then(response => response.json())
       .then(data => {
         let filteredData = data.filter(product => product.producttype === selectedType);

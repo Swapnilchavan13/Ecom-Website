@@ -94,17 +94,17 @@ export const Singleproductpage = () => {
     navigate('/checkoutpage');
   };
   
-  
   const handleImageClick = (imageSrc) => {
     setMainImage(imageSrc);
   };
-
-
 
   const discountedPrice = (product.productprice * (1 - product.productdiscount / 100)).toFixed(0);
 
   const imageList = [product.image_one, product.image_two, product.image_three, product.image_four, product.image_five];
 
+  const toMerchant= () => {
+    navigate('/merchantproductpage')
+  }
   
   return (
     <>
@@ -129,7 +129,7 @@ export const Singleproductpage = () => {
         </div>
         <div>
           <p className='pname'>{product.productname}</p>
-          <p>Visit the Merchant Store {product.merchantid}</p>
+          <p onClick={toMerchant}>Visit the Merchant Store {product.merchantid}</p>
           <p>{product.rating} Star Rating ⭐⭐⭐⭐⭐</p>
           <hr />
           <p className='psze'>₹ {discountedPrice}/-</p>
