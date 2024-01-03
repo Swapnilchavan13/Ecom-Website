@@ -49,7 +49,7 @@ useEffect(() => {
 
   if (storedMerchantId) {
     setMerchantId(storedMerchantId);
-    fetch(`http://localhost:3008/allproducts/${storedMerchantId}`)
+    fetch(`http://62.72.59.146:3008/allproducts/${storedMerchantId}`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -76,7 +76,7 @@ const toggleSortOrder = () => {
   const handleDelete = async (productId) => {
     try {
       // Make a DELETE request to your API endpoint
-      await fetch(`http://localhost:3008/deleteProduct/${productId}`, {
+      await fetch(`http://62.72.59.146:3008/deleteProduct/${productId}`, {
         method: 'DELETE',
       });
 

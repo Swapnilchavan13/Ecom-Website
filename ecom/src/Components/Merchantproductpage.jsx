@@ -49,7 +49,7 @@ export const Merchantproductpage = () => {
     useEffect(() => {
         const storedMerchantId = localStorage.getItem('selectedmi');
 
-    fetch(`http://localhost:3008/allproducts/${storedMerchantId}`)
+    fetch(`http://62.72.59.146:3008/allproducts/${storedMerchantId}`)
 
       .then(response => response.json())
       .then(data => {

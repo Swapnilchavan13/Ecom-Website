@@ -28,7 +28,7 @@ export const MerchantRegistrationForm = () => {
     e.preventDefault();
   
     try {
-      const response = await fetch('http://localhost:3008/merchantdata', {
+      const response = await fetch('http://62.72.59.146:3008/merchantdata', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

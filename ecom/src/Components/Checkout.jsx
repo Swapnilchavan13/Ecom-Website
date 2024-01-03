@@ -25,7 +25,7 @@ export const Checkout = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3008/userdata');
+        const response = await fetch('http://62.72.59.146:3008/userdata');
         const data = await response.json();
 
         if (response.ok) {
@@ -100,7 +100,7 @@ export const Checkout = () => {
         };
 
         // Make a POST request to your backend API
-        const response = await fetch('http://localhost:3008/createorder', {
+        const response = await fetch('http://62.72.59.146:3008/createorder', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -136,7 +136,7 @@ export const Checkout = () => {
   const saveAddress = async () => {
     try {
       const userId = userData._id;
-      const response = await fetch(`http://localhost:3008/userdata/${userId}`, {
+      const response = await fetch(`http://62.72.59.146:3008/userdata/${userId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

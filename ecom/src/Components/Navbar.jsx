@@ -36,7 +36,12 @@ export const Navbar = () => {
         window.location.reload();
     };
 
-    
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            handleSearch();
+        }
+    };
+
 
     return (
         <>
@@ -56,6 +61,8 @@ export const Navbar = () => {
                         list="types-list"
                         value={searchInput}
                         onChange={handleInputChange}
+                        onKeyDown={handleKeyDown}
+
                     />
                     <datalist id="types-list">
                         {types.map((type, index) => (

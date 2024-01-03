@@ -13,7 +13,7 @@ export const Register = () => {
 
   const handleRegister = async () => {
     try {
-      const response = await fetch('http://localhost:3008/userdata', {
+      const response = await fetch('http://62.72.59.146:3008/userdata', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
