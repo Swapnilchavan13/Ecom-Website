@@ -43,7 +43,7 @@ export const Cartpage = () => {
                         {cartData.map((product, index) => (
                             <div className='secondcart' key={index}>
                                 <div>
-                                    <img src={product.productimage} alt={product.productname} />
+                                    <img src={product.image_one} alt={product.productname} />
                                 </div>
                                 <div>
                                     <h2>{product.productname}</h2>

@@ -198,7 +198,7 @@ export const Checkout = () => {
             </div>
 
             {isPopupVisible && (
-       <div className="popup">
+       <div className="popup2">
          {address.map((address, index) => (
            <div key={index}>
              <input
