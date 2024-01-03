@@ -42,14 +42,12 @@ export const Merchantproductpage = () => {
   const [merchantId, setMerchantId] = useState('');
 
 
-  
   useEffect(() => {
       window.scrollTo(0, 0);
     }, []);
     
     useEffect(() => {
         const storedMerchantId = localStorage.getItem('selectedmi');
-
 
     fetch(`http://localhost:3008/allproducts/${storedMerchantId}`)
 
@@ -107,29 +105,6 @@ export const Merchantproductpage = () => {
             <p>⭐⭐⭐⚝ ⚝ & Up</p>
             <p>⭐⭐⚝ ⚝ ⚝ & Up</p>
             <p>⭐⚝ ⚝ ⚝ ⚝ & Up</p>
-          </div>
-
-          <div>
-            <h4>Battery Capacity </h4>
-            <label htmlFor="">
-              <input type="checkbox" />
-              3,000 to 3,999 mAh
-            </label>
-            <br />
-            <label htmlFor="">
-              <input type="checkbox" />
-              4,000 to 4,999 mAh
-            </label>
-            <br />
-            <label htmlFor="">
-              <input type="checkbox" />
-              5,000 to 5,999 mAh
-            </label>
-            <br />
-            <label htmlFor="">
-              <input type="checkbox" />
-              6,000 mAh & Above
-            </label>
           </div>
 
         </div>

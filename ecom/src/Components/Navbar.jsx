@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import '../Styles/navbar.css';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const Navbar = () => {
     const Uname = localStorage.getItem('username') || "Account";
     const [currlocation, setCurrlocation] = useState({});
+
+    const [searchInput, setSearchInput] = useState('');
+    const [suggestions, setSuggestions] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         getLocation();
@@ -20,6 +24,20 @@ export const Navbar = () => {
         }
     };
 
+    const types = ['Electronics', 'Clothing', 'Shoes', 'Cosmetics'];
+
+    const handleInputChange = (e) => {
+        setSearchInput(e.target.value);
+    };
+
+    const handleSearch = () => {
+        localStorage.setItem("type", searchInput);
+        navigate('/products');
+        window.location.reload();
+    };
+
+    
+
     return (
         <>
             <div id='navbarmain'>
@@ -32,8 +50,19 @@ export const Navbar = () => {
                     <h3>🌍{currlocation.city ? currlocation.city : "Location"}</h3>
                 </div>
                 <div id='searchdiv'>
-                    <input placeholder='Search Greyowl.in' type="text" name="" id="" />
-                    <button>🔍</button>
+                    <input 
+                        placeholder='Search Greyowl.in' 
+                        type="text"
+                        list="types-list"
+                        value={searchInput}
+                        onChange={handleInputChange}
+                    />
+                    <datalist id="types-list">
+                        {types.map((type, index) => (
+                            <option key={index} value={type} />
+                        ))}
+                    </datalist>
+                    <button onClick={handleSearch}>🔍</button>
                 </div>
                 <div>
                     <Link to='login'>
