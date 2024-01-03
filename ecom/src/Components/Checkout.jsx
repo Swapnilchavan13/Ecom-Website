@@ -73,9 +73,7 @@ export const Checkout = () => {
   const Placeorder = async () => {
     if (isLogin) {
 
-      const addressValidationRegex = /[A-Za-z0-9]+/;
-
-     
+    const addressValidationRegex = /[A-Za-z0-9]+/;
     if (!userData.useraddress || !addressValidationRegex.test(userData.useraddress)) {
       alert('Please enter a valid address');
       setPopupVisible(true)
