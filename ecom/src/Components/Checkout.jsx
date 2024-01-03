@@ -73,10 +73,14 @@ export const Checkout = () => {
   const Placeorder = async () => {
     if (isLogin) {
 
-      if (!userData.useraddress || userData.useraddress.trim() === '') {
-        alert('Please fill in your address');
-        return; // Stop the function here if no address
-      }
+      const addressValidationRegex = /[A-Za-z0-9]+/;
+
+     
+    if (!userData.useraddress || !addressValidationRegex.test(userData.useraddress)) {
+      alert('Please enter a valid address');
+      setPopupVisible(true)
+      return; // Stop the function here if the address is invalid
+    }
   
       try {
         // Create an order object with relevant data
