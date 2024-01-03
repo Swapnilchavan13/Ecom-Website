@@ -37,6 +37,8 @@ const ProductCard = ({ product }) => {
 export const Productpage = () => {
   const selectedType = localStorage.getItem('type');
   const [productarr, setProductsarr] = useState([]);
+  const [brands, setBrands] = useState([]);
+  const [selectedBrands, setSelectedBrands] = useState(new Set());
   const [sortOrder, setSortOrder] = useState('asc'); // 'asc' for ascending, 'desc' for descending
 
   useEffect(() => {
@@ -48,7 +50,12 @@ export const Productpage = () => {
       .then(response => response.json())
       .then(data => {
         let filteredData = data.filter(product => product.producttype === selectedType);
+        
+        // Extracting unique brands
+        const extractedBrands = new Set(data.map(product => product.brand));
+        setBrands([...extractedBrands]);
 
+        // Sorting logic
         if (sortOrder === 'asc') {
           filteredData = filteredData.sort((a, b) => parseFloat(a.productprice) - parseFloat(b.productprice));
         } else {
@@ -60,9 +67,25 @@ export const Productpage = () => {
       .catch(error => console.error('Error fetching products:', error));
   }, [selectedType, sortOrder]);
 
+  // Handle brand selection
+  const handleBrandChange = (brand) => {
+    const newSelectedBrands = new Set(selectedBrands);
+    if (newSelectedBrands.has(brand)) {
+      newSelectedBrands.delete(brand);
+    } else {
+      newSelectedBrands.add(brand);
+    }
+    setSelectedBrands(newSelectedBrands);
+  };
+
   const toggleSortOrder = () => {
     setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
   };
+
+  // Filter products by selected brands
+  const filteredProducts = productarr.filter(product => 
+    selectedBrands.size === 0 || selectedBrands.has(product.brand)
+  );
 
   return (
     <div className='mainpro'>
@@ -77,20 +100,17 @@ export const Productpage = () => {
 
           <div>
             <h4>Brands</h4>
-            <label htmlFor="">
-              <input type="checkbox" />
-              Samsung
-            </label>
-            <br />
-            <label htmlFor="">
-              <input type="checkbox" />
-              Apple
-            </label>
-            <br />
-            <label htmlFor="">
-              <input type="checkbox" />
-              Oneplus
-            </label>
+            {brands.map(brand => (
+              <label key={brand}>
+                <input
+                  type="checkbox"
+                  checked={selectedBrands.has(brand)}
+                  onChange={() => handleBrandChange(brand)}
+                />
+                {brand}
+                <br />
+              </label>
+            ))}
           </div>
 
           <div>
@@ -103,8 +123,8 @@ export const Productpage = () => {
 
         </div>
         <div style={{marginLeft:'-300px'}} id="product-list" className="product-list">
-          {productarr.map((product) => (
-            <ProductCard product={product} />
+          {filteredProducts.map((product) => (
+            <ProductCard key={product._id} product={product} />
           ))}
         </div>
       </div>
