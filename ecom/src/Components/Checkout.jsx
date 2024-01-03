@@ -18,7 +18,7 @@ export const Checkout = () => {
 
   const [orderPopupVisible, setorderPopupVisible] = useState(false);
   const [isPopupVisible, setPopupVisible] = useState(false);
-  const [address, setAddress] = useState('');
+  const [address, setAddresses] = useState([{ street: '', city: '', pincode: '' }]);
 
   const [quantity, setQuantity] = useState(products.map(() => 1)); // initialize with default quantity of 1 for each product
 
@@ -63,9 +63,6 @@ export const Checkout = () => {
     setProducts(updatedProducts);
   };
 
-  // (product.productprice * (1 - product.productdiscount / 100)).toFixed(0)
-
-
   // const subtotal = products.reduce((acc, product) => acc + +product.productprice, 0);
   const subtotal = products.reduce((acc, product, _id) => acc + +
   (product.productprice * (1 - product.productdiscount / 100)).toFixed(0)* quantity[_id], 0);
@@ -75,6 +72,12 @@ export const Checkout = () => {
 
   const Placeorder = async () => {
     if (isLogin) {
+
+      if (!userData.useraddress || userData.useraddress.trim() === '') {
+        alert('Please fill in your address');
+        return; // Stop the function here if no address
+      }
+  
       try {
         // Create an order object with relevant data
         const orderData = {
@@ -84,7 +87,7 @@ export const Checkout = () => {
             merchantId: product.merchantid,
             productId: product._id, // Assuming your product model has an "_id" property
             productName: product.productname,
-            productImage: product.productimage,
+            productImage: product.image_one,
             quantity: quantity[index],
             price: product.productprice * quantity[index],
           })),
@@ -129,21 +132,21 @@ export const Checkout = () => {
   };
 
   const saveAddress = async () => {
-    const userId = userData._id;
     try {
-      const response = await fetch(`http://localhost:3008/${userId}`, {
+      const userId = userData._id;
+      const response = await fetch(`http://localhost:3008/userdata/${userId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          useraddress: address,
+          useraddress: address.map(addr => `${addr.street}, ${addr.city}, ${addr.pincode}`).join(' | '),
         }),
       });
-
+ 
       const data = await response.json();
       console.log(data.message);
-
+ 
       setPopupVisible(false);
     } catch (error) {
       console.error('Error saving address:', error);
@@ -151,7 +154,7 @@ export const Checkout = () => {
     window.location.reload();
   };
 
-  const cancelButton = () => {
+  const hidePopup = () => {
     setPopupVisible(false);
   };
 
@@ -164,6 +167,14 @@ export const Checkout = () => {
   const closePopup = () => {
     setorderPopupVisible(false);
     navigate('/');
+  };
+
+  const handleAddressChange = (index, e) => {
+    const newAddresses = address.map((address, addrIndex) => {
+      if (index !== addrIndex) return address;
+      return { ...address, [e.target.name]: e.target.value };
+    });
+    setAddresses(newAddresses);
   };
 
 
@@ -187,23 +198,49 @@ export const Checkout = () => {
             </div>
 
             {isPopupVisible && (
-              <div>
-                <input
-                  className="address-input"
-                  placeholder="Enter Your House No. Street with City And Pincode"
-                  type="text"
-                  onChange={(e) => setAddress(e.target.value)}
-                />
-                <br />
-                <button onClick={saveAddress} className="save-button">
-                  Save Address
-                </button>
+       <div className="popup">
+         {address.map((address, index) => (
+           <div key={index}>
+             <input
+               className="address-input"
+               placeholder='House No. and Street'
+               name="street"
+               type="text"
+               value={address.street}
+               onChange={(e) => handleAddressChange(index, e)}
+             />
+             <br />
+             <input
+               className="address-input"
+               placeholder='Enter City'
+               name="city"
+               type="text"
+               value={address.city}
+               onChange={(e) => handleAddressChange(index, e)}
+             />
+             <br />
+             <input
+               className="address-input"
+               placeholder='Enter Pincode'
+               name="pincode"
+               type="text"
+               value={address.pincode}
+               onChange={(e) => handleAddressChange(index, e)}
+             />
+           </div>
+         ))}
+        
+         <br />
+         <button onClick={saveAddress} className="save-button">
+           Save Address
+         </button>
+         <button onClick={hidePopup} className="cancel-button">
+           Cancel
+         </button>
 
-                <button onClick={cancelButton} className="cancel-button">
-                  Cancel
-                </button>
-              </div>
-            )}
+           
+         </div>
+       )} 
             <hr />
 
             <div className="ckeckoutdetails">

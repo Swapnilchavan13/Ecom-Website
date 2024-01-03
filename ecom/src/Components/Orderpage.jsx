@@ -50,7 +50,7 @@ export const Orderpage = () => {
                     {product.quantity} x {product.productName} - ₹{product.price}
                     <br />
                     <br />
-                    <img width="50px" src={product.productImage} alt="" />
+                    <img width="70px" src={product.productImage} alt="" />
                   </li>
                 ))}
               </ul>
