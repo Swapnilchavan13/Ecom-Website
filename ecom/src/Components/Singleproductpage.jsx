@@ -11,7 +11,6 @@ export const Singleproductpage = () => {
   const [cart, setCart] = useState([]);
   const [mainImage, setMainImage] = useState('');
 
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -129,7 +128,7 @@ export const Singleproductpage = () => {
         </div>
         <div>
           <p className='pname'>{product.productname}</p>
-          <p onClick={toMerchant}>Visit the Merchant Store {product.merchantid}</p>
+          <p style={{color:'blue', cursor:'pointer'}} onClick={toMerchant}>Visit the Merchant Store Products</p>
           <p>{product.rating} Star Rating ⭐⭐⭐⭐⭐</p>
           <hr />
           <p className='psze'>₹ {discountedPrice}/-</p>
@@ -160,7 +159,13 @@ export const Singleproductpage = () => {
         <div className='thirddiv'>
           <p>Delivery: Within {product.productdeliveryDate} days</p>
           <p className='tprice'>Price: ₹ {discountedPrice}/-</p>
-          <p>Or fastest delivery, {Date()}. Order will be delivered Within {product.productdeliveryDate} days. Details</p>
+          <p>Or fastest delivery, {(() => {
+  const currentDate = new Date();
+  const deliveryDate = new Date(currentDate);
+  const daysToAdd = parseInt(product.productdeliveryDate, 10) || 0; // Parse and default to 0 if not a valid number
+  deliveryDate.setDate(currentDate.getDate() + daysToAdd);
+  return deliveryDate.toDateString();
+})()}. Order will be delivered Within {product.productdeliveryDate} days. Details</p>
           <p className='stock'>In stock</p>
           <p>Sold by Darshita E-Zone and Fulfilled by Amazon.</p>
           <p>GreyOwl Pvt Ltd, Juhu, Mumbai.</p>
@@ -176,7 +181,7 @@ export const Singleproductpage = () => {
         </div>
         
       </div>
-      <img
+      {/* <img
         className='bannerimg'
         src='https://m.media-amazon.com/images/G/31/img21/Wireless/katariy/Apple/Aplus_content/13_desk/iPhone_13_Product_Page_Flex_Module_Amazon_Desktop_Avail_1500__en-IN_01._CB640700609_.jpg'
         alt=''
@@ -190,7 +195,7 @@ export const Singleproductpage = () => {
         className='bannerimg'
         src='https://m.media-amazon.com/images/G/31/img21/Wireless/katariy/Apple/Aplus_content/13_desk/iPhone_13_Product_Page_Flex_Module_Amazon_Desktop_Avail_1500__en-IN_08._CB640700609_.jpg'
         alt=''
-      />
+      /> */}
     </>
   );
 };

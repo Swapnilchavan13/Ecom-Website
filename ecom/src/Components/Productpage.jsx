@@ -125,7 +125,7 @@ export const Productpage = () => {
           </div>
 
         </div>
-        <div id="product-list" className="product-list">
+        <div style={{marginLeft:'-300px'}} id="product-list" className="product-list">
           {productarr.map((product) => (
             <ProductCard product={product} />
           ))}

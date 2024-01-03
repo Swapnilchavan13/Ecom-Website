@@ -66,21 +66,22 @@ export const Homepage = () => {
                 <div>
                     <h2>All Brands Mobile Phones</h2>
                     <div className='mainsubdiv'>
-                        <div>
-                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_186x116_1._SY116_CB573889351_.jpg" alt="" />
-                            <p>Starting ₹99 | Home decor</p>
+
+                    <div onClick={Electronicsclick}>
+                            <img src="https://i.gadgets360cdn.com/large/redmi_note_11t_5g_india_1651740341314.jpg" alt="" />
+                            <p>Starting ₹10,000 </p>
                         </div>
-                        <div>
-                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_186x116_7._SY116_CB573889443_.jpg" alt="" />
-                            <p>Starting ₹139 | Kitchen products</p>
+                        <div onClick={Electronicsclick}>
+                            <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202010/index-01_1200x768.jpeg?size=690:388" alt="" />
+                            <p>Starting ₹20,000 | Quality Mobiles</p>
                         </div>
-                        <div onClick={Toysclick}>
-                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_1_1x._SY116_CB573884255_.jpg" alt="" />
-                            <p>Starting ₹85 | Toys & games</p>
+                        <div onClick={Electronicsclick}>
+                            <img src="https://www.usatoday.com/gcdn/presto/2020/06/02/USAT/d9542bb2-c59a-414a-af6c-85e9299d423e-best_phone_deals_hero.jpg?width=660&height=372&fit=crop&format=pjpg&auto=webp" alt="" />
+                            <p>Starting ₹40,000</p>
                         </div>
-                        <div onClick={Cosmeticsclick}>
-                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/Symbol/2023/Jupiter23/Phase3/Desktop_QC/PB/2_1x._SY116_CB575198763_.png" alt="" />
-                            <p>Min. 60% off | Festive collections</p>
+                        <div onClick={Electronicsclick}>
+                            <img src="https://i0.wp.com/www.smartprix.com/bytes/wp-content/uploads/2022/09/Motorola-Moto-G82-5G-feat.webp?ssl=1" alt="" />
+                            <p>Min. 10% off | All brands</p>
                         </div>
                     </div>
                 </div>
@@ -88,21 +89,21 @@ export const Homepage = () => {
                 <div>
                     <h2>Shoes and Footware</h2>
                     <div className='mainsubdiv'>
-                        <div>
-                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_186x116_1._SY116_CB573889351_.jpg" alt="" />
-                            <p>Starting ₹99 | Home decor</p>
+                    <div onClick={Shoesclick}>
+                            <img src="https://c.ndtvimg.com/2023-10/dqrie8a_amazon-sale_625x300_09_October_23.jpg" alt="" />
+                            <p>Starting ₹700 | New Style</p>
                         </div>
-                        <div>
-                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_186x116_7._SY116_CB573889443_.jpg" alt="" />
-                            <p>Starting ₹139 | Kitchen products</p>
+                    <div onClick={Shoesclick}>
+                            <img src="https://footwearnews.com/wp-content/uploads/2022/07/AmazonearlyaccessFNshoedeals_leadart.jpg?w=911&h=510&crop=1" alt="" />
+                            <p>Starting ₹1000 | Quality Products</p>
                         </div>
-                        <div onClick={Toysclick}>
-                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_1_1x._SY116_CB573884255_.jpg" alt="" />
-                            <p>Starting ₹85 | Toys & games</p>
+                    <div onClick={Shoesclick}>
+                            <img src="https://c.ndtvimg.com/2022-09/8u0q1p8o_fashion-650_625x300_21_September_22.jpg" alt="" />
+                            <p>Starting ₹800 | White Shoes</p>
                         </div>
-                        <div>
-                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/Symbol/2023/Jupiter23/Phase3/Desktop_QC/PB/2_1x._SY116_CB575198763_.png" alt="" />
-                            <p>Min. 60% off | Festive collections</p>
+                    <div onClick={Shoesclick}>
+                            <img src="https://c.dlnws.com/image/upload/c_limit,f_auto,q_auto,w_1800/v1695739736/Blog/DN_BF_shoe_deals_lead.jpg" alt="" />
+                            <p>Min. 30% off | Shoes Collections</p>
                         </div>
                     </div>
                 </div>
@@ -110,21 +111,21 @@ export const Homepage = () => {
                 <div>
                     <h2>Collection and Clothing</h2>
                     <div className='mainsubdiv'>
-                        <div>
-                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_186x116_1._SY116_CB573889351_.jpg" alt="" />
-                            <p>Starting ₹99 | Home decor</p>
+                        <div onClick={Clothingclick}>
+                            <img src="https://www.hatkay.com/cdn/shop/articles/How-to-Look-Stylish-in-Traditional-Indian-Clothing-Where-to-Buy-the-Best-Fashionable-Ethnic-Wear-for-Women-Online.jpg?v=1671543652" alt="" />
+                            <p>Starting ₹500+ | New Design</p>
                         </div>
-                        <div>
-                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_186x116_7._SY116_CB573889443_.jpg" alt="" />
-                            <p>Starting ₹139 | Kitchen products</p>
+                        <div onClick={Clothingclick}>
+                            <img src="https://www.hatkay.com/cdn/shop/articles/Ace-Your-Looks-with-a-Timeless-Collection-of-Indian-Clothes.jpg?v=1668850107" alt="" />
+                            <p>Starting ₹700+ | New Style</p>
                         </div>
-                        <div onClick={Toysclick}>
-                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_1_1x._SY116_CB573884255_.jpg" alt="" />
-                            <p>Starting ₹85 | Toys & games</p>
+                        <div onClick={Clothingclick}>
+                            <img src="https://www.hatkay.com/cdn/shop/articles/How-to-Give-Indian-Clothes-a-Modern-Touch.jpg?v=1670497709" alt="" />
+                            <p>Starting ₹850 | More Colors</p>
                         </div>
-                        <div>
-                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/Symbol/2023/Jupiter23/Phase3/Desktop_QC/PB/2_1x._SY116_CB575198763_.png" alt="" />
-                            <p>Min. 60% off | Festive collections</p>
+                        <div onClick={Clothingclick}>
+                            <img src="https://baggout.com/wp-content/uploads/2021/02/Indian-clothing-3.jpg" alt="" />
+                            <p>Min. 60% off | Festive Collections</p>
                         </div>
                     </div>
                 </div>
@@ -132,21 +133,21 @@ export const Homepage = () => {
                 <div>
                     <h2>Skin care and Cosmatics</h2>
                     <div className='mainsubdiv'>
-                        <div>
-                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_186x116_1._SY116_CB573889351_.jpg" alt="" />
-                            <p>Starting ₹99 | Home decor</p>
+                    <div onClick={Cosmeticsclick}>
+                            <img src="https://cdn2.system1.com/eyJidWNrZXQiOiJvbS1wdWItc3RvcmFnZSIsImtleSI6ImNoZWNraW4vd3AtY29udGVudC91cGxvYWRzLzIwMTkvMTAvbXVzdC1zZWUtaG9saWRheS1kZWFscy1vbi1tYWtldXAtYW5kLWNvc21ldGljcy1zY2FsZWQuanBnIiwiZWRpdHMiOnsid2VicCI6eyJxdWFsaXR5Ijo4MH19fQ==" alt="" />
+                            <p>Starting ₹399 | Skin Products</p>
                         </div>
-                        <div>
-                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_186x116_7._SY116_CB573889443_.jpg" alt="" />
-                            <p>Starting ₹139 | Kitchen products</p>
+                        <div onClick={Cosmeticsclick}>
+                            <img src="https://www.shutterstock.com/image-photo/decorative-cosmetics-makeup-brushes-on-600nw-1717814998.jpg" alt="" />
+                            <p>Starting ₹299 | Natural</p>
                         </div>
-                        <div onClick={Toysclick}>
-                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/PB/Oct/Jupiter23/Kitchen/QC_PC_1_1x._SY116_CB573884255_.jpg" alt="" />
-                            <p>Starting ₹85 | Toys & games</p>
+                        <div onClick={Cosmeticsclick}>
+                            <img src="https://www.itcosmetics.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-itcosmetics-us-Library/default/dw73a20440/images/blog/itc-google-black-friday-image.jpg?sw=480&sh=350&sm=cut&q=70" alt="" />
+                            <p>Starting ₹500 | New Products</p>
                         </div>
-                        <div>
-                            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/Symbol/2023/Jupiter23/Phase3/Desktop_QC/PB/2_1x._SY116_CB575198763_.png" alt="" />
-                            <p>Min. 60% off | Festive collections</p>
+                        <div onClick={Cosmeticsclick}>
+                            <img src="https://i.pinimg.com/originals/b8/2e/c7/b82ec7eff90cdd3b09b1da335f584261.jpg" alt="" />
+                            <p>Min. 20% off | Skin Care</p>
                         </div>
                     </div>
                 </div>
