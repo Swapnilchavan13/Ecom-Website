@@ -8,11 +8,11 @@
 #filterdiv {
   width: 550px;
 }
-.product-list{
+.product-list2{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   background-color: white;
-  gap: 10px;
+  gap: 3px;
 }
 .product-card{
   border: 1px solid rgb(209, 207, 207);

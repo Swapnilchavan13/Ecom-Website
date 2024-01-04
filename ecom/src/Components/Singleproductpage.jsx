@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 export const Singleproductpage = () => {
   const navigate = useNavigate();
   const [showFullDescription, setShowFullDescription] = useState(false);
@@ -126,7 +125,7 @@ export const Singleproductpage = () => {
             ))}
           </div>
         </div>
-        <div>
+        <div id='infodiv'>
           <p className='pname'>{product.productname}</p>
           <p style={{color:'blue', cursor:'pointer'}} onClick={toMerchant}>Visit the Merchant Store Products</p>
           <p>{product.rating} Star Rating ⭐⭐⭐⭐⭐</p>
@@ -138,11 +137,13 @@ export const Singleproductpage = () => {
         <hr />
           <p>🔖% Offers: {product.productoffer}</p>
           <hr />
-          <h5 style={{textAlign:'left'}}>Brand : {product.brand}</h5>
-          <h5 style={{textAlign:'left'}}>Storage : {product.storage}</h5>
-          <h5 style={{textAlign:'left'}}>Operating System : {product.operatingSystem}</h5>
-          <h5 style={{textAlign:'left'}}>Cellular Technology : {product.cellularTechnology}</h5>
-<hr />
+        {product.brand && <h5 style={{textAlign:'left'}}>Brand : {product.brand}</h5>}
+        {product.storage && <h5 style={{textAlign:'left'}}>Storage : {product.storage}</h5>}
+        {product.operatingSystem && <h5 style={{textAlign:'left'}}>Operating System : {product.operatingSystem}</h5>}
+        {product.cellularTechnology && <h5 style={{textAlign:'left'}}>Cellular Technology : {product.cellularTechnology}</h5>}
+        {product.color && <h5 style={{textAlign:'left'}}>Color : {product.color}</h5>}
+        {product.size && <h5 style={{textAlign:'left'}}>Size : {product.size}</h5>}
+        <hr />
           <h5 style={{textAlign:'left'}}>About this item</h5>
       {showFullDescription ? (
         <p>{product.productdescription}</p>

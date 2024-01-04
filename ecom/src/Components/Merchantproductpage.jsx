@@ -10,7 +10,6 @@ const ProductCard = ({ product }) => {
     const productJSON = JSON.stringify(product);
     localStorage.setItem('selectedProduct', productJSON);
     localStorage.setItem('selectedmi', product.merchantid);
-
   };
 
   const discountedPrice = (product.productprice * (1 - product.productdiscount / 100)).toFixed(0);
@@ -27,7 +26,6 @@ const ProductCard = ({ product }) => {
       <span style={{ display: 'inline' }}>
         <p style={{ textDecoration: 'line-through', color: 'grey' }} className='pricefont'>Price: ₹ {product.productprice} /-</p>
         <p>On M.R.P {product.productdiscount}% Off</p>
-        <p>{product.merchantid}</p>
         <p className='pricefont'>Price: ₹ {discountedPrice} /-</p>
       </span>
       <p>FREE delivery by Amazon</p>
@@ -40,6 +38,8 @@ export const Merchantproductpage = () => {
   const [productarr, setProductsarr] = useState([]);
   const [sortOrder, setSortOrder] = useState('asc'); // 'asc' for ascending, 'desc' for descending
   const [merchantId, setMerchantId] = useState('');
+  const [brands, setBrands] = useState([]);
+  const [selectedBrands, setSelectedBrands] = useState(new Set());
 
 
   useEffect(() => {
@@ -55,6 +55,12 @@ export const Merchantproductpage = () => {
       .then(data => {
         let filteredData = data.filter(product => product.producttype === selectedType);
 
+
+         // Extracting unique brands
+         const extractedBrands = new Set(filteredData.map(product => product.brand));
+         setBrands([...extractedBrands]);
+
+
         if (sortOrder === 'asc') {
           filteredData = filteredData.sort((a, b) => parseFloat(a.productprice) - parseFloat(b.productprice));
         } else {
@@ -66,9 +72,27 @@ export const Merchantproductpage = () => {
       .catch(error => console.error('Error fetching products:', error));
   }, [selectedType, sortOrder]);
 
+
+   // Handle brand selection
+   const handleBrandChange = (brand) => {
+    const newSelectedBrands = new Set(selectedBrands);
+    if (newSelectedBrands.has(brand)) {
+      newSelectedBrands.delete(brand);
+    } else {
+      newSelectedBrands.add(brand);
+    }
+    setSelectedBrands(newSelectedBrands);
+  };
+
   const toggleSortOrder = () => {
     setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
   };
+
+  // Filter products by selected brands
+  const filteredProducts = productarr.filter(product => 
+    selectedBrands.size === 0 || selectedBrands.has(product.brand)
+  );
+
 
   return (
     <div className='mainpro'>
@@ -83,20 +107,17 @@ export const Merchantproductpage = () => {
 
           <div>
             <h4>Brands</h4>
-            <label htmlFor="">
-              <input type="checkbox" />
-              Samsung
-            </label>
-            <br />
-            <label htmlFor="">
-              <input type="checkbox" />
-              Apple
-            </label>
-            <br />
-            <label htmlFor="">
-              <input type="checkbox" />
-              Oneplus
-            </label>
+            {brands.map(brand => (
+              <label key={brand}>
+                <input
+                  type="checkbox"
+                  checked={selectedBrands.has(brand)}
+                  onChange={() => handleBrandChange(brand)}
+                />
+                {brand}
+                <br />
+              </label>
+            ))}
           </div>
 
           <div>

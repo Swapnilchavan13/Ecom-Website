@@ -101,7 +101,7 @@ const toggleSortOrder = () => {
         </div>
 
       <div id='productmaindiv'>
-        <div id="product-list" className="product-list">
+        <div id="product-list2" className="product-list2">
           {productarr.map((product) => (
             <>
             <div>

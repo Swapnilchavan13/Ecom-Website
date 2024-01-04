@@ -84,8 +84,6 @@ button {
 @media only screen and (max-width: 767px) {
 
     #singleproduct>:nth-child(1) img {
-        margin-left: -100px;
-        margin-top: -150px;
         width: 250px;
     }
 
@@ -107,5 +105,10 @@ button {
 
     .thirddiv {
         margin-top: -50px;
+    }
+    #singleproduct>#infodiv{
+        margin-top: -100px;
+        margin-left: 0px;
+        width: fit-content;
     }
 }

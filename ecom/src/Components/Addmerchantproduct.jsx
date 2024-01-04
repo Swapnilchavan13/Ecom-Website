@@ -176,6 +176,16 @@ export const Addmerchantproduct = () => {
         case 'Shoes':
           return (
             <>
+             <label className="form-label">
+                Brand:
+                <input
+                  className="form-input"
+                  type="text"
+                  name="brand"
+                  value={productData.brand}
+                  onChange={handleChange}
+                  />
+              </label>
               <label className="form-label">
                 Size:
                 <input
@@ -202,6 +212,16 @@ export const Addmerchantproduct = () => {
         case 'Cosmetics':
           return (
             <>
+             <label className="form-label">
+                Brand:
+                <input
+                  className="form-input"
+                  type="text"
+                  name="brand"
+                  value={productData.brand}
+                  onChange={handleChange}
+                  />
+              </label>
               <label className="form-label">
                 Color:
                 <input
