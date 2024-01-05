@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
     const productJSON = JSON.stringify(product);
     localStorage.setItem('selectedProduct', productJSON);
     localStorage.setItem('selectedmi', product.merchantid);
-    
+
   };
 
   const discountedPrice = (product.productprice * (1 - product.productdiscount / 100)).toFixed(0);
@@ -50,7 +50,7 @@ export const Productpage = () => {
       .then(response => response.json())
       .then(data => {
         let filteredData = data.filter(product => product.producttype === selectedType);
-        
+
         // Extracting unique brands
         const extractedBrands = new Set(filteredData.map(product => product.brand));
         setBrands([...extractedBrands]);
@@ -83,7 +83,7 @@ export const Productpage = () => {
   };
 
   // Filter products by selected brands
-  const filteredProducts = productarr.filter(product => 
+  const filteredProducts = productarr.filter(product =>
     selectedBrands.size === 0 || selectedBrands.has(product.brand)
   );
 
@@ -122,7 +122,7 @@ export const Productpage = () => {
           </div>
 
         </div>
-        <div style={{marginLeft:'-300px'}} id="product-list" className="product-list">
+        <div style={{ marginLeft: '-300px' }} id="product-list" className="product-list">
           {filteredProducts.map((product) => (
             <ProductCard key={product._id} product={product} />
           ))}
