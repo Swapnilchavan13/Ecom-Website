@@ -33,6 +33,7 @@ const ProductCard = ({ product }) => {
   );
 };
 
+
 export const Merchantproductpage = () => {
   const selectedType = localStorage.getItem('type');
   const [productarr, setProductsarr] = useState([]);
@@ -40,7 +41,6 @@ export const Merchantproductpage = () => {
   const [merchantId, setMerchantId] = useState('');
   const [brands, setBrands] = useState([]);
   const [selectedBrands, setSelectedBrands] = useState(new Set());
-
 
   useEffect(() => {
       window.scrollTo(0, 0);
@@ -50,6 +50,7 @@ export const Merchantproductpage = () => {
         const storedMerchantId = localStorage.getItem('selectedmi');
 
     fetch(`http://62.72.59.146:3008/allproducts/${storedMerchantId}`)
+
 
       .then(response => response.json())
       .then(data => {
@@ -92,7 +93,6 @@ export const Merchantproductpage = () => {
   const filteredProducts = productarr.filter(product => 
     selectedBrands.size === 0 || selectedBrands.has(product.brand)
   );
-
 
   return (
     <div className='mainpro'>

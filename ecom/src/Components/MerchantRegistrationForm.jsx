@@ -26,7 +26,7 @@ export const MerchantRegistrationForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     try {
       const response = await fetch('http://62.72.59.146:3008/merchantdata', {
         method: 'POST',
@@ -35,10 +35,10 @@ export const MerchantRegistrationForm = () => {
         },
         body: JSON.stringify(formData),
       });
-  
+
       if (response.ok) {
         const data = await response.json();
-  
+
         if (data.success) {
 
           console.log('Merchant registered successfully!');
@@ -52,7 +52,7 @@ export const MerchantRegistrationForm = () => {
             progress: undefined,
             theme: "light",
           });
-         
+
           navigate('/merchantlogin');
           // You can handle success as needed
         } else {
@@ -69,14 +69,14 @@ export const MerchantRegistrationForm = () => {
       console.error('Error:', error);
     }
   };
-  
+
 
   return (
     <form className="merchant-form" onSubmit={handleSubmit}>
       <Link to="/merchantlogin">
-      <h3 style={{color:"blue"}}>Already have an account</h3>
+        <h3 style={{ color: "blue" }}>Already have an account</h3>
       </Link>
-        <h2>Merchant Registration Form</h2>
+      <h2>Merchant Registration Form</h2>
       <label htmlFor="businessName" className="form-label">
         Business Name:
         <input
@@ -89,25 +89,25 @@ export const MerchantRegistrationForm = () => {
         />
       </label>
       <label htmlFor="businessType" className="form-label">
-  Business Type:
-  <select
-    id="businessType"
-    name="businessType"
-    className="form-input"
-    value={formData.businessType}
-    onChange={handleInputChange}
-  >
-   <option value="">Select Business Type</option>
-    <option value="soleProprietorship">Sole Proprietorship</option>
-    <option value="llc">Limited Liability Company (LLC)</option>
-    <option value="corporation">Corporation</option>
-    <option value="partnership">Partnership</option>
-    <option value="nonProfit">Non-Profit Organization</option>
-    <option value="cooperative">Cooperative</option>
-  </select>
-</label>
+        Business Type:
+        <select
+          id="businessType"
+          name="businessType"
+          className="form-input"
+          value={formData.businessType}
+          onChange={handleInputChange}
+        >
+          <option value="">Select Business Type</option>
+          <option value="soleProprietorship">Sole Proprietorship</option>
+          <option value="llc">Limited Liability Company (LLC)</option>
+          <option value="corporation">Corporation</option>
+          <option value="partnership">Partnership</option>
+          <option value="nonProfit">Non-Profit Organization</option>
+          <option value="cooperative">Cooperative</option>
+        </select>
+      </label>
 
-<label htmlFor="loaction" className="form-label">
+      <label htmlFor="loaction" className="form-label">
         Location:
         <input
           type="text"
@@ -118,7 +118,7 @@ export const MerchantRegistrationForm = () => {
           onChange={handleInputChange}
         />
       </label>
-  
+
       <label htmlFor="businessAddress" className="form-label">
         Business Address:
         <input
@@ -130,7 +130,7 @@ export const MerchantRegistrationForm = () => {
           onChange={handleInputChange}
         />
       </label>
-  
+
       <label htmlFor="businessPhone" className="form-label">
         Business Phone:
         <input
@@ -142,7 +142,7 @@ export const MerchantRegistrationForm = () => {
           onChange={handleInputChange}
         />
       </label>
-  
+
       <label htmlFor="businessEmail" className="form-label">
         Business Email:
         <input
@@ -154,7 +154,7 @@ export const MerchantRegistrationForm = () => {
           onChange={handleInputChange}
         />
       </label>
-  
+
       <label htmlFor="ownerName" className="form-label">
         Owner Name:
         <input
@@ -166,7 +166,7 @@ export const MerchantRegistrationForm = () => {
           onChange={handleInputChange}
         />
       </label>
-  
+
       <label htmlFor="ownerPhone" className="form-label">
         Owner Phone:
         <input
@@ -190,10 +190,10 @@ export const MerchantRegistrationForm = () => {
           onChange={handleInputChange}
         />
       </label>
-           
+
       <button type="submit" className="form-button">
         Register
       </button>
     </form>
   );
-  }  
+}  
